@@ -64,4 +64,7 @@ return require('packer').startup(function()
             require 'sd.neogit'
         end
     }
+
+    -- enhances git commit mode
+    use 'rhysd/committia.vim'
 end)
