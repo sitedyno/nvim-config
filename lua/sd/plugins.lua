@@ -10,9 +10,6 @@ return require('packer').startup(function()
         'neovim/nvim-lspconfig',
         opt = true,
         event = 'BufReadPre',
-        wants = {
-            'cmp-nvim-lsp',
-        },
         config = function()
             require('sd.lsp')
         end,
@@ -23,6 +20,7 @@ return require('packer').startup(function()
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
+    -- Adds icons for nvim-cmp
     use 'onsails/lspkind-nvim'
 
     use {
@@ -49,17 +47,10 @@ return require('packer').startup(function()
 
     use 'nvim-treesitter/playground'
 
-    use {
-        'folke/which-key.nvim',
-        --config = function ()
-            --require('which-key').setup {
-                --popup_mappings = {
-                    --scroll_down = '<c-n>',
-                    --scroll_up = '<c-p>',
-                --},
-            --}
-        --end
-    }
+    use 'folke/which-key.nvim'
 
+    use 'tpope/vim-commentary'
+
+    -- Adds icons to telescope
     use 'kyazdani42/nvim-web-devicons'
 end)
