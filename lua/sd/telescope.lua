@@ -4,8 +4,6 @@ require('telescope').setup {
     },
     extensions = {
         fzf = {},
-        fzf_writer = {},
     },
 }
 require('telescope').load_extension('fzf')
-require('telescope').load_extension('fzf_writer')
