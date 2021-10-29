@@ -1,6 +1,3 @@
--- Misnamed to avoid duplicate config message
--- `nvim -u ~/.vim/luainit.lua` to use
-
 if require 'sd.first_load'() then
     return
 end
