@@ -39,6 +39,11 @@ return require('packer').startup(function()
         'nvim-telescope/telescope.nvim',
         requires = { 'nvim-lua/plenary.nvim' },
     }
+    use 'nvim-telescope/telescope-fzf-writer.nvim'
+    use {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        run = 'make',
+    }
 
     use {
         'nvim-treesitter/nvim-treesitter',
