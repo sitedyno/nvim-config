@@ -1,0 +1,4 @@
+# Not sure if this should be committed or not.
+# Not hard to run compile though...
+plugin/packer_compiled.lua
+*.bak
