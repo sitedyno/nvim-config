@@ -53,4 +53,15 @@ return require('packer').startup(function()
 
     -- Adds icons to telescope
     use 'kyazdani42/nvim-web-devicons'
+
+    use {
+        'TimUntersberger/neogit',
+        requires = {
+            'nvim-lua/plenary',
+            'sindrets/diffview.nvim',
+        },
+        config = function ()
+            require 'sd.neogit'
+        end
+    }
 end)
