@@ -67,4 +67,15 @@ return require('packer').startup(function()
 
     -- enhances git commit mode
     use 'rhysd/committia.vim'
+
+    use {
+        'lewis6991/gitsigns.nvim',
+        requires = {
+            'nvim-lua/plenary.nvim'
+        },
+        tag = 'release', -- To use the latest release
+        config = function ()
+            require 'sd.gitsigns'
+        end
+    }
 end)
