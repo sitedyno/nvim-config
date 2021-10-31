@@ -13,3 +13,26 @@ vim.cmd [[colorscheme sonokai]]
 
 -- mouse
 vim.opt.mouse = 'n'
+
+-- folding
+vim.cmd [[ set foldmethod=expr ]]
+vim.cmd [[ set foldexpr=nvim_treesitter#foldexpr() ]]
+
+-- signcolumns
+vim.opt.signcolumn = 'yes:2'
+
+-- line numbers
+vim.cmd [[
+    set number relativenumber
+    augroup numbertoggle
+      autocmd!
+      autocmd BufEnter,FocusGained,InsertLeave * set relativenumber
+      autocmd BufLeave,FocusLost,InsertEnter   * set norelativenumber
+    augroup END
+]]
+
+-- cursor line
+vim.opt.cursorline = true
+
+-- search
+vim.opt.incsearch = true
