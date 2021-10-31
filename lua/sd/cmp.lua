@@ -28,7 +28,7 @@ cmp.setup {
             behavior = cmp.ConfirmBehavior.Insert,
             select =true,
         },
-        ["<c-q>"] = cmp.mapping.confirm {
+        ['<C-q>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
