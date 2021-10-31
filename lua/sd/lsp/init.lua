@@ -4,7 +4,7 @@ local function on_attach(client, bufnr)
 end
 
 local servers = {
-    sumneko_lua = require('sd.lsp.sumneko_lua'),
+    -- intelephense = require('sd.lsp.intelephense'),
     phpactor = {},
 }
 
