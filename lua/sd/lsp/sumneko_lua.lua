@@ -10,6 +10,7 @@ local sumneko_lua = {
         Lua = {
             completion = {
                 autoRequire = false,
+                callSnippet = 'Replace',
             },
             diagnostics = {
                 globals = { 'vim' },

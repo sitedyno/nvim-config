@@ -6,6 +6,7 @@ end
 local servers = {
     -- intelephense = require('sd.lsp.intelephense'),
     phpactor = {},
+    sumneko_lua = require('sd.lsp.sumneko_lua'),
 }
 
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
