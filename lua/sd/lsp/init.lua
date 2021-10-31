@@ -1,5 +1,6 @@
 local function on_attach(client, bufnr)
     require('sd.lsp.keys').setup(client, bufnr)
+    require "lsp_signature".on_attach()
 end
 
 local servers = {
