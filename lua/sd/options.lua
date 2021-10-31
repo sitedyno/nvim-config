@@ -1,4 +1,4 @@
--- Tabs
+-- tabs
 vim.opt.autoindent = true
 vim.opt.cindent = true
 vim.opt.wrap = true
