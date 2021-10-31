@@ -26,6 +26,11 @@ local mappings = {
         name = 'Grep',
         g = {'<cmd>Telescope live_grep<cr>', 'Live Grep'},
     },
+    ['<leader>t'] = {
+        name = 'Telescope',
+        b = {'<cmd>Telescope builtin<cr>', 'Builtins'},
+        k = {'<cmd>Telescope keymaps<cr>', 'Keymaps'},
+    },
     ['<leader><space>'] = {'<cmd>nohl<cr>', 'No Highlight'},
 }
 
