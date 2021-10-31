@@ -1,5 +1,9 @@
 -- since we marked packer as opt:
 vim.cmd [[packadd packer.nvim ]]
+
+-- shush LSP
+local use = require("packer").use
+
 return require('packer').startup(function()
     use {
         'wbthomason/packer.nvim',
