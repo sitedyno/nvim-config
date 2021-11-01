@@ -9,7 +9,10 @@ vim.opt.expandtab = true
 
 -- Theme
 vim.opt.termguicolors = true
-vim.cmd [[colorscheme sonokai]]
+local skpath = vim.fn.stdpath('data') .. '/site/pack/packer/start/sonokai'
+if vim.fn.empty(vim.fn.glob(skpath)) == 0 then
+    vim.cmd [[colorscheme sonokai]]
+end
 
 -- mouse
 vim.opt.mouse = 'n'

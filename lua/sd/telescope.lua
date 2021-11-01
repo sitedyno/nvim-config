@@ -1,4 +1,10 @@
-require('telescope').setup {
+local hasts, ts = pcall(require, 'telescope')
+
+if not hasts then
+    return
+end
+
+ts.setup {
     defaults = {
         layout_strategy = 'vertical',
     },
@@ -6,4 +12,5 @@ require('telescope').setup {
         fzf = {},
     },
 }
-require('telescope').load_extension('fzf')
+
+ts.load_extension('fzf')

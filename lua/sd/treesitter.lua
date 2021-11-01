@@ -1,4 +1,10 @@
-require 'nvim-treesitter.configs'.setup {
+local hasts, tsconf = pcall(require, 'nvim-treesitter.configs')
+
+if not hasts then
+    return
+end
+
+tsconf.setup {
     ensure_installed = {
         'bash',
         'css',

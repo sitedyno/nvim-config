@@ -1,9 +1,14 @@
-local neogit = require('neogit')
+local hasng, ng = pcall(require, 'neogit')
+
+if not hasng then
+    return
+end
+
 
 -- this seems to fix https://github.com/TimUntersberger/neogit/issues/206
 require 'neogit.status'.dispatch_refresh(true)
 
-neogit.setup{
+ng.setup{
     integrations = {
         diffview = true,
     },

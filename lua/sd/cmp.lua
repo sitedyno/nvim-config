@@ -1,6 +1,11 @@
 vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 
-local cmp = require 'cmp'
+local hascmp, cmp = pcall(require, 'cmp')
+
+if not hascmp then
+    return
+end
+
 local lspkind = require 'lspkind'
 
 cmp.setup {

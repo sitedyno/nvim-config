@@ -1,4 +1,8 @@
-local wk = require('which-key')
+local haswk, wk = pcall(require, 'which-key')
+
+if not haswk then
+    return
+end
 
 local mappings = {
     ['<leader>b'] = {

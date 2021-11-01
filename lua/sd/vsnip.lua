@@ -1,3 +1,9 @@
+local hasvs, vs = pcall(require, 'vsnip')
+
+if not hasvs then
+    return
+end
+
 vim.cmd [[
 " NOTE: You can use other key to expand snippet.
 

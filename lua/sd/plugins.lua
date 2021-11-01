@@ -5,10 +5,7 @@ vim.cmd [[packadd packer.nvim ]]
 local use = require("packer").use
 
 return require('packer').startup(function()
-    use {
-        'wbthomason/packer.nvim',
-        opt = true,
-    }
+    use {'wbthomason/packer.nvim'}
 
     use {
         'neovim/nvim-lspconfig',
