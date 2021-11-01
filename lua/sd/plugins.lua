@@ -95,4 +95,15 @@ return require('packer').startup(function()
             require 'sd.gitsigns'
         end
     }
+
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = {
+            'kyazdani42/nvim-web-devicons',
+            opt = true,
+        },
+        config = function ()
+            require('sd.lualine')
+        end
+    }
 end)
