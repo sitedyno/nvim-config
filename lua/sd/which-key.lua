@@ -29,6 +29,7 @@ local mappings = {
     ['<leader>t'] = {
         name = 'Telescope',
         b = {'<cmd>Telescope builtin<cr>', 'Builtins'},
+        g = {'<cmd>Telescope git_status<cr>', 'Git Status'},
         k = {'<cmd>Telescope keymaps<cr>', 'Keymaps'},
     },
     ['<leader><space>'] = {'<cmd>nohl<cr>', 'No Highlight'},
