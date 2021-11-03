@@ -9,7 +9,12 @@ ts.setup {
         layout_strategy = 'vertical',
     },
     extensions = {
-        fzf = {},
+        'fzf',
+    },
+    pickers = {
+        buffers = {
+            sort_lastused = true,
+        },
     },
 }
 
