@@ -9,7 +9,7 @@ return require('packer').startup(function()
 
     use {
         'neovim/nvim-lspconfig',
-        opt = true,
+        opt = false,
         event = 'BufReadPre',
         config = function()
             require('sd.lsp')
