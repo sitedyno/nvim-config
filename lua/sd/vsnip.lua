@@ -1,8 +1,10 @@
-local hasvs, vs = pcall(require, 'vsnip')
+-- This is not a lua plugin, yes I am dumb...
+-- local hasvs, vs = pcall(require, 'vim-vsnip')
 
-if not hasvs then
-    return
-end
+-- if not hasvs then
+--     print('no vsnip')
+--     return
+-- end
 
 vim.cmd [[
 " NOTE: You can use other key to expand snippet.
