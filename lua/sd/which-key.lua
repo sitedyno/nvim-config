@@ -1,6 +1,7 @@
 local haswk, wk = pcall(require, 'which-key')
 
 if not haswk then
+    print('Failed to load which-key')
     return
 end
 

@@ -1,6 +1,7 @@
 local hasll, ll = pcall(require, 'lualine')
 
 if not hasll then
+    print('Failed to load lualine')
     return
 end
 

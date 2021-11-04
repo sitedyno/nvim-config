@@ -1,6 +1,7 @@
 local hasts, ts = pcall(require, 'telescope')
 
 if not hasts then
+    print('Failed to load telescope')
     return
 end
 

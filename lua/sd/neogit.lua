@@ -1,6 +1,7 @@
 local hasng, ng = pcall(require, 'neogit')
 
 if not hasng then
+    print('Failed to load neogit')
     return
 end
 

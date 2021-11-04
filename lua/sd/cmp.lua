@@ -3,6 +3,7 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 local hascmp, cmp = pcall(require, 'cmp')
 
 if not hascmp then
+    print('Failed to load cmp')
     return
 end
 
