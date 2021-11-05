@@ -1,6 +1,5 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp_installer = require("nvim-lsp-installer")
-local luadev = require("lua-dev").setup()
 
 local function on_attach(client, bufnr)
     require('sd.lsp.keys').setup(client, bufnr)
@@ -11,16 +10,20 @@ end
 -- Alternatively, you may also register handlers on specific server instances instead (see example below).
 lsp_installer.on_server_ready(function(server)
     local opts = {}
-    opts.capabilities = capabilities
-    opts.on_attach = on_attach
 
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
     -- end
     if server.name == "sumneko_lua" then
-        opts = luadev
+        opts = require('lua-dev').setup()
+        opts.commands = {
+            Format = require('stylua-nvim').format_file(),
+        }
     end
+
+    opts.capabilities = capabilities
+    opts.on_attach = on_attach
 
     -- This setup() function is exactly the same as lspconfig's setup function.
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/ADVANCED_README.md
