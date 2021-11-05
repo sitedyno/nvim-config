@@ -11,5 +11,5 @@ require 'sd.telescope'
 require 'sd.treesitter'
 
 vim.defer_fn(function()
-    require('sd.plugins')
+    require 'sd.plugins'
 end, 0)

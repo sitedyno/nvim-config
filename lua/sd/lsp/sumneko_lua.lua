@@ -24,8 +24,8 @@ local sumneko_lua = {
             },
             workspace = {
                 library = {
-                    [vim.fn.expand "$VIMRUNTIME/lua"] = true,
-                    [vim.fn.expand "$VIMRUNTIME/lua/vim/lsp"] = true,
+                    [vim.fn.expand '$VIMRUNTIME/lua'] = true,
+                    [vim.fn.expand '$VIMRUNTIME/lua/vim/lsp'] = true,
                     [vim.fn.expand '$HOME/.local/share/nvim/site/pack/packer/start'] = true,
                 },
             },

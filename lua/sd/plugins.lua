@@ -2,17 +2,17 @@
 vim.cmd [[packadd packer.nvim ]]
 
 -- shush LSP
-local use = require("packer").use
+local use = require('packer').use
 
 return require('packer').startup(function()
-    use {'wbthomason/packer.nvim'}
+    use { 'wbthomason/packer.nvim' }
 
     use {
         'neovim/nvim-lspconfig',
         opt = false,
         event = 'BufReadPre',
         config = function()
-            require('sd.lsp')
+            require 'sd.lsp'
         end,
     }
 
@@ -31,20 +31,20 @@ return require('packer').startup(function()
 
     use {
         'hrsh7th/nvim-cmp',
---        commit = '58d081300bb941bdf14b4e6316020914019e247a',
+        --        commit = '58d081300bb941bdf14b4e6316020914019e247a',
         config = function()
-            require('sd.cmp')
+            require 'sd.cmp'
         end,
     }
 
-    use "ray-x/lsp_signature.nvim"
+    use 'ray-x/lsp_signature.nvim'
 
     use 'hrsh7th/cmp-vsnip'
     use {
         'hrsh7th/vim-vsnip',
-        config = function ()
-            require('sd.vsnip')
-        end
+        config = function()
+            require 'sd.vsnip'
+        end,
     }
     use 'rafamadriz/friendly-snippets'
 
@@ -79,9 +79,9 @@ return require('packer').startup(function()
             'nvim-lua/plenary.nvim',
             'sindrets/diffview.nvim',
         },
-        config = function ()
+        config = function()
             require 'sd.neogit'
-        end
+        end,
     }
 
     -- enhances git commit mode
@@ -90,12 +90,12 @@ return require('packer').startup(function()
     use {
         'lewis6991/gitsigns.nvim',
         requires = {
-            'nvim-lua/plenary.nvim'
+            'nvim-lua/plenary.nvim',
         },
         tag = 'release', -- To use the latest release
-        config = function ()
+        config = function()
             require 'sd.gitsigns'
-        end
+        end,
     }
 
     use {
@@ -104,8 +104,8 @@ return require('packer').startup(function()
             'kyazdani42/nvim-web-devicons',
             opt = true,
         },
-        config = function ()
-            require('sd.lualine')
-        end
+        config = function()
+            require 'sd.lualine'
+        end,
     }
 end)

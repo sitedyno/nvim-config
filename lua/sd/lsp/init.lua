@@ -1,9 +1,9 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
-local lsp_installer = require("nvim-lsp-installer")
+local lsp_installer = require 'nvim-lsp-installer'
 
 local function on_attach(client, bufnr)
     require('sd.lsp.keys').setup(client, bufnr)
-    require "lsp_signature".on_attach()
+    require('lsp_signature').on_attach()
 end
 
 -- Register a handler that will be called for all installed servers.
@@ -15,7 +15,7 @@ lsp_installer.on_server_ready(function(server)
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
     -- end
-    if server.name == "sumneko_lua" then
+    if server.name == 'sumneko_lua' then
         opts = require('lua-dev').setup()
         opts.commands = {
             Format = require('stylua-nvim').format_file(),

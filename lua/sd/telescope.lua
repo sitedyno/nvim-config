@@ -1,7 +1,7 @@
 local hasts, ts = pcall(require, 'telescope')
 
 if not hasts then
-    print('Failed to load telescope')
+    print 'Failed to load telescope'
     return
 end
 
@@ -19,4 +19,4 @@ ts.setup {
     },
 }
 
-ts.load_extension('fzf')
+ts.load_extension 'fzf'

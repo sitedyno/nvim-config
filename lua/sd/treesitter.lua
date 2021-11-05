@@ -1,7 +1,7 @@
 local hasts, tsconf = pcall(require, 'nvim-treesitter.configs')
 
 if not hasts then
-    print('Failed to load treesitter')
+    print 'Failed to load treesitter'
     return
 end
 

@@ -3,7 +3,7 @@ vim.opt.completeopt = { 'menu', 'menuone', 'noselect' }
 local hascmp, cmp = pcall(require, 'cmp')
 
 if not hascmp then
-    print('Failed to load cmp')
+    print 'Failed to load cmp'
     return
 end
 
@@ -15,7 +15,7 @@ cmp.setup {
         ghost_text = true,
     },
     formatting = {
-        format = lspkind.cmp_format({
+        format = lspkind.cmp_format {
             with_text = true,
             menu = {
                 buffer = '[Buf]',
@@ -24,7 +24,7 @@ cmp.setup {
                 path = '[Path]',
                 vsnip = '[Snip]',
             },
-        }),
+        },
     },
     mapping = {
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
@@ -32,7 +32,7 @@ cmp.setup {
         ['<C-e>'] = cmp.mapping.close(),
         ['<C-y>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Insert,
-            select =true,
+            select = true,
         },
         ['<C-q>'] = cmp.mapping.confirm {
             behavior = cmp.ConfirmBehavior.Replace,
@@ -42,9 +42,9 @@ cmp.setup {
         --['<C-space'] = cmp.mapping.complete(),
     },
     snippet = {
-      expand = function(args)
-        vim.fn["vsnip#anonymous"](args.body) -- For `vsnip` users.
-      end,
+        expand = function(args)
+            vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
+        end,
     },
     sources = {
         { name = 'nvim_lsp' },
@@ -64,5 +64,5 @@ cmp.setup.cmdline(':', {
         { name = 'path' },
     }, {
         { name = 'cmdline' },
-    })
+    }),
 })
