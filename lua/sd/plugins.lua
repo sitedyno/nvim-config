@@ -16,6 +16,10 @@ return require('packer').startup(function()
         end,
     }
 
+    use 'williamboman/nvim-lsp-installer'
+
+    use 'folke/lua-dev.nvim'
+
     use 'hrsh7th/cmp-nvim-lsp'
 
     use 'hrsh7th/cmp-buffer'
