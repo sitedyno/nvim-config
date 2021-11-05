@@ -39,3 +39,6 @@ vim.opt.cursorline = true
 
 -- search
 vim.opt.incsearch = true
+
+-- scroll
+vim.opt.scrolloff = 8
