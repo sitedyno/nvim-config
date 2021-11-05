@@ -38,7 +38,6 @@ function M.setup(client, bufnr)
     local keymap_goto = {
         name = '+goto',
         r = { '<cmd>Telescope lsp_references<cr>', 'References' },
-        R = { '<cmd>Trouble lsp_references<cr>', 'Trouble References' },
         d = { '<Cmd>lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
         dv = { '<Cmd>vsplit | lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
         ds = { '<Cmd>split | lua vim.lsp.buf.definition()<CR>', 'Goto Definition' },
