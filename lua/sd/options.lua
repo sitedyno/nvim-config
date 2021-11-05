@@ -49,3 +49,6 @@ vim.cmd [[
         autocmd BufWritePre *.lua :lua require('stylua-nvim').format_file()
     augroup END
 ]]
+
+-- close windows with 'q'
+vim.cmd [[ autocmd FileType help,qf,lspinfo nnoremap <buffer><silent> q :close<cr>]]
