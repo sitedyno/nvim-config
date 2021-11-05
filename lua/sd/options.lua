@@ -42,3 +42,10 @@ vim.opt.incsearch = true
 
 -- scroll
 vim.opt.scrolloff = 8
+
+-- format on write
+vim.cmd [[
+    augroup StyluaAuto
+        autocmd BufWritePre *.lua :lua require('stylua-nvim').format_file()
+    augroup END
+]]
