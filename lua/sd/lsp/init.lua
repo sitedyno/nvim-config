@@ -17,16 +17,16 @@ lsp_installer.on_server_ready(function(server)
     -- end
     if server.name == 'sumneko_lua' then
         opts = require('lua-dev').setup()
-        opts.commands = {
-            Format = require('stylua-nvim').format_file(),
-        }
     end
     if server.name == 'diagnosticls' then
-        local filetypes = require 'sd.lsp.diagnosticls-filetypes'
+        local filetypes = require 'sd.lsp.dls-filetypes'
         opts.filetypes = vim.tbl_keys(filetypes)
         opts.init_options = {
             filetypes = filetypes,
-            linters = require 'sd.lsp.diagnosticls-linters',
+            linters = require 'sd.lsp.dls-linters',
+            -- couldn't get formatting to work :(
+            -- formatters = require 'sd.lsp.dls-formatters',
+            -- formatFiletypes = require 'sd.lsp.dls-format-filetypes',
         }
     end
 

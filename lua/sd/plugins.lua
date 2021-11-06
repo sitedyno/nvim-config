@@ -19,7 +19,8 @@ return require('packer').startup(function()
     use 'williamboman/nvim-lsp-installer'
 
     use 'folke/lua-dev.nvim'
-    use 'ckipp01/stylua-nvim'
+
+    use 'mhartington/formatter.nvim'
 
     use 'hrsh7th/cmp-nvim-lsp'
 
