@@ -21,6 +21,14 @@ lsp_installer.on_server_ready(function(server)
             Format = require('stylua-nvim').format_file(),
         }
     end
+    if server.name == 'diagnosticls' then
+        local filetypes = require 'sd.lsp.diagnosticls-filetypes'
+        opts.filetypes = vim.tbl_keys(filetypes)
+        opts.init_options = {
+            filetypes = filetypes,
+            linters = require 'sd.lsp.diagnosticls-linters',
+        }
+    end
 
     opts.capabilities = capabilities
     opts.on_attach = on_attach
