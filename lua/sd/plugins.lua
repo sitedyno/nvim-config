@@ -99,6 +99,8 @@ return require('packer').startup(function()
         end,
     }
 
+    use 'editorconfig/editorconfig-vim'
+
     use {
         'nvim-lualine/lualine.nvim',
         requires = {
