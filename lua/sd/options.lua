@@ -63,3 +63,5 @@ map <C-j> <C-w>j
 map <C-k> <C-w>k
 map <C-l> <C-w>l
 ]]
+
+-- vim.lsp.set_log_level 'debug'
