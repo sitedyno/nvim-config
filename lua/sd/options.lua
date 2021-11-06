@@ -55,3 +55,11 @@ vim.cmd [[
 
 -- close windows with 'q'
 vim.cmd [[ autocmd FileType help,qf,lspinfo nnoremap <buffer><silent> q :close<cr>]]
+
+-- easier window navigation
+vim.cmd [[
+map <C-h> <C-w>h
+map <C-j> <C-w>j
+map <C-k> <C-w>k
+map <C-l> <C-w>l
+]]
