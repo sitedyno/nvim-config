@@ -18,8 +18,11 @@ end
 vim.opt.mouse = 'n'
 
 -- folding
-vim.cmd [[ set foldmethod=expr ]]
-vim.cmd [[ set foldexpr=nvim_treesitter#foldexpr() ]]
+-- vim.cmd [[
+--     set foldmethod=expr
+--     set foldexpr=nvim_treesitter#foldexpr()
+-- ]]
+-- vim.cmd [[ autocmd BufEnter * execute 'normal zn' ]]
 
 -- signcolumns
 vim.opt.signcolumn = 'yes:2'
