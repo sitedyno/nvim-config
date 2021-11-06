@@ -15,4 +15,14 @@ ll.setup {
     options = {
         theme = custom_sonokai,
     },
+    sections = {
+        lualine_c = {
+            {
+                'filename',
+                file_status = true,
+                path = 1,
+                shorting_target = 40,
+            },
+        },
+    },
 }
