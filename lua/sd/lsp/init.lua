@@ -11,6 +11,14 @@ end
 lsp_installer.on_server_ready(function(server)
     local opts = {}
 
+    -- vim.notify seems to work here when print doesn't
+    -- vim.notify(vim.inspect(server))
+
+    -- Example of appending to default cmd for debugging
+    -- opts.cmd = server._default_options.cmd
+    -- table.insert(opts.cmd, '--log-level')
+    -- table.insert(opts.cmd, '4')
+
     -- (optional) Customize the options passed to the server
     -- if server.name == "tsserver" then
     --     opts.root_dir = function() ... end
@@ -32,6 +40,11 @@ lsp_installer.on_server_ready(function(server)
 
     opts.capabilities = capabilities
     opts.on_attach = on_attach
+
+    -- disable a server gracefully
+    -- if server.name == 'phpactor' then
+    --     opts.filetypes = { 'foo' }
+    -- end
 
     -- This setup() function is exactly the same as lspconfig's setup function.
     -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/ADVANCED_README.md
