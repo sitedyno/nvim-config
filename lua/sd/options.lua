@@ -7,7 +7,7 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
--- Theme
+-- theme
 vim.opt.termguicolors = true
 local skpath = vim.fn.stdpath 'data' .. '/site/pack/packer/start/sonokai'
 if vim.fn.empty(vim.fn.glob(skpath)) == 0 then
@@ -42,6 +42,7 @@ vim.opt.cursorline = true
 
 -- search
 vim.opt.incsearch = true
+vim.opt.ignorecase = true
 
 -- scroll
 vim.opt.scrolloff = 8
