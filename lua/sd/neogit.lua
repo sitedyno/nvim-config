@@ -9,6 +9,7 @@ end
 require('neogit.status').dispatch_refresh(true)
 
 ng.setup {
+    disable_commit_confirmation = true,
     integrations = {
         diffview = true,
     },
