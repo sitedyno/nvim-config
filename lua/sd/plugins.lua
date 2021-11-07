@@ -111,4 +111,6 @@ return require('packer').startup(function()
             require 'sd.lualine'
         end,
     }
+
+    use 'markstory/vim-zoomwin'
 end)
