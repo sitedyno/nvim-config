@@ -99,8 +99,6 @@ return require('packer').startup(function()
         end,
     }
 
-    use 'editorconfig/editorconfig-vim'
-
     use {
         'nvim-lualine/lualine.nvim',
         requires = {
@@ -111,6 +109,11 @@ return require('packer').startup(function()
             require 'sd.lualine'
         end,
     }
+
+    use 'editorconfig/editorconfig-vim'
+
+    use 'vim-test/vim-test'
+    use 'tpope/vim-projectionist'
 
     use 'markstory/vim-zoomwin'
 end)

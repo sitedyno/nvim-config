@@ -36,6 +36,11 @@ local mappings = {
         b = { '<cmd>Telescope builtin<cr>', 'Builtins' },
         g = { '<cmd>Telescope git_status<cr>', 'Git Status' },
         k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
+        n = { '<cmd>TestNearest<cr>', 'Test Nearest' },
+        f = { '<cmd>TestFile<cr>', 'Test File' },
+        s = { '<cmd>TestSuite<cr>', 'Test Suite' },
+        l = { '<cmd>TestLast<cr>', 'Test Last' },
+        v = { '<cmd>TestVisit<cr>', 'Test Visit' },
     },
     ['<leader><space>'] = { '<cmd>nohl<cr>', 'No Highlight' },
 }

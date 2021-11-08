@@ -10,6 +10,7 @@ require 'sd.which-key'
 require 'sd.telescope'
 require 'sd.treesitter'
 require 'sd.formatter'
+require 'sd.projectionist'
 
 vim.defer_fn(function()
     require 'sd.plugins'
