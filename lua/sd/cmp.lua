@@ -8,6 +8,7 @@ if not hascmp then
 end
 
 local lspkind = require 'lspkind'
+local cmp_buffer = require 'cmp_buffer'
 
 cmp.setup {
     experimental = {
@@ -47,6 +48,13 @@ cmp.setup {
         expand = function(args)
             vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
         end,
+    },
+    sorting = {
+        comparators = {
+            function(...)
+                return cmp_buffer:compare_locality(...)
+            end,
+        },
     },
     sources = {
         { name = 'nvim_lsp' },
