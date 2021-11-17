@@ -38,6 +38,7 @@ local mappings = {
         k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
         n = { '<cmd>TestNearest<cr>', 'Test Nearest' },
         f = { '<cmd>TestFile<cr>', 'Test File' },
+        r = { '<cmd>Telescope registers<cr>', 'Registers' },
         s = { '<cmd>TestSuite<cr>', 'Test Suite' },
         l = { '<cmd>TestLast<cr>', 'Test Last' },
         v = { '<cmd>TestVisit<cr>', 'Test Visit' },
