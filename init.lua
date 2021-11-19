@@ -11,6 +11,7 @@ require 'sd.telescope'
 require 'sd.treesitter'
 require 'sd.formatter'
 require 'sd.projectionist'
+require('colorizer').setup()
 
 vim.defer_fn(function()
     require 'sd.plugins'
