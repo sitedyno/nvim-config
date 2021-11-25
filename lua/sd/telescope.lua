@@ -17,8 +17,12 @@ ts.setup {
             sort_lastused = true,
         },
         find_files = {
-            hidden = true,
-            no_ignore = true,
+            find_command = {
+                'fd',
+                '-E=.git',
+                '--hidden',
+                '--no-ignore',
+            },
         },
     },
 }
