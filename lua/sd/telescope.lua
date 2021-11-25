@@ -16,6 +16,10 @@ ts.setup {
         buffers = {
             sort_lastused = true,
         },
+        find_files = {
+            hidden = true,
+            no_ignore = true,
+        },
     },
 }
 
