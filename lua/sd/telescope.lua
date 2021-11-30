@@ -24,6 +24,21 @@ ts.setup {
                 '--no-ignore',
             },
         },
+        live_grep = {
+            vimgrep_arguments = {
+                'rg',
+                '--color=never',
+                '--no-heading',
+                '--with-filename',
+                '--line-number',
+                '--column',
+                '--smart-case',
+                '--no-ignore',
+                '--hidden',
+                '--glob',
+                '!.git',
+            },
+        },
     },
 }
 
