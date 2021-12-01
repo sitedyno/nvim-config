@@ -39,10 +39,8 @@ cmp.setup {
             behavior = cmp.ConfirmBehavior.Replace,
             select = true,
         },
-        -- Do not understand... this seems to be alacritty/vim clash
-        -- vim/neovim actually receive c-@ and alacritty developer
-        -- insists this is correct
-        --['<C-space'] = cmp.mapping.complete(),
+        -- Invokes completion, could be called open...
+        ['<C-Space>'] = cmp.mapping.complete(),
     },
     snippet = {
         expand = function(args)
