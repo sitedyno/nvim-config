@@ -1,3 +1,6 @@
+-- filetype detection
+vim.cmd [[filetype plugin indent on]]
+
 -- tabs
 vim.opt.autoindent = true
 vim.opt.cindent = true
@@ -45,6 +48,7 @@ vim.opt.cursorline = true
 -- search
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
+vim.opt.inccommand = 'nosplit'
 
 -- scroll
 vim.opt.scrolloff = 8
