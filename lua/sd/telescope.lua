@@ -19,7 +19,7 @@ ts.setup {
         find_files = {
             find_command = {
                 'fd',
-                '-E=.git',
+                '--exclude=.git',
                 '--hidden',
                 '--no-ignore',
             },
