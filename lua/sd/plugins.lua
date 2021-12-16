@@ -47,8 +47,6 @@ return require('packer').startup(function()
             require 'sd.vsnip'
         end,
     }
-    use 'rafamadriz/friendly-snippets'
-
     use 'sainnhe/sonokai'
 
     use {
