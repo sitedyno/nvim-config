@@ -49,9 +49,8 @@ cmp.setup {
     },
     sorting = {
         comparators = {
-            function(...)
-                return cmp_buffer:compare_locality(...)
-            end,
+            cmp.config.compare.length,
+            cmp.config.compare.kind,
         },
     },
     sources = {
