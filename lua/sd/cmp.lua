@@ -75,6 +75,8 @@ cmp.setup.cmdline('/', {
 })
 
 cmp.setup.cmdline(':', {
+    -- in cmdline Tab will invoke completion
+    completion = { autocomplete = false },
     sources = cmp.config.sources({
         { name = 'path' },
     }, {
