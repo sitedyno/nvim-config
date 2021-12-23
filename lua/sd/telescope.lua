@@ -22,6 +22,8 @@ ts.setup {
                 '--exclude=.git',
                 '--hidden',
                 '--no-ignore',
+                '--type=file',
+                '--type=symlink',
             },
         },
         live_grep = {
