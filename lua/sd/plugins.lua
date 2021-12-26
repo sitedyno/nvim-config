@@ -23,10 +23,10 @@ return require('packer').startup(function()
     use 'mhartington/formatter.nvim'
 
     use 'hrsh7th/cmp-nvim-lsp'
-
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
+    use 'tamago324/cmp-zsh'
     -- Adds icons for nvim-cmp
     use 'onsails/lspkind-nvim'
 

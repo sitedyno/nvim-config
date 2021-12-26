@@ -65,6 +65,7 @@ cmp.setup {
             },
         },
         { name = 'path' },
+        { name = 'zsh' },
     },
 }
 
