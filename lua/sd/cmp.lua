@@ -74,12 +74,24 @@ cmp.setup.cmdline('/', {
     },
 })
 
-cmp.setup.cmdline(':', {
-    -- in cmdline Tab will invoke completion
-    completion = { autocomplete = false },
-    sources = cmp.config.sources({
-        { name = 'path' },
-    }, {
-        { name = 'cmdline' },
-    }),
-})
+-- This is kinda ugly, but completion.autocomplete is not a simple boolean
+-- With autocompletion & WSL2 :! will hang for 30+ seconds, instant on Linux ¯\_(ツ)_/¯
+if vim.fn.has 'wsl' == 1 then
+    cmp.setup.cmdline(':', {
+        -- in cmdline Tab will invoke completion
+        completion = { autocomplete = false },
+        sources = cmp.config.sources({
+            { name = 'path' },
+        }, {
+            { name = 'cmdline' },
+        }),
+    })
+else
+    cmp.setup.cmdline(':', {
+        sources = cmp.config.sources({
+            { name = 'path' },
+        }, {
+            { name = 'cmdline' },
+        }),
+    })
+end
