@@ -8,7 +8,6 @@ if not hascmp then
 end
 
 local lspkind = require 'lspkind'
-local cmp_buffer = require 'cmp_buffer'
 
 cmp.setup {
     experimental = {
