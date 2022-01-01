@@ -48,6 +48,7 @@ vim.opt.cursorline = true
 -- search
 vim.opt.incsearch = true
 vim.opt.ignorecase = true
+vim.opt.smartcase = true
 vim.opt.inccommand = 'nosplit'
 
 -- scroll
