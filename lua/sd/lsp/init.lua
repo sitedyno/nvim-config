@@ -15,6 +15,7 @@ lsp_installer.on_server_ready(function(server)
     -- vim.notify(vim.inspect(server))
 
     -- Example of appending to default cmd for debugging
+    -- Below has changed see: https://github.com/williamboman/nvim-lsp-installer/commit/095ab4eb6a02d5fd3ea4b782a0e868e2c65e4427
     -- opts.cmd = server._default_options.cmd
     -- table.insert(opts.cmd, '--log-level')
     -- table.insert(opts.cmd, '4')
