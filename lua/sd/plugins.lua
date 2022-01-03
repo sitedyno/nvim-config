@@ -116,4 +116,6 @@ return require('packer').startup(function()
     use 'markstory/vim-zoomwin'
 
     use 'norcalli/nvim-colorizer.lua'
+
+    use 'romainl/vim-cool'
 end)
