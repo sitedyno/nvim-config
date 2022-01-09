@@ -39,8 +39,6 @@ lsp_installer.on_server_ready(function(server)
         }
     end
 
-    -- Enable (broadcasting) snippet capability for completion
-    capabilities.textDocument.completion.completionItem.snippetSupport = true
     opts.capabilities = capabilities
     opts.on_attach = on_attach
 
