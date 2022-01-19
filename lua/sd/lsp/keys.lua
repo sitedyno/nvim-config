@@ -10,7 +10,7 @@ function M.setup(client, bufnr)
             name = '+code',
             r = { '<cmd>lua vim.lsp.buf.rename()<CR>', 'Rename' },
             a = { '<cmd>lua vim.lsp.buf.code_action()<CR>', 'Code Action' },
-            d = { '<cmd>lua vim.lsp.diagnostic.show_line_diagnostics()<CR>', 'Line Diagnostics' },
+            d = { '<cmd>lua vim.diagnostic.open_float()<CR>', 'Line Diagnostics' },
             l = {
                 name = '+lsp',
                 i = { '<cmd>LspInfo<cr>', 'Lsp Info' },
@@ -48,8 +48,8 @@ function M.setup(client, bufnr)
     }
 
     vim.api.nvim_buf_set_keymap(bufnr, 'n', 'K', '<cmd>lua vim.lsp.buf.hover()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.lsp.diagnostic.goto_prev()<CR>', opts)
-    vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.lsp.diagnostic.goto_next()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', opts)
+    vim.api.nvim_buf_set_keymap(bufnr, 'n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', opts)
 
     wk.register(keymap, { buffer = bufnr, prefix = '<leader>' })
     wk.register(keymap_visual, { buffer = bufnr, prefix = '<leader>', mode = 'v' })
