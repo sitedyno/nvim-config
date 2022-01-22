@@ -9,21 +9,19 @@ local linters = {
             '.git',
         },
         args = {
-            '--report=emacs',
+            '--report=json',
+            '--stdin-path=%filepath',
             '-s',
             '-',
         },
-        offsetLine = 0,
-        offsetColumn = 0,
-        formatLines = 1,
-        formatPattern = {
-            '^.*:(\\d+):(\\d+):\\s+(.*)\\s+-\\s+(.*)(\\r|\\n)*$',
-            {
-                line = 1,
-                column = 2,
-                message = 4,
-                security = 3,
-            },
+        parseJson = {
+            errorsRoot = 'files.["%filepath"].messages',
+            line = 'line',
+            column = 'column',
+            endLine = 'line',
+            endColumn = 'column',
+            message = '[phpcs] ${message} [${source}]',
+            security = 'type',
         },
         securities = {
             error = 'error',
