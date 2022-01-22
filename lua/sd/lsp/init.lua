@@ -14,20 +14,15 @@ lsp_installer.on_server_ready(function(server)
     -- vim.notify seems to work here when print doesn't
     -- vim.notify(vim.inspect(server))
 
-    -- Example of appending to default cmd for debugging
-    -- Below has changed see: https://github.com/williamboman/nvim-lsp-installer/commit/095ab4eb6a02d5fd3ea4b782a0e868e2c65e4427
-    -- opts.cmd = server._default_options.cmd
-    -- table.insert(opts.cmd, '--log-level')
-    -- table.insert(opts.cmd, '4')
-
-    -- (optional) Customize the options passed to the server
-    -- if server.name == "tsserver" then
-    --     opts.root_dir = function() ... end
-    -- end
     if server.name == 'sumneko_lua' then
         opts = require('lua-dev').setup()
     end
     if server.name == 'diagnosticls' then
+        -- Example of appending to default cmd for debugging
+        -- local dlscfg = require('lspconfig.server_configurations.diagnosticls').default_config
+        -- table.insert(dlscfg.cmd, '--log-level')
+        -- table.insert(dlscfg.cmd, '4')
+        -- vim.notify(vim.inspect(dlscfg.cmd))
         local filetypes = require 'sd.lsp.dls-filetypes'
         opts.filetypes = vim.tbl_keys(filetypes)
         opts.init_options = {
