@@ -118,4 +118,6 @@ return require('packer').startup(function()
     use 'norcalli/nvim-colorizer.lua'
 
     use 'romainl/vim-cool'
+
+    use 'Glench/Vim-Jinja2-Syntax'
 end)
