@@ -3,7 +3,9 @@ local lsp_installer = require 'nvim-lsp-installer'
 
 local function on_attach(client, bufnr)
     require('sd.lsp.keys').setup(client, bufnr)
-    require('lsp_signature').on_attach()
+    require('lsp_signature').on_attach {
+        floating_window = false,
+    }
 end
 
 -- Register a handler that will be called for all installed servers.
