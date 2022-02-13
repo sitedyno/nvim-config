@@ -40,13 +40,18 @@ return require('packer').startup(function()
 
     use 'ray-x/lsp_signature.nvim'
 
-    use 'hrsh7th/cmp-vsnip'
-    use {
-        'hrsh7th/vim-vsnip',
-        config = function()
-            require 'sd.vsnip'
-        end,
-    }
+    -- use 'hrsh7th/cmp-vsnip'
+    -- use {
+    --     'hrsh7th/vim-vsnip',
+    --     config = function()
+    --         require 'sd.vsnip'
+    --     end,
+    -- }
+
+    -- For luasnip users.
+    use 'L3MON4D3/LuaSnip'
+    use 'saadparwaiz1/cmp_luasnip'
+
     use 'sainnhe/sonokai'
 
     use {

@@ -43,7 +43,8 @@ cmp.setup {
     },
     snippet = {
         expand = function(args)
-            vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
+            -- vim.fn['vsnip#anonymous'](args.body) -- For `vsnip` users.
+            require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         end,
     },
     sorting = {
@@ -54,7 +55,8 @@ cmp.setup {
     },
     sources = {
         { name = 'nvim_lsp' },
-        { name = 'vsnip' },
+        -- { name = 'vsnip' },
+        { name = 'luasnip' }, -- For luasnip users.
         {
             name = 'buffer',
             option = {
