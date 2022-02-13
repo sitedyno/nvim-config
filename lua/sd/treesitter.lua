@@ -15,6 +15,7 @@ tsconf.setup {
         'json',
         'lua',
         'php',
+        'phpdoc',
         'regex',
         'scss',
         'vim',
