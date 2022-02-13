@@ -19,6 +19,10 @@ return require('packer').startup(function()
     use 'williamboman/nvim-lsp-installer'
 
     use 'folke/lua-dev.nvim'
+    -- LibUV in Lua vimdocs
+    use 'nanotee/luv-vimdocs'
+    -- lua docs from Lua 5.1 Ref Manual as vimdocs
+    use 'milisims/nvim-luaref'
 
     use 'mhartington/formatter.nvim'
 
