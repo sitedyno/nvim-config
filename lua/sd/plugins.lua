@@ -129,4 +129,6 @@ return require('packer').startup(function()
     use 'romainl/vim-cool'
 
     use 'Glench/Vim-Jinja2-Syntax'
+
+    use 'ellisonleao/glow.nvim'
 end)
