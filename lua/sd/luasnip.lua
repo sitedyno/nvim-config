@@ -69,7 +69,7 @@ local i = ls.insert_node
 -- local events = require 'luasnip.util.events'
 -- local ai = require 'luasnip.nodes.absolute_indexer'
 
-ls.snippets = {
+ls.add_snippets(nil, {
     markdown = {
         s('ac', {
             t {
@@ -98,4 +98,4 @@ ls.snippets = {
             i(0),
         }),
     },
-}
+})
