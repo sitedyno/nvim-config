@@ -26,7 +26,7 @@ cmp.setup {
             },
         },
     },
-    mapping = {
+    mapping = cmp.mapping.preset.insert {
         ['<C-d>'] = cmp.mapping.scroll_docs(-4),
         ['<C-f>'] = cmp.mapping.scroll_docs(4),
         ['<C-e>'] = cmp.mapping.close(),
@@ -82,6 +82,7 @@ if vim.fn.has 'wsl' == 1 then
     cmp.setup.cmdline(':', {
         -- in cmdline Tab will invoke completion
         completion = { autocomplete = false },
+        mapping = cmp.mapping.preset.cmdline {},
         sources = cmp.config.sources({
             { name = 'path' },
         }, {
@@ -90,6 +91,7 @@ if vim.fn.has 'wsl' == 1 then
     })
 else
     cmp.setup.cmdline(':', {
+        mapping = cmp.mapping.preset.cmdline {},
         sources = cmp.config.sources({
             { name = 'path' },
         }, {
