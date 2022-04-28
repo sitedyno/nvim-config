@@ -1,26 +1,26 @@
 local ls = require 'luasnip'
 
-local t = function(str)
+local tc = function(str)
     return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
 _G.ls_exp_or_jump = function()
     if ls.expand_or_jumpable() then
-        return t '<Plug>luasnip-expand-or-jump'
+        return tc '<Plug>luasnip-expand-or-jump'
     end
     return ''
 end
 
 _G.ls_jump_back = function()
     if ls.jumpable(-1) then
-        return t '<Plug>luasnip-jump-prev'
+        return tc '<Plug>luasnip-jump-prev'
     end
     return ''
 end
 
 _G.ls_choose = function()
     if ls.choice_active() then
-        return t '<Plug>luasnip-next-choice'
+        return tc '<Plug>luasnip-next-choice'
     end
     return ''
 end
@@ -56,3 +56,46 @@ vim.api.nvim_set_keymap('i', '<c-k>', 'v:lua.ls_exp_or_jump()', { expr = true })
 vim.api.nvim_set_keymap('s', '<c-k>', 'v:lua.ls_exp_or_jump()', { expr = true })
 vim.api.nvim_set_keymap('i', '<c-j>', 'v:lua.ls_jump_back()', { expr = true })
 vim.api.nvim_set_keymap('s', '<c-j>', 'v:lua.ls_jump_back()', { expr = true })
+
+local s = ls.snippet
+-- local sn = ls.snippet_node
+-- local isn = ls.indent_snippet_node
+local t = ls.text_node
+local i = ls.insert_node
+-- local f = ls.function_node
+-- local c = ls.choice_node
+-- local d = ls.dynamic_node
+-- local r = ls.restore_node
+-- local events = require 'luasnip.util.events'
+-- local ai = require 'luasnip.nodes.absolute_indexer'
+
+ls.snippets = {
+    markdown = {
+        s('ac', {
+            t {
+                '# CARD',
+                '## Front',
+                '',
+            },
+            i(1),
+            t {
+                '',
+                '```',
+                '',
+            },
+            i(2),
+            t {
+                '',
+                '```',
+                '## Back',
+                '',
+            },
+            i(3),
+            t {
+                '',
+                '',
+            },
+            i(0),
+        }),
+    },
+}
