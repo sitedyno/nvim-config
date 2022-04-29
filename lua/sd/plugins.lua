@@ -133,4 +133,6 @@ return require('packer').startup(function()
     use 'Glench/Vim-Jinja2-Syntax'
 
     use 'ellisonleao/glow.nvim'
+
+    use 'phpactor/phpactor'
 end)
