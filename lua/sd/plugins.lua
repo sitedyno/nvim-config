@@ -134,5 +134,8 @@ return require('packer').startup(function()
 
     use 'ellisonleao/glow.nvim'
 
-    use 'phpactor/phpactor'
+    use {
+        'phpactor/phpactor',
+        run = 'composer install --no-dev -o',
+    }
 end)
