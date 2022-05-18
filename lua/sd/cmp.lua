@@ -18,11 +18,12 @@ cmp.setup {
         format = lspkind.cmp_format {
             with_text = true,
             menu = {
+                phpactor = '[phpactor]',
                 buffer = '[Buf]',
                 nvim_lsp = '[LSP]',
                 nvim_lua = '[API]',
                 path = '[Path]',
-                vsnip = '[Snip]',
+                luasnip = '[Snip]',
             },
         },
     },
@@ -54,6 +55,7 @@ cmp.setup {
         },
     },
     sources = {
+        { name = 'phpactor' },
         { name = 'nvim_lsp' },
         -- { name = 'vsnip' },
         { name = 'luasnip' }, -- For luasnip users.
