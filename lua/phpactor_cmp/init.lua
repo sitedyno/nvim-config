@@ -7,8 +7,10 @@ end
 ---Return this source is available in current context or not. (Optional)
 ---@return boolean
 function source:is_available()
-    vim.pretty_print(vim.bo.filetype)
-    return true
+    if string.match(vim.bo.filetype, 'php') then
+        return true
+    end
+    return false
 end
 
 ---Return the debug name of this source. (Optional)
