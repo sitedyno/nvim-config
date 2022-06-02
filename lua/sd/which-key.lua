@@ -9,7 +9,7 @@ local mappings = {
     ['<leader>b'] = {
         name = 'Buffers,Telescope',
         b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
-        t = { '<cmd>Telescope builtin<cr>', 'Treesitter Builtins' },
+        t = { '<cmd>Telescope builtin<cr>', 'Telescope Builtins' },
     },
     ['<leader>c'] = {
         name = 'Commands',
