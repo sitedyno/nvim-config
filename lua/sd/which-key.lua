@@ -5,45 +5,46 @@ if not haswk then
     return
 end
 
+local meta = '<space>'
+local leader = '<leader>'
 local mappings = {
-    ['<leader>b'] = {
-        name = 'Buffers,Telescope',
-        b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
-        t = { '<cmd>Telescope builtin<cr>', 'Telescope Builtins' },
-    },
-    ['<leader>c'] = {
-        name = 'Commands',
-        c = { '<cmd>Telescope commands<cr>', 'Commands' },
-        f = { '<cmd>Telescope command_history<cr>', 'Command History' },
-    },
-    ['<leader>f'] = {
-        name = 'Files',
-        b = { '<cmd>Telescope file_browser<cr>', 'File Browser' },
+    [meta] = {
         f = { '<cmd>Telescope find_files<cr>', 'Find files' },
-        r = { '<cmd>Telescope oldfiles<cr>', 'Find Recent Files' },
+        b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
     },
-    ['<leader>g'] = {
-        name = 'Git,Grep',
-        f = { '<cmd>Telescope git_files<cr>', 'git ls-files' },
-        s = { '<cmd>Telescope grep_string<cr>', 'Grep String' },
-    },
-    ['<leader>l'] = {
-        name = 'Grep',
-        g = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
-    },
-    ['<leader>t'] = {
-        name = 'Telescope',
+    [leader] = {
         b = { '<cmd>Telescope builtin<cr>', 'Builtins' },
-        g = { '<cmd>Telescope git_status<cr>', 'Git Status' },
-        k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
-        n = { '<cmd>TestNearest<cr>', 'Test Nearest' },
+        c = {
+            name = 'Commands',
+            c = { '<cmd>Telescope commands<cr>', 'Commands' },
+            h = { '<cmd>Telescope command_history<cr>', 'Command History' },
+        },
         f = { '<cmd>TestFile<cr>', 'Test File' },
-        r = { '<cmd>Telescope registers<cr>', 'Registers' },
-        s = { '<cmd>TestSuite<cr>', 'Test Suite' },
-        l = { '<cmd>TestLast<cr>', 'Test Last' },
-        v = { '<cmd>TestVisit<cr>', 'Test Visit' },
+        g = {
+            name = 'Git,Grep',
+            c = { '<cmd>Neogit commit<cr>', 'Git commit' },
+            f = { '<cmd>Telescope git_files<cr>', 'Git Ls-files' },
+            g = { '<cmd>Telescope grep_string<cr>', 'Grep String' },
+            p = {
+                name = 'Git Pull,Push',
+                l = { '<cmd>Neogit pull<cr>', 'Git pull' },
+                s = { '<cmd>Neogit push<cr>', 'Git push' },
+            },
+            s = { '<cmd>Telescope git_status<cr>', 'Git Status' },
+        },
+        l = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
+        n = { '<cmd>Neogit kind=vsplit<cr>', 'Neogit' },
+        o = { '<cmd>Telescope oldfiles<cr>', 'Old (Recent) Files' },
+        t = {
+            name = 'Telescope,Testing',
+            k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
+            l = { '<cmd>TestLast<cr>', 'Test Last' },
+            n = { '<cmd>TestNearest<cr>', 'Test Nearest' },
+            r = { '<cmd>Telescope registers<cr>', 'Registers' },
+            s = { '<cmd>TestSuite<cr>', 'Test Suite' },
+            v = { '<cmd>TestVisit<cr>', 'Test Visit' },
+        },
     },
-    ['<leader><space>'] = { '<cmd>nohl<cr>', 'No Highlight' },
 }
 
 wk.register(mappings)
