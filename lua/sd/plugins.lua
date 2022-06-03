@@ -136,6 +136,6 @@ return require('packer').startup(function()
 
     use {
         'phpactor/phpactor',
-        run = 'composer install --no-dev -o',
+        run = 'composer install --no-dev --optimize-autoloader --no-interaction',
     }
 end)
