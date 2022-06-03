@@ -1,5 +1,6 @@
 local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
 local lsp_installer = require 'nvim-lsp-installer'
+local lspconfig = require 'lspconfig'
 
 local function on_attach(client, bufnr)
     require('sd.lsp.keys').setup(client, bufnr)
@@ -8,13 +9,12 @@ local function on_attach(client, bufnr)
     }
 end
 
--- Register a handler that will be called for all installed servers.
--- Alternatively, you may also register handlers on specific server instances instead (see example below).
-lsp_installer.on_server_ready(function(server)
+local servers = lsp_installer.get_installed_servers()
+for _, server in pairs(servers) do
     local opts = {}
 
     -- vim.notify seems to work here when print doesn't
-    -- vim.notify(vim.inspect(server))
+    -- vim.notify(vim.inspect(server.name))
 
     if server.name == 'sumneko_lua' then
         opts = require('lua-dev').setup()
@@ -30,9 +30,6 @@ lsp_installer.on_server_ready(function(server)
         opts.init_options = {
             filetypes = filetypes,
             linters = require 'sd.lsp.dls-linters',
-            -- couldn't get formatting to work :(
-            -- formatters = require 'sd.lsp.dls-formatters',
-            -- formatFiletypes = require 'sd.lsp.dls-format-filetypes',
         }
     end
 
@@ -44,7 +41,5 @@ lsp_installer.on_server_ready(function(server)
     --     opts.filetypes = { 'foo' }
     -- end
 
-    -- This setup() function is exactly the same as lspconfig's setup function.
-    -- Refer to https://github.com/neovim/nvim-lspconfig/blob/master/ADVANCED_README.md
-    server:setup(opts)
-end)
+    lspconfig[server.name].setup(opts)
+end

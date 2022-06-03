@@ -8,15 +8,15 @@ return require('packer').startup(function()
     use { 'wbthomason/packer.nvim' }
 
     use {
-        'neovim/nvim-lspconfig',
-        opt = false,
-        event = 'BufReadPre',
-        config = function()
-            require 'sd.lsp'
-        end,
+        'williamboman/nvim-lsp-installer',
+        {
+            'neovim/nvim-lspconfig',
+            config = function()
+                require('nvim-lsp-installer').setup {}
+                require 'sd.lsp'
+            end,
+        },
     }
-
-    use 'williamboman/nvim-lsp-installer'
 
     use 'folke/lua-dev.nvim'
     -- LibUV in Lua vimdocs
