@@ -7,6 +7,9 @@ local function on_attach(client, bufnr)
     require('lsp_signature').on_attach {
         floating_window = false,
     }
+    if client.supports_method 'textDocument/formatting' then
+        vim.notify_once 'Formatting available'
+    end
 end
 
 local servers = lsp_installer.get_installed_servers()
