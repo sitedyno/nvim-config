@@ -27,6 +27,10 @@ ts.setup {
             },
         },
         live_grep = {
+            on_input_filter_cb = function(prompt)
+                -- AND operator for live_grep like how fzf handles spaces with wildcards in rg return
+                return { prompt = prompt:gsub('%s', '.*') }
+            end,
             vimgrep_arguments = {
                 'rg',
                 '--color=never',
