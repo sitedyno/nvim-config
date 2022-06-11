@@ -146,6 +146,14 @@ return require('packer').startup(function(use)
     use 'ellisonleao/glow.nvim'
 
     use {
+        'danymat/neogen',
+        config = [[ require('neogen').setup { snippet_engine = 'luasnip' } ]],
+        requires = 'nvim-treesitter/nvim-treesitter',
+        -- Uncomment next line if you want to follow only stable versions
+        -- tag = "*"
+    }
+
+    use {
         'phpactor/phpactor',
         run = 'composer install --no-dev --optimize-autoloader --no-interaction',
     }
