@@ -33,4 +33,7 @@ tsconf.setup {
     incremental_selection = {
         enable = true,
     },
+    yati = {
+        enable = true,
+    },
 }

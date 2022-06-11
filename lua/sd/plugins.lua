@@ -82,6 +82,11 @@ return require('packer').startup(function(use)
         run = ':TSUpdate',
     }
 
+    use {
+        'yioneko/nvim-yati',
+        requires = 'nvim-treesitter/nvim-treesitter',
+    }
+
     use 'nvim-treesitter/playground'
 
     use {
