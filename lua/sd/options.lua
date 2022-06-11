@@ -54,14 +54,6 @@ vim.opt.inccommand = 'nosplit'
 -- scroll
 vim.opt.scrolloff = 8
 
--- format on write
-vim.cmd [[
-    augroup FormatAutogroup
-        autocmd!
-        autocmd BufWritePost *.lua,*.php FormatWrite
-    augroup END
-]]
-
 -- close windows with 'q'
 vim.cmd [[ autocmd FileType help,qf,lspinfo nnoremap <buffer><silent> q :close<cr>]]
 

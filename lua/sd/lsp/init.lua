@@ -12,6 +12,8 @@ local function on_attach(client, bufnr)
     end
 end
 
+lsp_installer.setup {}
+
 local servers = lsp_installer.get_installed_servers()
 for _, server in pairs(servers) do
     local opts = {}

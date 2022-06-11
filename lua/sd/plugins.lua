@@ -1,20 +1,32 @@
--- since we marked packer as opt:
-vim.cmd [[packadd packer.nvim ]]
+vim.cmd [[
+  augroup packer_user_config
+    autocmd!
+    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
+  augroup end
+]]
 
--- shush LSP
-local use = require('packer').use
+local packer_bootstrap = nil
+local fn = vim.fn
+local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
+if fn.empty(fn.glob(install_path, false, false)) > 0 then
+    packer_bootstrap = fn.system {
+        'git',
+        'clone',
+        '--depth',
+        '1',
+        'https://github.com/wbthomason/packer.nvim',
+        install_path,
+    }
+end
 
-return require('packer').startup(function()
+return require('packer').startup(function(use)
     use { 'wbthomason/packer.nvim' }
 
     use {
         'williamboman/nvim-lsp-installer',
         {
             'neovim/nvim-lspconfig',
-            config = function()
-                require('nvim-lsp-installer').setup {}
-                require 'sd.lsp'
-            end,
+            config = [[ require 'sd.lsp' ]],
         },
     }
 
@@ -24,7 +36,10 @@ return require('packer').startup(function()
     -- lua docs from Lua 5.1 Ref Manual as vimdocs
     use 'milisims/nvim-luaref'
 
-    use 'mhartington/formatter.nvim'
+    use {
+        'mhartington/formatter.nvim',
+        config = [[ require 'sd.formatter' ]],
+    }
 
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
@@ -38,30 +53,22 @@ return require('packer').startup(function()
 
     use {
         'hrsh7th/nvim-cmp',
-        --        commit = '58d081300bb941bdf14b4e6316020914019e247a',
-        config = function()
-            require 'sd.cmp'
-        end,
+        config = [[ require 'sd.cmp' ]],
     }
 
     use 'ray-x/lsp_signature.nvim'
 
-    -- use 'hrsh7th/cmp-vsnip'
-    -- use {
-    --     'hrsh7th/vim-vsnip',
-    --     config = function()
-    --         require 'sd.vsnip'
-    --     end,
-    -- }
-
-    -- For luasnip users.
-    use 'L3MON4D3/LuaSnip'
+    use {
+        'L3MON4D3/LuaSnip',
+        config = [[ require 'sd.luasnip' ]],
+    }
     use 'saadparwaiz1/cmp_luasnip'
 
     use 'sainnhe/sonokai'
 
     use {
         'nvim-telescope/telescope.nvim',
+        config = [[ require 'sd.telescope' ]],
         requires = { 'nvim-lua/plenary.nvim' },
     }
     use {
@@ -71,12 +78,16 @@ return require('packer').startup(function()
 
     use {
         'nvim-treesitter/nvim-treesitter',
+        config = [[ require 'sd.treesitter' ]],
         run = ':TSUpdate',
     }
 
     use 'nvim-treesitter/playground'
 
-    use 'folke/which-key.nvim'
+    use {
+        'folke/which-key.nvim',
+        config = [[ require'sd.which-key' ]],
+    }
 
     use 'tpope/vim-commentary'
 
@@ -89,9 +100,7 @@ return require('packer').startup(function()
             'nvim-lua/plenary.nvim',
             'sindrets/diffview.nvim',
         },
-        config = function()
-            require 'sd.neogit'
-        end,
+        config = [[ require 'sd.neogit' ]],
     }
 
     -- enhances git commit mode
@@ -103,9 +112,7 @@ return require('packer').startup(function()
             'nvim-lua/plenary.nvim',
         },
         tag = 'release', -- To use the latest release
-        config = function()
-            require 'sd.gitsigns'
-        end,
+        config = [[ require 'sd.gitsigns' ]],
     }
 
     use {
@@ -114,19 +121,23 @@ return require('packer').startup(function()
             'kyazdani42/nvim-web-devicons',
             opt = true,
         },
-        config = function()
-            require 'sd.lualine'
-        end,
+        config = [[ require 'sd.lualine' ]],
     }
 
     use 'editorconfig/editorconfig-vim'
 
     use 'vim-test/vim-test'
-    use 'tpope/vim-projectionist'
+    use {
+        'tpope/vim-projectionist',
+        config = [[ require 'sd.projectionist' ]],
+    }
 
     use 'markstory/vim-zoomwin'
 
-    use 'norcalli/nvim-colorizer.lua'
+    use {
+        'norcalli/nvim-colorizer.lua',
+        config = [[ require('colorizer').setup() ]],
+    }
 
     use 'romainl/vim-cool'
 
@@ -138,4 +149,8 @@ return require('packer').startup(function()
         'phpactor/phpactor',
         run = 'composer install --no-dev --optimize-autoloader --no-interaction',
     }
+
+    if packer_bootstrap then
+        require('packer').sync()
+    end
 end)

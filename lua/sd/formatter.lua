@@ -35,3 +35,11 @@ formatter.setup {
         },
     },
 }
+
+-- format on write
+vim.cmd [[
+    augroup FormatAutogroup
+        autocmd!
+        autocmd BufWritePost *.lua,*.php FormatWrite
+    augroup END
+]]
