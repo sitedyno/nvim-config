@@ -10,6 +10,16 @@ local function on_attach(client, bufnr)
     if client.supports_method 'textDocument/formatting' then
         vim.notify_once 'Formatting available'
     end
+    -- thanks TJ
+    if client.server_capabilities.documentHighlightProvider then
+        vim.cmd [[
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]]
+    end
 end
 
 lsp_installer.setup {}
