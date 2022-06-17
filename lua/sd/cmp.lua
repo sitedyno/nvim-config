@@ -24,6 +24,8 @@ cmp.setup {
                 nvim_lua = '[API]',
                 path = '[Path]',
                 luasnip = '[Snip]',
+                zsh = '[Zsh]',
+                ['vim-dadbod-completion'] = '[DB]',
             },
         },
     },
@@ -69,6 +71,7 @@ cmp.setup {
         },
         { name = 'path' },
         { name = 'zsh' },
+        { name = 'vim-dadbod-completion' },
         -- { name = 'nvim_lsp_signature_help' }, -- see plugin.lua for notes
     },
 }
