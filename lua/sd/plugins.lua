@@ -163,6 +163,12 @@ return require('packer').startup(function(use)
         run = 'composer install --no-dev --optimize-autoloader --no-interaction',
     }
 
+    use 'tpope/vim-dadbod'
+
+    use 'kristijanhusak/vim-dadbod-ui'
+
+    use 'kristijanhusak/vim-dadbod-completion'
+
     if packer_bootstrap then
         require('packer').sync()
     end
