@@ -4,9 +4,6 @@ local lspconfig = require 'lspconfig'
 
 local function on_attach(client, bufnr)
     require('sd.lsp.keys').setup(client, bufnr)
-    require('lsp_signature').on_attach {
-        floating_window = false,
-    }
     if client.supports_method 'textDocument/formatting' then
         vim.notify_once 'Formatting available'
     end

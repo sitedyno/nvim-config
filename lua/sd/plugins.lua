@@ -45,8 +45,7 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
     use 'hrsh7th/cmp-cmdline'
-    -- seems glitchy w/ luasnip, formatting fails for me, shows raw md
-    -- use 'hrsh7th/cmp-nvim-lsp-signature-help'
+    use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'tamago324/cmp-zsh'
     -- Adds icons for nvim-cmp
     use 'onsails/lspkind-nvim'
@@ -55,8 +54,6 @@ return require('packer').startup(function(use)
         'hrsh7th/nvim-cmp',
         config = [[ require 'sd.cmp' ]],
     }
-
-    use 'ray-x/lsp_signature.nvim'
 
     use {
         'L3MON4D3/LuaSnip',

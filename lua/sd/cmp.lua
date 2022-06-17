@@ -72,7 +72,7 @@ cmp.setup {
         { name = 'path' },
         { name = 'zsh' },
         { name = 'vim-dadbod-completion' },
-        -- { name = 'nvim_lsp_signature_help' }, -- see plugin.lua for notes
+        { name = 'nvim_lsp_signature_help' },
     },
 }
 
