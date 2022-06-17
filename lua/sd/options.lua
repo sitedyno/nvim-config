@@ -73,3 +73,6 @@ map <C-l> <C-w>l
 if vim.fn.has 'nvim-0.5.1' == 1 then
     require('vim.lsp.log').set_format_func(vim.inspect)
 end
+
+-- CursorHold shorter updatetime
+vim.opt.updatetime = 2000
