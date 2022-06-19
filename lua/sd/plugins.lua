@@ -164,10 +164,7 @@ return require('packer').startup(function(use)
 
     use 'kristijanhusak/vim-dadbod-ui'
 
-    use {
-        'sitedyno/vim-dadbod-completion',
-        branch = 'sqlite',
-    }
+    use 'kristijanhusak/vim-dadbod-completion'
 
     if packer_bootstrap then
         require('packer').sync()
