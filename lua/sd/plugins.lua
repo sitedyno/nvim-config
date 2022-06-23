@@ -47,6 +47,10 @@ return require('packer').startup(function(use)
     use 'hrsh7th/cmp-cmdline'
     use 'hrsh7th/cmp-nvim-lsp-signature-help'
     use 'tamago324/cmp-zsh'
+    use {
+        'petertriho/cmp-git',
+        requires = 'nvim-lua/plenary.nvim',
+    }
     -- Adds icons for nvim-cmp
     use 'onsails/lspkind-nvim'
 

@@ -26,6 +26,7 @@ cmp.setup {
                 luasnip = '[Snip]',
                 zsh = '[Zsh]',
                 ['vim-dadbod-completion'] = '[DB]',
+                git = '[Git]',
             },
         },
     },
@@ -73,6 +74,7 @@ cmp.setup {
         { name = 'zsh' },
         { name = 'vim-dadbod-completion' },
         { name = 'nvim_lsp_signature_help' },
+        { name = 'git' },
     },
 }
 
@@ -110,4 +112,8 @@ end
 require('cmp_zsh').setup {
     -- zshrc = true,
     filetypes = { 'zsh' },
+}
+
+require('cmp_git').setup {
+    filetypes = { 'gitcommit', 'octo', 'NeogitCommitMessage' },
 }
