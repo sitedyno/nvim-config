@@ -21,7 +21,7 @@ cmp.setup {
                 phpactor = '[phpactor]',
                 buffer = '[Buf]',
                 nvim_lsp = '[LSP]',
-                nvim_lua = '[API]',
+                nvim_lua = '[NAPI]',
                 path = '[Path]',
                 luasnip = '[Snip]',
                 zsh = '[Zsh]',
@@ -58,11 +58,16 @@ cmp.setup {
             cmp.config.compare.kind,
         },
     },
-    sources = {
-        { name = 'phpactor' },
+    sources = cmp.config.sources({
+        -- { name = 'phpactor' },
         { name = 'nvim_lsp' },
-        -- { name = 'vsnip' },
-        { name = 'luasnip' }, -- For luasnip users.
+        { name = 'luasnip' },
+        { name = 'nvim_lsp_signature_help' },
+    }, {
+        { name = 'path' },
+        { name = 'vim-dadbod-completion' },
+        { name = 'zsh' },
+    }, {
         {
             name = 'buffer',
             option = {
@@ -71,17 +76,12 @@ cmp.setup {
                 end,
             },
         },
-        { name = 'path' },
-        { name = 'zsh' },
-        { name = 'vim-dadbod-completion' },
-        { name = 'nvim_lsp_signature_help' },
-        { name = 'git' },
-    },
+    }),
 }
 
 cmp.setup.cmdline('/', {
     mapping = cmp.mapping.preset.cmdline {},
-    sources = {
+    sources = cmp.config.sources {
         { name = 'buffer' },
     },
 })
