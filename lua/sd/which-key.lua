@@ -22,13 +22,13 @@ local mappings = {
         f = { '<cmd>TestFile<cr>', 'Test File' },
         g = {
             name = 'Git,Grep',
-            c = { '<cmd>Neogit commit<cr>', 'Git commit' },
+            c = { '<cmd>Git commit --verbose<cr>', 'Git commit' },
             f = { '<cmd>Telescope git_files<cr>', 'Git Ls-files' },
             g = { '<cmd>Telescope grep_string<cr>', 'Grep String' },
             p = {
                 name = 'Git Pull,Push',
-                l = { '<cmd>Neogit pull<cr>', 'Git pull' },
-                s = { '<cmd>Neogit push<cr>', 'Git push' },
+                l = { '<cmd>Git pull<cr>', 'Git pull' },
+                s = { '<cmd>Git push<cr>', 'Git push' },
             },
             s = { '<cmd>Telescope git_status<cr>', 'Git Status' },
         },

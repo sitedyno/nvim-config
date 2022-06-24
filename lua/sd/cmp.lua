@@ -116,5 +116,5 @@ require('cmp_zsh').setup {
 }
 
 require('cmp_git').setup {
-    filetypes = { 'gitcommit', 'octo', 'NeogitCommitMessage' },
+    filetypes = { 'gitcommit', 'octo' },
 }

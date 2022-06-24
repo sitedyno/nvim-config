@@ -109,6 +109,7 @@ return require('packer').startup(function(use)
         },
         config = [[ require 'sd.neogit' ]],
     }
+    use 'tpope/vim-fugitive'
 
     -- enhances git commit mode
     use 'rhysd/committia.vim'
