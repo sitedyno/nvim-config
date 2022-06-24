@@ -16,7 +16,7 @@ cmp.setup {
     },
     formatting = {
         format = lspkind.cmp_format {
-            with_text = true,
+            dup = 0,
             menu = {
                 phpactor = '[phpactor]',
                 buffer = '[Buf]',
@@ -28,6 +28,7 @@ cmp.setup {
                 ['vim-dadbod-completion'] = '[DB]',
                 git = '[Git]',
             },
+            with_text = true,
         },
     },
     mapping = cmp.mapping.preset.insert {

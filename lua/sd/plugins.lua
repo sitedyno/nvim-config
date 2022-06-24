@@ -51,6 +51,7 @@ return require('packer').startup(function(use)
         'petertriho/cmp-git',
         requires = 'nvim-lua/plenary.nvim',
     }
+    use 'davidsierradz/cmp-conventionalcommits'
     -- Adds icons for nvim-cmp
     use 'onsails/lspkind-nvim'
 
