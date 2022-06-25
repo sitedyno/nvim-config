@@ -14,3 +14,4 @@ cmp.setup.buffer {
         },
     }),
 }
+print 'hello'
