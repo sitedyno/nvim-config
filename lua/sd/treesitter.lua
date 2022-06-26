@@ -14,6 +14,8 @@ tsconf.setup {
         'javascript',
         'json',
         'lua',
+        'markdown',
+        'markdown_inline',
         'php',
         'phpdoc',
         'regex',
