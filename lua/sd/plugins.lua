@@ -134,7 +134,10 @@ return require('packer').startup(function(use)
 
     use 'editorconfig/editorconfig-vim'
 
-    use 'vim-test/vim-test'
+    use {
+        'vim-test/vim-test',
+        config = [[ require 'sd.vim-test' ]],
+    }
     use {
         'tpope/vim-projectionist',
         config = [[ require 'sd.projectionist' ]],
