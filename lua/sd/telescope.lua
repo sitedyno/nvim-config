@@ -15,6 +15,11 @@ ts.setup {
     pickers = {
         buffers = {
             sort_lastused = true,
+            mappings = {
+                i = {
+                    ['<C-x>'] = 'delete_buffer',
+                },
+            },
         },
         find_files = {
             find_command = {
