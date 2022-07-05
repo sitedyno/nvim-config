@@ -7,7 +7,7 @@ local function on_attach(client, bufnr)
     if client.supports_method 'textDocument/formatting' then
         vim.notify_once 'Formatting available'
     end
-    -- thanks TJ
+    -- thanks TJ https://github.com/tjdevries/config_manager/blob/5c203cee84071e5456dfe755e8f69cfc58dac7cf/xdg_config/nvim/lua/tj/lsp/init.lua#L136
     if client.server_capabilities.documentHighlightProvider then
         vim.cmd [[
       augroup lsp_document_highlight
