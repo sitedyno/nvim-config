@@ -25,6 +25,7 @@ local mappings = {
             c = { '<cmd>Git commit --verbose<cr>', 'Git commit' },
             f = { '<cmd>Telescope git_files<cr>', 'Git Ls-files' },
             g = { '<cmd>Telescope grep_string<cr>', 'Grep String' },
+            l = { '<cmd>Git log<cr>', 'Git log' },
             p = {
                 name = 'Git Pull,Push',
                 l = { '<cmd>Git pull<cr>', 'Git pull' },
@@ -33,7 +34,12 @@ local mappings = {
             s = { '<cmd>Telescope git_status<cr>', 'Git Status' },
         },
         l = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
-        n = { '<cmd>Neogit kind=vsplit<cr>', 'Neogit' },
+        n = {
+            c = { '<cmd>Neogen class<cr>', 'Document Func' },
+            f = { '<cmd>Neogen func<cr>', 'Document Func' },
+            g = { '<cmd>Neogit kind=vsplit<cr>', 'Neogit' },
+            p = { '<cmd>Neogen type<cr>', 'Document Func' },
+        },
         o = { '<cmd>Telescope oldfiles<cr>', 'Old (Recent) Files' },
         t = {
             name = 'Telescope,Testing',
