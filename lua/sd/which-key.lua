@@ -41,6 +41,13 @@ local mappings = {
             p = { '<cmd>Neogen type<cr>', 'Document Func' },
         },
         o = { '<cmd>Telescope oldfiles<cr>', 'Old (Recent) Files' },
+        p = {
+            name = 'Projectionist',
+            a = { '<cmd>A<cr>', 'Alternate File' },
+            s = { '<cmd>AS<cr>', 'Alternate Horizontal' },
+            t = { '<cmd>AT<cr>', 'Alternate Tab' },
+            v = { '<cmd>AV<cr>', 'Alternate Vertical' },
+        },
         t = {
             name = 'Telescope,Testing',
             k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
