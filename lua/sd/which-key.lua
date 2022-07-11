@@ -44,11 +44,11 @@ local mappings = {
         t = {
             name = 'Telescope,Testing',
             k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
-            l = { '<cmd>TestLast<cr>', 'Test Last' },
-            n = { '<cmd>TestNearest<cr>', 'Test Nearest' },
+            l = { '<cmd>TestLast<cr>', 'Run Last Test' },
+            n = { '<cmd>TestNearest<cr>', 'Run Nearest Test' },
             r = { '<cmd>Telescope registers<cr>', 'Registers' },
-            s = { '<cmd>TestSuite<cr>', 'Test Suite' },
-            v = { '<cmd>TestVisit<cr>', 'Test Visit' },
+            s = { '<cmd>TestSuite<cr>', 'Run Test Suite' },
+            v = { '<cmd>TestVisit<cr>', 'Visit Last Run Test' },
         },
     },
 }
