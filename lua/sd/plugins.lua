@@ -158,7 +158,7 @@ return require('packer').startup(function(use)
 
     use {
         'danymat/neogen',
-        config = [[ require('neogen').setup { snippet_engine = 'luasnip' } ]],
+        config = [[ require('sd.neogen') ]],
         requires = 'nvim-treesitter/nvim-treesitter',
         -- Uncomment next line if you want to follow only stable versions
         -- tag = "*"
