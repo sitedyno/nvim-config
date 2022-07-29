@@ -54,3 +54,4 @@ ts.setup {
 }
 
 ts.load_extension 'fzf'
+ts.load_extension 'ui-select'
