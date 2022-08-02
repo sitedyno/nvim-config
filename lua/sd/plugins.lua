@@ -28,6 +28,10 @@ return require('packer').startup(function(use)
             'neovim/nvim-lspconfig',
             config = [[ require 'sd.lsp' ]],
         },
+        {
+            'j-hui/fidget.nvim',
+            config = [[ require"fidget".setup{} ]],
+        },
     }
 
     use 'folke/lua-dev.nvim'
