@@ -30,7 +30,7 @@ return require('packer').startup(function(use)
         },
         {
             'j-hui/fidget.nvim',
-            config = [[ require"fidget".setup{} ]],
+            config = [[ require"fidget".setup{ window = { blend = 0 } } ]],
         },
     }
 
