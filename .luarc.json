@@ -4,6 +4,7 @@
         "missing-parameter"
     ],
     "Lua.diagnostics.globals": [
-        "require"
+        "require",
+        "vim"
     ]
 }
