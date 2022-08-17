@@ -23,15 +23,21 @@ return require('packer').startup(function(use)
     use { 'wbthomason/packer.nvim' }
 
     use {
-        'williamboman/nvim-lsp-installer',
-        {
-            'neovim/nvim-lspconfig',
-            config = [[ require 'sd.lsp' ]],
-        },
-        {
-            'j-hui/fidget.nvim',
-            config = [[ require"fidget".setup{ window = { blend = 0 } } ]],
-        },
+        'neovim/nvim-lspconfig',
+        config = [[ require 'sd.lsp' ]],
+    }
+    use {
+        'j-hui/fidget.nvim',
+        config = [[ require"fidget".setup{ window = { blend = 0 } } ]],
+    }
+
+    use {
+        'williamboman/mason.nvim',
+        config = [[ require('mason').setup() ]],
+    }
+    use {
+        'williamboman/mason-lspconfig.nvim',
+        config = [[ require('mason-lspconfig').setup() ]],
     }
 
     use 'folke/lua-dev.nvim'
