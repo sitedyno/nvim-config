@@ -37,7 +37,7 @@ return require('packer').startup(function(use)
     }
     use {
         'williamboman/mason-lspconfig.nvim',
-        config = [[ require('mason-lspconfig').setup() ]],
+        config = [[ require('sd.lsp.mason-lspconfig') ]],
     }
 
     use 'folke/lua-dev.nvim'
