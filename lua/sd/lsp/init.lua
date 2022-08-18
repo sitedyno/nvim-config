@@ -34,7 +34,7 @@ require('mason-lspconfig').setup_handlers {
     ['diagnosticls'] = function()
         local filetypes = require 'sd.lsp.dls-filetypes'
         lspconfig.diagnosticls.setup {
-            filetypes = filetypes,
+            filetypes = vim.tbl_keys(filetypes),
             init_options = {
                 filetypes = filetypes,
                 linters = require 'sd.lsp.dls-linters',
