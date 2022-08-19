@@ -31,6 +31,7 @@ local mappings = {
                 l = { '<cmd>Git pull<cr>', 'Git pull' },
                 s = { '<cmd>Git push<cr>', 'Git push' },
             },
+            r = { '<cmd>Git restore --staged --patch<cr>', 'Git restore' },
             s = { '<cmd>Telescope git_status<cr>', 'Git Status' },
         },
         l = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
