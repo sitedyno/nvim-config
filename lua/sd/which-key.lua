@@ -58,7 +58,25 @@ local mappings = {
             s = { '<cmd>TestSuite<cr>', 'Run Test Suite' },
             v = { '<cmd>TestVisit<cr>', 'Visit Last Run Test' },
         },
+        z = {
+            name = 'Zk',
+            n = { '<Cmd>ZkNew { title = vim.fn.input("Title: ") }<CR>', 'New Note' },
+            o = { '<Cmd>ZkNotes { sort = { "modified" } }<CR>', 'List Notes' },
+            t = { '<Cmd>ZkTags<CR>', 'Tags' },
+            f = { '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>', 'Search Notes' },
+        },
     },
 }
 
 wk.register(mappings)
+
+local vopts = { mode = 'v' }
+local vmappings = {
+    [leader] = {
+        z = {
+            f = { ":'<,'>ZkMatch<CR>", 'Search Notes' },
+        },
+    },
+}
+
+wk.register(vmappings, vopts)

@@ -185,6 +185,11 @@ return require('packer').startup(function(use)
 
     use 'kristijanhusak/vim-dadbod-completion'
 
+    use {
+        'mickael-menu/zk-nvim',
+        config = [[ require("zk").setup() ]],
+    }
+
     if packer_bootstrap then
         require('packer').sync()
     end
