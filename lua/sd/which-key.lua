@@ -36,10 +36,10 @@ local mappings = {
         },
         l = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
         n = {
-            c = { '<cmd>Neogen class<cr>', 'Document Func' },
+            c = { '<cmd>Neogen class<cr>', 'Document Class' },
             f = { '<cmd>Neogen func<cr>', 'Document Func' },
             g = { '<cmd>Neogit kind=vsplit<cr>', 'Neogit' },
-            p = { '<cmd>Neogen type<cr>', 'Document Func' },
+            p = { '<cmd>Neogen type<cr>', 'Document Property' },
         },
         o = { '<cmd>Telescope oldfiles<cr>', 'Old (Recent) Files' },
         p = {
