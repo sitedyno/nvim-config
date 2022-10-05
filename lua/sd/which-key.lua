@@ -15,8 +15,10 @@ local mappings = {
     [leader] = {
         b = { '<cmd>Telescope builtin<cr>', 'Builtins' },
         c = {
-            name = 'Commands',
+            name = 'Commands, Phpactor',
             c = { '<cmd>Telescope commands<cr>', 'Commands' },
+            e = { '<cmd>PhpactorClassExpand<cr>', 'Expand Class' },
+            s = { 'bi\\<cmd>PhpactorClassExpand<cr>', 'Expand Class (docblock)' },
             h = { '<cmd>Telescope command_history<cr>', 'Command History' },
         },
         f = { '<cmd>TestFile<cr>', 'Test File' },
