@@ -20,6 +20,7 @@ tsconf.setup {
         'phpdoc',
         'regex',
         'scss',
+        'twig',
         'vim',
         'yaml',
     },
