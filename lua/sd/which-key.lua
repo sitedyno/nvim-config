@@ -36,6 +36,17 @@ local mappings = {
             r = { '<cmd>Git restore --staged --patch<cr>', 'Git restore' },
             s = { '<cmd>Telescope git_status<cr>', 'Git Status' },
         },
+        h = {
+            s = { 'Stage Hunk' },
+            r = { 'Reset Hunk' },
+            S = { 'Stage Buffer' },
+            u = { 'Undo Stage Hunk' },
+            R = { 'Reset Buffer' },
+            p = { 'Preview Hunk' },
+            b = { 'Blame Line' },
+            d = { 'Diff View' },
+            D = { 'Diff View HEAD~' },
+        },
         l = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
         n = {
             c = { '<cmd>Neogen class<cr>', 'Document Class' },
@@ -68,6 +79,12 @@ local mappings = {
             f = { '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>', 'Search Notes' },
         },
     },
+    [']'] = {
+        c = { 'Next Hunk' },
+    },
+    ['['] = {
+        c = { 'Previous Hunk' },
+    },
 }
 
 wk.register(mappings)
@@ -78,6 +95,10 @@ local vmappings = {
         z = {
             f = { ":'<,'>ZkMatch<CR>", 'Search Notes' },
         },
+    },
+    i = {
+        -- this doesn't work for some reason
+        h = { 'Select Hunk' },
     },
 }
 
