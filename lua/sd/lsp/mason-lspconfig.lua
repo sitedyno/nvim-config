@@ -5,7 +5,7 @@ require('mason-lspconfig').setup {
         'diagnosticls',
         'phpactor',
         'sumneko_lua',
-        'json-lsp',
+        'jsonls',
     },
 
     -- Whether servers that are set up (via lspconfig) should be automatically installed if they're not already installed.
