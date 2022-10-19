@@ -58,16 +58,18 @@ require('mason-lspconfig').setup_handlers {
                 },
             },
         }
-        -- this is likely hit & miss but meh
-        local nvim_proj = string.find(vim.fn.getcwd(), 'nvim$')
-        if nvim_proj then
-            lspconfig.sumneko_lua.setup(require('lua-dev').setup {
-                settings = settings,
-            })
-        else
-            lspconfig.sumneko_lua.setup {
-                settings = settings,
-            }
-        end
+        require('neodev').setup {
+            override = function(root_dir, library)
+                -- this is likely hit & miss but meh
+                local nvim_proj = string.find(root_dir, 'nvim$')
+                if nvim_proj then
+                    library.enabled = true
+                    library.plugins = true
+                end
+            end,
+        }
+        lspconfig.sumneko_lua.setup {
+            settings = settings,
+        }
     end,
 }

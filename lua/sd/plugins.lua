@@ -39,7 +39,7 @@ return require('packer').startup(function(use)
         config = [[ require"fidget".setup{ window = { blend = 0 } } ]],
     }
 
-    use 'folke/lua-dev.nvim'
+    use 'folke/neodev.nvim'
     -- LibUV in Lua vimdocs
     use 'nanotee/luv-vimdocs'
     -- lua docs from Lua 5.1 Ref Manual as vimdocs
