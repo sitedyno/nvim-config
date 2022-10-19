@@ -3,7 +3,7 @@ require('mason-lspconfig').setup {
     -- This setting has no relation with the `automatic_installation` setting.
     ensure_installed = {
         'diagnosticls',
-        'phpactor@master',
+        'phpactor',
         'sumneko_lua',
     },
 
