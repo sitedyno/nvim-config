@@ -45,11 +45,6 @@ return require('packer').startup(function(use)
     -- lua docs from Lua 5.1 Ref Manual as vimdocs
     use 'milisims/nvim-luaref'
 
-    use {
-        'mhartington/formatter.nvim',
-        config = [[ require 'sd.formatter' ]],
-    }
-
     use 'hrsh7th/cmp-nvim-lsp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'

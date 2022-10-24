@@ -31,16 +31,6 @@ require('mason-lspconfig').setup_handlers {
     function(server_name)
         lspconfig[server_name].setup {}
     end,
-    ['diagnosticls'] = function()
-        local filetypes = require 'sd.lsp.dls-filetypes'
-        lspconfig.diagnosticls.setup {
-            filetypes = vim.tbl_keys(filetypes),
-            init_options = {
-                filetypes = filetypes,
-                linters = require 'sd.lsp.dls-linters',
-            },
-        }
-    end,
     ['phpactor'] = function()
         lspconfig.phpactor.setup {
             init_options = {
