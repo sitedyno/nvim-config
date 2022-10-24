@@ -36,7 +36,11 @@ return require('packer').startup(function(use)
     }
     use {
         'j-hui/fidget.nvim',
-        config = [[ require"fidget".setup{ window = { blend = 0 } } ]],
+        config = [[ require'fidget'.setup{ window = { blend = 0 } } ]],
+    }
+    use {
+        'jose-elias-alvarez/null-ls.nvim',
+        config = [[ require 'sd.lsp.null-ls' ]],
     }
 
     use 'folke/neodev.nvim'
