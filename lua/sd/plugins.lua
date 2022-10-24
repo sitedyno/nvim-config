@@ -42,6 +42,10 @@ return require('packer').startup(function(use)
         'jose-elias-alvarez/null-ls.nvim',
         config = [[ require 'sd.lsp.null-ls' ]],
     }
+    use {
+        'jayp0521/mason-null-ls.nvim',
+        config = [[ require 'sd.lsp.mason-null-ls' ]],
+    }
 
     use 'folke/neodev.nvim'
     -- LibUV in Lua vimdocs
