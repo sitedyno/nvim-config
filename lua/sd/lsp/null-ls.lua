@@ -1,13 +1,15 @@
 local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+local null_ls = require'null-ls'
 
-require('null-ls').setup {
+null_ls.setup {
     sources = {
         -- formatters
-        require('null-ls').builtins.formatting.stylua,
-        require('null-ls').builtins.formatting.phpcbf,
+        null_ls.builtins.formatting.stylua,
+        null_ls.builtins.formatting.phpcbf,
         -- diagnostics
-        require('null-ls').builtins.diagnostics.phpcs,
-        require('null-ls').builtins.diagnostics.psalm,
+        null_ls.builtins.diagnostics.phpcs,
+        null_ls.builtins.diagnostics.psalm,
+        null_ls.builtins.diagnostics.php,
     },
     on_attach = function(client, bufnr)
         if client.supports_method 'textDocument/formatting' then
