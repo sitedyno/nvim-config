@@ -51,7 +51,7 @@ local mappings = {
         n = {
             c = { '<cmd>Neogen class<cr>', 'Document Class' },
             f = { '<cmd>Neogen func<cr>', 'Document Func' },
-            g = { '<cmd>Neogit kind=vsplit<cr>', 'Neogit' },
+            g = { '<cmd>Neogit<cr>', 'Neogit' },
             p = { '<cmd>Neogen type<cr>', 'Document Property' },
         },
         o = { '<cmd>Telescope oldfiles<cr>', 'Old (Recent) Files' },
