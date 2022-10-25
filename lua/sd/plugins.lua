@@ -42,10 +42,12 @@ return require('packer').startup {
         use {
             'jose-elias-alvarez/null-ls.nvim',
             config = [[ require 'sd.lsp.null-ls' ]],
+            after = 'mason.nvim',
         }
         use {
             'jayp0521/mason-null-ls.nvim',
             config = [[ require 'sd.lsp.mason-null-ls' ]],
+            after = 'null-ls.nvim',
         }
 
         use 'folke/neodev.nvim'
