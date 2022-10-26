@@ -31,7 +31,11 @@ null_ls.setup {
         null_ls.builtins.diagnostics.zsh,
         -- formatters
         null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.phpcbf,
+        null_ls.builtins.formatting.phpcbf.with {
+            condition = function(utils)
+                return utils.root_has_file { 'vendor/bin/phpcbf' }
+            end,
+        },
     },
     on_attach = function(client, bufnr)
         if client.supports_method 'textDocument/formatting' then
