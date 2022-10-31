@@ -107,6 +107,8 @@ return require('packer').startup {
 
         use 'nvim-treesitter/playground'
 
+        use 'gbprod/php-enhanced-treesitter.nvim'
+
         use {
             'folke/which-key.nvim',
             config = [[ require'sd.which-key' ]],
