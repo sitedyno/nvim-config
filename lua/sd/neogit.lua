@@ -5,9 +5,6 @@ if not hasng then
     return
 end
 
--- this seems to fix https://github.com/TimUntersberger/neogit/issues/206
-require('neogit.status').dispatch_refresh(true)
-
 ng.setup {
     disable_commit_confirmation = true,
     integrations = {
