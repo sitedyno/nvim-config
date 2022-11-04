@@ -2,7 +2,7 @@ local wk = require 'which-key'
 
 local M = {}
 
-function M.setup(client, bufnr)
+function M.keymaps(_, bufnr)
     local opts = { noremap = true, silent = true }
 
     local keymap = {
@@ -54,6 +54,39 @@ function M.setup(client, bufnr)
     wk.register(keymap, { buffer = bufnr, prefix = '<leader>' })
     wk.register(keymap_visual, { buffer = bufnr, prefix = '<leader>', mode = 'v' })
     wk.register(keymap_goto, { buffer = bufnr, prefix = 'g' })
+end
+
+function M.highlights(client)
+    -- thanks TJ https://github.com/tjdevries/config_manager/blob/5c203cee84071e5456dfe755e8f69cfc58dac7cf/xdg_config/nvim/lua/tj/lsp/init.lua#L136
+    if client.server_capabilities.documentHighlightProvider then
+        vim.cmd [[
+      augroup lsp_document_highlight
+        autocmd! * <buffer>
+        autocmd CursorHold <buffer> lua vim.lsp.buf.document_highlight()
+        autocmd CursorMoved <buffer> lua vim.lsp.buf.clear_references()
+      augroup END
+    ]]
+    end
+end
+
+function M.formatting(client, bufnr)
+    local augroup = vim.api.nvim_create_augroup('LspFormatting', {})
+    if client.supports_method 'textDocument/formatting' then
+        vim.api.nvim_clear_autocmds { group = augroup, buffer = bufnr }
+        vim.api.nvim_create_autocmd('BufWritePre', {
+            group = augroup,
+            buffer = bufnr,
+            callback = function()
+                vim.lsp.buf.format { bufnr = bufnr }
+            end,
+        })
+    end
+end
+
+function M.on_attach(client, bufnr)
+    M.keymaps(client, bufnr)
+    M.highlights(client)
+    M.formatting(client, bufnr)
 end
 
 return M
