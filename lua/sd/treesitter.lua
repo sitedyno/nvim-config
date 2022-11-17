@@ -32,6 +32,12 @@ tsconf.setup {
     },
     indent = {
         enable = true,
+        disable = {
+            'css',
+            'html',
+            'json',
+            'lua',
+        },
     },
     incremental_selection = {
         enable = true,
