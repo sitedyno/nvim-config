@@ -1,17 +1,47 @@
 local null_ls = require 'null-ls'
 
 null_ls.setup {
+    -- debug = true,
     sources = {
-        -- code actions
-        null_ls.builtins.code_actions.shellcheck,
-        -- diagnostics
-        null_ls.builtins.diagnostics.ansiblelint,
+        -- see also lua/sd/lsp/mason-null-ls.lua
         -- null_ls.builtins.diagnostics.checkmake,
-        null_ls.builtins.diagnostics.editorconfig_checker,
-        null_ls.builtins.diagnostics.gitlint,
-        null_ls.builtins.diagnostics.hadolint,
+        null_ls.builtins.diagnostics.curlylint.with {
+            args = {
+                '--rule',
+                'aria_role: true',
+                -- '--rule',
+                -- 'django_forms_rendering: true',
+                '--rule',
+                'html_has_lang: true',
+                '--rule',
+                'image_alt: true',
+                -- '--rule',
+                -- 'indent: "tab"',
+                '--rule',
+                'meta_viewport: true',
+                '--rule',
+                'no_autofocus: true',
+                '--rule',
+                'tabindex_no_positive: true',
+                "--quiet",
+                "-",
+                "--format",
+                "json",
+                "--stdin-filepath",
+                "$FILENAME",
+            },
+            filetypes = { "jinja.html", "html", "htmldjango", "twig" },
+        },
+        null_ls.builtins.diagnostics.djlint.with {
+            filetypes = { "django", "html", "jinja.html", "htmldjango" },
+        },
         -- I think the LSP handles this better
         -- null_ls.builtins.diagnostics.php,
+        null_ls.builtins.formatting.phpcbf.with {
+            condition = function(utils)
+                return utils.root_has_file { 'vendor/bin/phpcbf' }
+            end,
+        },
         null_ls.builtins.diagnostics.phpcs.with {
             condition = function(utils)
                 return utils.root_has_file { 'vendor/bin/phpcs' }
@@ -22,19 +52,10 @@ null_ls.setup {
                 return utils.root_has_file { 'vendor/bin/psalm' }
             end,
         },
-        null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.diagnostics.sqlfluff.with {
             extra_args = { '--dialect', 'sqlite' }, -- change to your dialect
         },
         null_ls.builtins.diagnostics.twigcs,
-        null_ls.builtins.diagnostics.zsh,
-        -- formatters
-        null_ls.builtins.formatting.stylua,
-        null_ls.builtins.formatting.phpcbf.with {
-            condition = function(utils)
-                return utils.root_has_file { 'vendor/bin/phpcbf' }
-            end,
-        },
     },
     on_attach = function(client, bufnr)
         require('sd.lsp.on_attach').on_attach(client, bufnr)
