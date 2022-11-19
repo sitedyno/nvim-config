@@ -186,6 +186,7 @@ return require('packer').startup {
         use {
             'phpactor/phpactor',
             run = 'composer install --no-dev --optimize-autoloader --no-interaction',
+            tag = '*',
         }
 
         use 'tpope/vim-dadbod'
