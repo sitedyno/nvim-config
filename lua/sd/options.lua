@@ -76,3 +76,10 @@ end
 
 -- CursorHold shorter updatetime
 vim.opt.updatetime = 2000
+
+-- Diagnostics
+vim.diagnostic.config {
+    float = {
+        source = true,
+    },
+}
