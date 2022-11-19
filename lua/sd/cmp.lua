@@ -21,7 +21,6 @@ cmp.setup {
                 phpactor = '[phpactor]',
                 buffer = '[Buf]',
                 nvim_lsp = '[LSP]',
-                nvim_lua = '[NAPI]',
                 path = '[Path]',
                 luasnip = '[Snip]',
                 zsh = '[Zsh]',
