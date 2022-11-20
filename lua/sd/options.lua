@@ -59,7 +59,7 @@ vim.opt.inccommand = 'nosplit'
 vim.opt.scrolloff = 8
 
 -- close windows with 'q'
-vim.cmd [[ autocmd FileType help,qf,lspinfo,git nnoremap <buffer><silent> q :close<cr>]]
+vim.cmd [[ autocmd FileType help,qf,lspinfo,git,checkhealth nnoremap <buffer><silent> q :close<cr>]]
 
 -- easier window navigation
 vim.cmd [[
