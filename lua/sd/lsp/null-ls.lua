@@ -2,6 +2,16 @@ local null_ls = require 'null-ls'
 
 null_ls.setup {
     -- debug = true,
+    should_attach = function(bufnr)
+        local ignored_filetypes = {
+            packer = true,
+        }
+        local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
+        if ignored_filetypes[filetype] then
+            return false
+        end
+        return true
+    end,
     sources = {
         -- see also lua/sd/lsp/mason-null-ls.lua
         -- null_ls.builtins.diagnostics.checkmake,
