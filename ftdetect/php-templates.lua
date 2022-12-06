@@ -1,9 +1,8 @@
 vim.filetype.add {
     extension = {
-        php = function(path, bufnr)
+        php = function(path, _)
             if string.match(path, 'templates') then
-                -- return 'php.html'
-                return 'php'
+                return 'php.html'
             end
 
             return 'php'
