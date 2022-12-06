@@ -40,6 +40,16 @@ null_ls.setup {
                 '--stdin-filepath',
                 '$FILENAME',
             },
+            condition = function(_)
+                local filetypes = vim.api.nvim_buf_get_option(vim.api.nvim_get_current_buf(), 'filetype')
+                local ignored_filetypes = {
+                    ['php.html'] = true,
+                }
+                if ignored_filetypes[filetypes] then
+                    return false
+                end
+                return true
+            end,
             filetypes = { 'jinja.html', 'html', 'htmldjango', 'twig' },
         },
         null_ls.builtins.diagnostics.djlint.with {
