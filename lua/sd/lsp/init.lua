@@ -22,6 +22,10 @@ require('mason-lspconfig').setup_handlers {
     end,
     ['phpactor'] = function()
         lspconfig.phpactor.setup {
+            filetypes = {
+                'php',
+                'php.html',
+            },
             init_options = {
                 ['language_server_phpstan.enabled'] = false,
                 ['language_server_psalm.enabled'] = false,
