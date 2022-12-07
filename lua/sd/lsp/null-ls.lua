@@ -6,10 +6,21 @@ null_ls.setup {
         local ignored_filetypes = {
             packer = true,
         }
+        local ignored_names = {
+            __committia_status__ = true,
+            __committia_diff__ = true,
+        }
+
+        local bufname = vim.api.nvim_buf_get_name(bufnr)
+        if ignored_names[vim.fs.basename(bufname)] then
+            return false
+        end
+
         local filetype = vim.api.nvim_buf_get_option(bufnr, 'filetype')
         if ignored_filetypes[filetype] then
             return false
         end
+
         return true
     end,
     sources = {
