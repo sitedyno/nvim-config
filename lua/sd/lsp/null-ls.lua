@@ -25,6 +25,10 @@ null_ls.setup {
     end,
     sources = {
         -- see also lua/sd/lsp/mason-null-ls.lua
+        -- code actions
+        null_ls.builtins.code_actions.shellcheck,
+
+        -- diagnostics
         -- null_ls.builtins.diagnostics.checkmake,
         null_ls.builtins.diagnostics.curlylint.with {
             args = {
@@ -66,13 +70,13 @@ null_ls.setup {
         null_ls.builtins.diagnostics.djlint.with {
             filetypes = { 'django', 'html', 'jinja.html', 'htmldjango' },
         },
-        -- I think the LSP handles this better
-        -- null_ls.builtins.diagnostics.php,
-        null_ls.builtins.formatting.phpcbf.with {
+        null_ls.builtins.diagnostics.editorconfig_checker.with {
             condition = function(utils)
-                return utils.root_has_file { 'vendor/bin/phpcbf' }
+                return utils.root_has_file { '.editorconfig' }
             end,
         },
+        null_ls.builtins.diagnostics.gitlint,
+        null_ls.builtins.diagnostics.hadolint,
         null_ls.builtins.diagnostics.phpcs.with {
             condition = function(utils)
                 return utils.root_has_file { 'vendor/bin/phpcs' }
@@ -83,10 +87,25 @@ null_ls.setup {
                 return utils.root_has_file { 'vendor/bin/psalm' }
             end,
         },
+        null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.diagnostics.sqlfluff.with {
             extra_args = { '--dialect', 'sqlite' }, -- change to your dialect
         },
         null_ls.builtins.diagnostics.twigcs,
+        null_ls.builtins.diagnostics.zsh,
+
+        -- formatters
+        null_ls.builtins.formatting.phpcbf.with {
+            condition = function(utils)
+                return utils.root_has_file { 'vendor/bin/phpcbf' }
+            end,
+        },
+        null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.shfmt,
+        null_ls.builtins.formatting.sqlfluff.with {
+            extra_args = { '--dialect', 'sqlite' }, -- change to your dialect
+        },
+        null_ls.builtins.formatting.stylua,
     },
     on_attach = function(client, bufnr)
         require('sd.lsp.on_attach').on_attach(client, bufnr)

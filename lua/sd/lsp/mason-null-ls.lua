@@ -17,7 +17,7 @@ require('mason-null-ls').setup {
         'sqlfluff',
         'zsh',
     },
-    automatic_setup = true,
+    -- automatic_setup = true,
 }
 
 require('mason-null-ls').setup_handlers {}
