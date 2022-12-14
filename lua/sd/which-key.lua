@@ -64,6 +64,7 @@ local mappings = {
         },
         t = {
             name = 'Telescope,Testing',
+            e = { '<cmd>Telescope symbols<cr>', 'Symbols/Emoji' },
             k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
             l = { '<cmd>TestLast<cr>', 'Run Last Test' },
             n = { '<cmd>TestNearest<cr>', 'Run Nearest Test' },

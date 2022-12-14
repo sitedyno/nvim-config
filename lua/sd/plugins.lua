@@ -93,6 +93,8 @@ return require('packer').startup {
         }
         use { 'nvim-telescope/telescope-ui-select.nvim' }
 
+        use { 'nvim-telescope/telescope-symbols.nvim' }
+
         use {
             'nvim-treesitter/nvim-treesitter',
             config = [[ require 'sd.treesitter' ]],
