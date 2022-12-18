@@ -29,6 +29,8 @@ null_ls.setup {
         null_ls.builtins.code_actions.shellcheck,
 
         -- diagnostics
+        -- ansblels uses ansible-lint
+        -- null_ls.builtins.diagnostics.ansiblelint,
         -- null_ls.builtins.diagnostics.checkmake,
         null_ls.builtins.diagnostics.curlylint.with {
             args = {
