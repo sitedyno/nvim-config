@@ -13,5 +13,5 @@ sudo pacman -S --needed neovim base-devel fd ripgrep
 ## Optional Packages
 
 ```bash
-sudo pacman -S --needed composer nodejs npm python-pip
+sudo pacman -S --needed composer editorconfig-checker nodejs npm python-pip
 ```
