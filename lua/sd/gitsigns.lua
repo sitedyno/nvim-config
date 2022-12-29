@@ -6,7 +6,7 @@ if not hasgs then
 end
 
 gsigns.setup {
-    word_diff = true,
+    word_diff = false,
     on_attach = function(bufnr)
         local gs = package.loaded.gitsigns
 
@@ -52,6 +52,7 @@ gsigns.setup {
             gs.blame_line { full = true }
         end)
         map('n', '<leader>tb', gs.toggle_current_line_blame)
+        map('n', '<leader>tw', gs.toggle_word_diff)
         map('n', '<leader>hd', gs.diffthis)
         map('n', '<leader>hD', function()
             gs.diffthis '~'
