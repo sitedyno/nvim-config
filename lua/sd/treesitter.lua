@@ -18,6 +18,7 @@ tsconf.setup {
         'markdown_inline',
         'php',
         'phpdoc',
+        'rasi',
         'regex',
         'scss',
         'sql',
