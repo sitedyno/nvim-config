@@ -1,5 +1,14 @@
 local null_ls = require 'null-ls'
 
+local function filetype_ignored(ignored_filetypes)
+    local filetype = vim.api.nvim_buf_get_option(vim.api.nvim_get_current_buf(), 'filetype')
+    vim.pretty_print(filetype)
+    if ignored_filetypes[filetype] then
+        return false
+    end
+    return true
+end
+
 null_ls.setup {
     -- debug = true,
     should_attach = function(bufnr)
@@ -58,14 +67,9 @@ null_ls.setup {
                 '$FILENAME',
             },
             condition = function(_)
-                local filetypes = vim.api.nvim_buf_get_option(vim.api.nvim_get_current_buf(), 'filetype')
-                local ignored_filetypes = {
+                return filetype_ignored {
                     ['php.html'] = true,
                 }
-                if ignored_filetypes[filetypes] then
-                    return false
-                end
-                return true
             end,
             filetypes = { 'jinja.html', 'html', 'htmldjango', 'twig' },
         },
@@ -75,6 +79,9 @@ null_ls.setup {
         null_ls.builtins.diagnostics.editorconfig_checker.with {
             condition = function(utils)
                 return utils.root_has_file { '.editorconfig' }
+                    and filetype_ignored {
+                        ['gitcommit'] = true,
+                    }
             end,
         },
         null_ls.builtins.diagnostics.gitlint,
