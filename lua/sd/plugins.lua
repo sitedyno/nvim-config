@@ -201,6 +201,10 @@ return require('packer').startup {
             config = [[ require("zk").setup() ]],
         }
 
+        use 'theprimeagen/jvim.nvim'
+
+        use 'phelipetls/jsonpath.nvim'
+
         if packer_bootstrap then
             require('packer').sync()
         end
