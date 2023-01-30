@@ -24,12 +24,9 @@ end
 -- mouse
 vim.opt.mouse = 'n'
 
--- folding
--- vim.cmd [[
---     set foldmethod=expr
---     set foldexpr=nvim_treesitter#foldexpr()
--- ]]
--- vim.cmd [[ autocmd BufEnter * execute 'normal zn' ]]
+vim.opt.foldmethod = 'expr'
+vim.opt.foldexpr = 'nvim_treesitter#foldexpr()'
+vim.opt.foldenable = false
 
 -- signcolumns
 vim.opt.signcolumn = 'yes:2'
