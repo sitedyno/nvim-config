@@ -95,6 +95,10 @@ null_ls.setup {
             condition = function(utils)
                 return utils.root_has_file { 'vendor/bin/psalm' }
             end,
+            diagnostics_format = '[#{c}] #{m}',
+            -- format = 'json',
+            -- from_stderr = false,
+            ignore_stderr = true,
         },
         null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.diagnostics.sqlfluff.with {
