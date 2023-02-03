@@ -2,7 +2,6 @@ local null_ls = require 'null-ls'
 
 local function filetype_ignored(ignored_filetypes)
     local filetype = vim.api.nvim_buf_get_option(vim.api.nvim_get_current_buf(), 'filetype')
-    vim.pretty_print(filetype)
     if ignored_filetypes[filetype] then
         return false
     end
