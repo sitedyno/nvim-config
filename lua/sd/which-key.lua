@@ -64,12 +64,13 @@ local mappings = {
         },
         t = {
             name = 'Telescope,Testing',
+            a = { '<cmd>TestSuite<cr>', 'Run Test Suite All Output (stderr)' },
             e = { '<cmd>Telescope symbols<cr>', 'Symbols/Emoji' },
             k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
             l = { '<cmd>TestLast<cr>', 'Run Last Test' },
             n = { '<cmd>TestNearest<cr>', 'Run Nearest Test' },
             r = { '<cmd>Telescope registers<cr>', 'Registers' },
-            s = { '<cmd>TestSuite<cr>', 'Run Test Suite' },
+            s = { '<cmd>TestSuite 2>/dev/null<cr>', 'Run Test Suite' },
             v = { '<cmd>TestVisit<cr>', 'Visit Last Run Test' },
         },
         z = {
