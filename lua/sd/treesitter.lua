@@ -37,6 +37,7 @@ tsconf.setup {
         disable = {
             'css',
             'html',
+            'javascript',
             'json',
             'lua',
         },
