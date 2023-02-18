@@ -33,7 +33,7 @@ require('mason-lspconfig').setup_handlers {
             },
         }
     end,
-    ['sumneko_lua'] = function()
+    ['lua_ls'] = function()
         local settings = {
             Lua = {
                 telemetry = {
@@ -51,7 +51,7 @@ require('mason-lspconfig').setup_handlers {
                 end
             end,
         }
-        lspconfig.sumneko_lua.setup {
+        lspconfig.lua_ls.setup {
             settings = settings,
         }
     end,
