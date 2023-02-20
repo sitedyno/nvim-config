@@ -65,10 +65,8 @@ null_ls.setup {
                 '--stdin-filepath',
                 '$FILENAME',
             },
-            condition = function(_)
-                return filetype_ignored {
-                    ['php.html'] = true,
-                }
+            runtime_condition = function(_)
+                return filetype_ignored { ['php.html'] = true }
             end,
             filetypes = { 'jinja.html', 'html', 'htmldjango', 'twig' },
         },
@@ -78,9 +76,9 @@ null_ls.setup {
         null_ls.builtins.diagnostics.editorconfig_checker.with {
             condition = function(utils)
                 return utils.root_has_file { '.editorconfig' }
-                    and filetype_ignored {
-                        ['gitcommit'] = true,
-                    }
+            end,
+            runtime_condition = function(_)
+                return filetype_ignored { ['gitcommit'] = true }
             end,
         },
         null_ls.builtins.diagnostics.gitlint,
