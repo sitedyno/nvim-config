@@ -11,6 +11,8 @@ local mappings = {
     [meta] = {
         f = { '<cmd>Telescope find_files<cr>', 'Find files' },
         b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
+        p = { '<cmd>bprev<cr>', 'Previous Buffer' },
+        n = { '<cmd>bnext<cr>', 'Next Buffer' },
     },
     [leader] = {
         b = { '<cmd>Telescope builtin<cr>', 'Builtins' },
