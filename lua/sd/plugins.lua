@@ -29,10 +29,12 @@ return require('packer').startup {
         use {
             'williamboman/mason-lspconfig.nvim',
             config = [[ require('sd.lsp.mason-lspconfig') ]],
+            after = 'mason.nvim',
         }
         use {
             'neovim/nvim-lspconfig',
             config = [[ require 'sd.lsp' ]],
+            after = 'mason-lspconfig.nvim',
         }
         use {
             'j-hui/fidget.nvim',
