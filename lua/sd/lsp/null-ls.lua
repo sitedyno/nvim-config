@@ -8,6 +8,73 @@ local function filetype_ignored(ignored_filetypes)
     return true
 end
 
+local phpcs_code_action = {
+    async = true,
+    name = 'phpcs_code_action',
+    method = null_ls.methods.CODE_ACTION,
+    filetypes = { 'php' },
+    generator = {
+        fn = function(_)
+            return {
+                {
+                    title = 'Check coding standards for this project',
+                    action = function()
+                        local command = 'vendor/bin/phpcs'
+                        local args = {
+                            -- json returns all files even if they do not have an error...
+                            '--report=emacs',
+                            -- silence status messages during processing
+                            '-q',
+                            -- always report codes
+                            '-s',
+                            -- phpcs exits with a non-0 exit code when messages are reported but we only want to know if the command fails
+                            '--runtime-set',
+                            'ignore_warnings_on_exit',
+                            '1',
+                            '--runtime-set',
+                            'ignore_errors_on_exit',
+                            '1',
+                            -- get absolute paths under params.output.files
+                            '--basepath=',
+                            -- hard coded for now, make it flexible later
+                            'src',
+                            'tests',
+                        }
+                        local job = require 'plenary.job'
+                        local result = job:new({
+                                command = command,
+                                args = args,
+                                cwd = vim.fn.getcwd(),
+                            }):sync()
+                        -- it seems lua pattern matching does not support modifiers to captures so something like (error)? will not work
+                        -- lua pattern matching also does not have an `OR` operator so cannot do (warning|error)
+                        local pattern = '([^:]+):(%d+):(%d+): ([warningeo]+) %- (.*)'
+                        local qf = {}
+                        for i, value in pairs(result) do
+                            local matches = { value:match(pattern) }
+                            local groups = { 'filename', 'lnum', 'col', 'type', 'text' }
+                            local list = {}
+                            for k, v in pairs(matches) do
+                                if groups[k] == 'type' then
+                                    if v == 'warning' then
+                                        v = 'W'
+                                    elseif v == 'error' then
+                                        v = 'E'
+                                    end
+                                end
+                                list[groups[k]] = v
+                            end
+                            qf[i] = list
+                        end
+                        vim.fn.setqflist(qf)
+                        vim.api.nvim_command 'botright copen'
+                    end,
+                },
+            }
+        end,
+    },
+}
+
 null_ls.setup {
     -- debug = true,
     should_attach = function(bufnr)
@@ -116,6 +183,7 @@ null_ls.setup {
             extra_args = { '--dialect', 'sqlite' }, -- change to your dialect
         },
         null_ls.builtins.formatting.stylua,
+        phpcs_code_action,
     },
     on_attach = function(client, bufnr)
         require('sd.lsp.on_attach').on_attach(client, bufnr)
