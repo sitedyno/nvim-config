@@ -162,7 +162,7 @@ null_ls.setup {
             diagnostics_format = '[#{c}] #{m}',
             -- format = 'json',
             -- from_stderr = false,
-            ignore_stderr = true,
+            -- ignore_stderr = true,
         },
         null_ls.builtins.diagnostics.shellcheck,
         null_ls.builtins.diagnostics.sqlfluff.with {
