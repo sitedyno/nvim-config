@@ -24,6 +24,7 @@ tsconf.setup {
         'sql',
         'twig',
         'vim',
+        'vimdoc',
         'yaml',
     },
     highlight = {
