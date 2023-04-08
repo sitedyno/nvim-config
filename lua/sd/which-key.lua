@@ -101,7 +101,6 @@ local vmappings = {
         },
     },
     i = {
-        -- this doesn't work for some reason
         h = { 'Select Hunk' },
     },
 }
