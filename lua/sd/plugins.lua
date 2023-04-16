@@ -207,6 +207,18 @@ return require('packer').startup {
 
         use 'phelipetls/jsonpath.nvim'
 
+        use {
+            'folke/noice.nvim',
+            config = [[ require('sd.noice') ]],
+            requires = {
+                'MunifTanjim/nui.nvim',
+                {
+                    'rcarriga/nvim-notify',
+                    config = [[ require("notify").setup({background_colour = "#000000"}) ]],
+                },
+            },
+        }
+
         if packer_bootstrap then
             require('packer').sync()
         end

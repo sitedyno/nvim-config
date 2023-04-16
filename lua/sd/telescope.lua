@@ -11,6 +11,7 @@ ts.setup {
     },
     extensions = {
         'fzf',
+        'noice',
     },
     pickers = {
         buffers = {
@@ -54,4 +55,5 @@ ts.setup {
 }
 
 ts.load_extension 'fzf'
+ts.load_extension 'noice'
 ts.load_extension 'ui-select'
