@@ -40,12 +40,14 @@ local phpcs_code_action = {
                             'src',
                             'tests',
                         }
+                        -- TODO: try this using vim.fn.jobstart someday h: jobstart
+                        -- local job = vim.fn.jobstart(cmd, opts)
                         local job = require 'plenary.job'
                         local result = job:new({
-                                command = command,
-                                args = args,
-                                cwd = vim.fn.getcwd(),
-                            }):sync()
+                            command = command,
+                            args = args,
+                            cwd = vim.fn.getcwd(),
+                        }):sync()
                         -- it seems lua pattern matching does not support modifiers to captures so something like (error)? will not work
                         -- lua pattern matching also does not have an `OR` operator so cannot do (warning|error)
                         local pattern = '([^:]+):(%d+):(%d+): ([warningeo]+) %- (.*)'
