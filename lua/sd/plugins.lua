@@ -39,6 +39,7 @@ return require('packer').startup {
         use {
             'j-hui/fidget.nvim',
             config = [[ require'fidget'.setup{ window = { blend = 0 } } ]],
+            tag = 'legacy',
         }
         use {
             'jose-elias-alvarez/null-ls.nvim',
