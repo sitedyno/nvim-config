@@ -10,17 +10,6 @@ vim.opt.shiftwidth = 4
 vim.opt.softtabstop = 4
 vim.opt.expandtab = true
 
--- theme
-vim.opt.termguicolors = true
-vim.api.nvim_set_var('sonokai_diagnostic_text_highlight', 1)
-vim.api.nvim_set_var('sonokai_diagnostic_line_highlight', 1)
-vim.api.nvim_set_var('sonokai_enable_italic', 1)
-vim.api.nvim_set_var('sonokai_transparent_background', 1)
-local skpath = vim.fn.stdpath 'data' .. '/site/pack/packer/start/sonokai'
-if vim.fn.empty(vim.fn.glob(skpath)) == 0 then
-    vim.cmd [[colorscheme sonokai]]
-end
-
 -- mouse
 vim.opt.mouse = 'n'
 

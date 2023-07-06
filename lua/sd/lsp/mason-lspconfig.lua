@@ -1,4 +1,4 @@
-require('mason-lspconfig').setup {
+return {
     -- A list of servers to automatically install if they're not already installed. Example: { "rust_analyzer@nightly", "sumneko_lua" }
     -- This setting has no relation with the `automatic_installation` setting.
     ensure_installed = {

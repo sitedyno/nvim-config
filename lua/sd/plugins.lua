@@ -1,231 +1,254 @@
-vim.cmd [[
-  augroup packer_user_config
-    autocmd!
-    autocmd BufWritePost plugins.lua source <afile> | PackerCompile
-  augroup end
-]]
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
 
-local ensure_packer = function()
-    local fn = vim.fn
-    local install_path = fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-    if fn.empty(fn.glob(install_path)) > 0 then
-        fn.system { 'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path }
-        vim.cmd [[packadd packer.nvim]]
-        return true
-    end
-    return false
+if not vim.loop.fs_stat(lazypath) then
+    vim.fn.system {
+        'git',
+        'clone',
+        '--filter=blob:none',
+        'https://github.com/folke/lazy.nvim.git',
+        '--branch=stable', -- latest stable release
+        lazypath,
+    }
 end
 
-local packer_bootstrap = ensure_packer()
+vim.opt.rtp:prepend(lazypath)
 
-return require('packer').startup {
-    function(use)
-        use { 'wbthomason/packer.nvim' }
+require('lazy').setup {
+    {
+        'neovim/nvim-lspconfig',
+        config = function()
+            require 'sd.lsp'
+        end,
+        dependencies = {
+            { 'folke/neodev.nvim', opts = {} },
+            { 'williamboman/mason.nvim', config = true },
+            { 'williamboman/mason-lspconfig.nvim', opts = require 'sd.lsp.mason-lspconfig' },
+        },
+    },
+    {
+        'j-hui/fidget.nvim',
+        opts = {
+            window = { blend = 0 },
+        },
+        config = true,
+        branch = 'legacy',
+    },
+    {
+        'jose-elias-alvarez/null-ls.nvim',
+        config = function()
+            require 'sd.lsp.null-ls'
+        end,
+    },
+    {
+        'jayp0521/mason-null-ls.nvim',
+        config = function()
+            require 'sd.lsp.mason-null-ls'
+        end,
+        -- after = 'null-ls.nvim',
+    },
 
-        use {
-            'williamboman/mason.nvim',
-            config = [[ require('mason').setup() ]],
-        }
-        use {
-            'williamboman/mason-lspconfig.nvim',
-            config = [[ require('sd.lsp.mason-lspconfig') ]],
-            after = 'mason.nvim',
-        }
-        use {
-            'neovim/nvim-lspconfig',
-            config = [[ require 'sd.lsp' ]],
-            after = 'mason-lspconfig.nvim',
-        }
-        use {
-            'j-hui/fidget.nvim',
-            config = [[ require'fidget'.setup{ window = { blend = 0 } } ]],
-            tag = 'legacy',
-        }
-        use {
-            'jose-elias-alvarez/null-ls.nvim',
-            config = [[ require 'sd.lsp.null-ls' ]],
-            after = 'mason.nvim',
-        }
-        use {
-            'jayp0521/mason-null-ls.nvim',
-            config = [[ require 'sd.lsp.mason-null-ls' ]],
-            after = 'null-ls.nvim',
-        }
+    -- LibUV in Lua vimdocs
+    'nanotee/luv-vimdocs',
+    -- lua docs from Lua 5.1 Ref Manual as vimdocs
+    'milisims/nvim-luaref',
 
-        use 'folke/neodev.nvim'
-        -- LibUV in Lua vimdocs
-        use 'nanotee/luv-vimdocs'
-        -- lua docs from Lua 5.1 Ref Manual as vimdocs
-        use 'milisims/nvim-luaref'
+    'hrsh7th/cmp-nvim-lsp',
+    'hrsh7th/cmp-buffer',
+    'hrsh7th/cmp-path',
+    'hrsh7th/cmp-cmdline',
+    'tamago324/cmp-zsh',
+    {
+        'petertriho/cmp-git',
+        dependencies = 'nvim-lua/plenary.nvim',
+    },
+    'davidsierradz/cmp-conventionalcommits',
+    -- Adds icons for nvim-cmp
+    'onsails/lspkind-nvim',
 
-        use 'hrsh7th/cmp-nvim-lsp'
-        use 'hrsh7th/cmp-buffer'
-        use 'hrsh7th/cmp-path'
-        use 'hrsh7th/cmp-cmdline'
-        use 'tamago324/cmp-zsh'
-        use {
-            'petertriho/cmp-git',
-            requires = 'nvim-lua/plenary.nvim',
-        }
-        use 'davidsierradz/cmp-conventionalcommits'
-        -- Adds icons for nvim-cmp
-        use 'onsails/lspkind-nvim'
+    {
+        'hrsh7th/nvim-cmp',
+        config = function()
+            require 'sd.cmp'
+        end,
+    },
 
-        use {
-            'hrsh7th/nvim-cmp',
-            config = [[ require 'sd.cmp' ]],
-        }
+    {
+        'L3MON4D3/LuaSnip',
+        config = function()
+            require 'sd.luasnip'
+        end,
+    },
+    'saadparwaiz1/cmp_luasnip',
 
-        use {
-            'L3MON4D3/LuaSnip',
-            config = [[ require 'sd.luasnip' ]],
-        }
-        use 'saadparwaiz1/cmp_luasnip'
+    {
+        'sainnhe/sonokai',
+        lazy = false, -- make sure we load this during startup if it is your main colorscheme
+        priority = 1000, -- make sure to load this before all the other start plugins
+        config = function()
+            -- load the colorscheme here
+            vim.opt.termguicolors = true
+            vim.api.nvim_set_var('sonokai_diagnostic_text_highlight', 1)
+            vim.api.nvim_set_var('sonokai_diagnostic_line_highlight', 1)
+            vim.api.nvim_set_var('sonokai_enable_italic', 1)
+            vim.api.nvim_set_var('sonokai_transparent_background', 1)
+            vim.cmd [[colorscheme sonokai]]
+        end,
+    },
 
-        use 'sainnhe/sonokai'
+    {
+        'nvim-telescope/telescope.nvim',
+        config = function()
+            require 'sd.telescope'
+        end,
+        dependencies = { 'nvim-lua/plenary.nvim' },
+    },
+    {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+    },
+    { 'nvim-telescope/telescope-ui-select.nvim' },
 
-        use {
-            'nvim-telescope/telescope.nvim',
-            config = [[ require 'sd.telescope' ]],
-            requires = { 'nvim-lua/plenary.nvim' },
-        }
-        use {
-            'nvim-telescope/telescope-fzf-native.nvim',
-            run = 'make',
-        }
-        use { 'nvim-telescope/telescope-ui-select.nvim' }
+    { 'nvim-telescope/telescope-symbols.nvim' },
 
-        use { 'nvim-telescope/telescope-symbols.nvim' }
+    {
+        'nvim-treesitter/nvim-treesitter',
+        config = function()
+            require 'sd.treesitter'
+        end,
+        build = ':TSUpdate',
+    },
 
-        use {
-            'nvim-treesitter/nvim-treesitter',
-            config = [[ require 'sd.treesitter' ]],
-            run = ':TSUpdate',
-        }
+    {
+        'yioneko/nvim-yati',
+        dependencies = 'nvim-treesitter/nvim-treesitter',
+    },
 
-        use {
-            'yioneko/nvim-yati',
-            requires = 'nvim-treesitter/nvim-treesitter',
-        }
+    'nvim-treesitter/playground',
 
-        use 'nvim-treesitter/playground'
+    'gbprod/php-enhanced-treesitter.nvim',
 
-        use 'gbprod/php-enhanced-treesitter.nvim'
+    {
+        'folke/which-key.nvim',
+        config = function()
+            require 'sd.which-key'
+        end,
+    },
 
-        use {
-            'folke/which-key.nvim',
-            config = [[ require'sd.which-key' ]],
-        }
+    'tpope/vim-commentary',
 
-        use 'tpope/vim-commentary'
+    -- Adds icons to telescope
+    'kyazdani42/nvim-web-devicons',
 
-        -- Adds icons to telescope
-        use 'kyazdani42/nvim-web-devicons'
+    {
+        'NeogitOrg/neogit',
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            'sindrets/diffview.nvim',
+        },
+        config = function()
+            require 'sd.neogit'
+        end,
+    },
+    'tpope/vim-fugitive',
 
-        use {
-            'TimUntersberger/neogit',
-            requires = {
-                'nvim-lua/plenary.nvim',
-                'sindrets/diffview.nvim',
+    -- enhances git commit mode
+    'rhysd/committia.vim',
+
+    {
+        'lewis6991/gitsigns.nvim',
+        event = { 'BufReadPre', 'BufNewFile' },
+        config = function(buffer)
+            require 'sd/gitsigns'
+        end,
+    },
+
+    {
+        'nvim-lualine/lualine.nvim',
+        dependencies = {
+            'kyazdani42/nvim-web-devicons',
+            -- opt = true,
+        },
+        config = function()
+            require 'sd.lualine'
+        end,
+    },
+
+    'editorconfig/editorconfig-vim',
+
+    {
+        'vim-test/vim-test',
+        config = function()
+            require 'sd.vim-test'
+        end,
+    },
+    {
+        'tpope/vim-projectionist',
+        config = function()
+            require 'sd.projectionist'
+        end,
+    },
+
+    'markstory/vim-zoomwin',
+
+    {
+        'norcalli/nvim-colorizer.lua',
+        config = function()
+            require('colorizer').setup()
+        end,
+    },
+
+    'romainl/vim-cool',
+
+    'Glench/Vim-Jinja2-Syntax',
+
+    'ellisonleao/glow.nvim',
+
+    {
+        'danymat/neogen',
+        config = function()
+            require 'sd.neogen'
+        end,
+        dependencies = 'nvim-treesitter/nvim-treesitter',
+        -- Uncomment next line if you want to follow only stable versions
+        -- tag = "*"
+    },
+
+    {
+        'phpactor/phpactor',
+        build = 'composer install --no-dev --optimize-autoloader --no-interaction',
+        version = '*',
+    },
+
+    'tpope/vim-dadbod',
+
+    'kristijanhusak/vim-dadbod-ui',
+
+    'kristijanhusak/vim-dadbod-completion',
+
+    {
+        'mickael-menu/zk-nvim',
+        config = function()
+            require('zk').setup()
+        end,
+    },
+
+    'theprimeagen/jvim.nvim',
+
+    'phelipetls/jsonpath.nvim',
+
+    {
+        'folke/noice.nvim',
+        config = function()
+            require 'sd.noice'
+        end,
+        dependencies = {
+            'MunifTanjim/nui.nvim',
+            {
+                'rcarriga/nvim-notify',
+                config = function()
+                    require('notify').setup { background_colour = '#000000' }
+                end,
             },
-            config = [[ require 'sd.neogit' ]],
-        }
-        use 'tpope/vim-fugitive'
-
-        -- enhances git commit mode
-        use 'rhysd/committia.vim'
-
-        use {
-            'lewis6991/gitsigns.nvim',
-            requires = {
-                'nvim-lua/plenary.nvim',
-            },
-            --tag = 'release'
-            tag = '*', -- To use the latest 'release'
-            config = [[ require 'sd.gitsigns' ]],
-        }
-
-        use {
-            'nvim-lualine/lualine.nvim',
-            requires = {
-                'kyazdani42/nvim-web-devicons',
-                opt = true,
-            },
-            config = [[ require 'sd.lualine' ]],
-        }
-
-        use 'editorconfig/editorconfig-vim'
-
-        use {
-            'vim-test/vim-test',
-            config = [[ require 'sd.vim-test' ]],
-        }
-        use {
-            'tpope/vim-projectionist',
-            config = [[ require 'sd.projectionist' ]],
-        }
-
-        use 'markstory/vim-zoomwin'
-
-        use {
-            'norcalli/nvim-colorizer.lua',
-            config = [[ require('colorizer').setup() ]],
-        }
-
-        use 'romainl/vim-cool'
-
-        use 'Glench/Vim-Jinja2-Syntax'
-
-        use 'ellisonleao/glow.nvim'
-
-        use {
-            'danymat/neogen',
-            config = [[ require('sd.neogen') ]],
-            requires = 'nvim-treesitter/nvim-treesitter',
-            -- Uncomment next line if you want to follow only stable versions
-            -- tag = "*"
-        }
-
-        use {
-            'phpactor/phpactor',
-            run = 'composer install --no-dev --optimize-autoloader --no-interaction',
-            tag = '*',
-        }
-
-        use 'tpope/vim-dadbod'
-
-        use 'kristijanhusak/vim-dadbod-ui'
-
-        use 'kristijanhusak/vim-dadbod-completion'
-
-        use {
-            'mickael-menu/zk-nvim',
-            config = [[ require("zk").setup() ]],
-        }
-
-        use 'theprimeagen/jvim.nvim'
-
-        use 'phelipetls/jsonpath.nvim'
-
-        use {
-            'folke/noice.nvim',
-            config = [[ require('sd.noice') ]],
-            requires = {
-                'MunifTanjim/nui.nvim',
-                {
-                    'rcarriga/nvim-notify',
-                    config = [[ require("notify").setup({background_colour = "#000000"}) ]],
-                },
-            },
-        }
-
-        if packer_bootstrap then
-            require('packer').sync()
-        end
-    end,
-    config = {
-        display = {
-            open_cmd = 'tabnew \\[packer\\]',
         },
     },
 }
