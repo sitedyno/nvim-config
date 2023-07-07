@@ -15,72 +15,6 @@ vim.opt.rtp:prepend(lazypath)
 
 require('lazy').setup {
     {
-        'neovim/nvim-lspconfig',
-        config = function()
-            require 'sd.lsp'
-        end,
-        dependencies = {
-            { 'folke/neodev.nvim', opts = {} },
-            { 'williamboman/mason.nvim', config = true },
-            { 'williamboman/mason-lspconfig.nvim', opts = require 'sd.lsp.mason-lspconfig' },
-        },
-    },
-    {
-        'j-hui/fidget.nvim',
-        opts = {
-            window = { blend = 0 },
-        },
-        config = true,
-        branch = 'legacy',
-    },
-    {
-        'jose-elias-alvarez/null-ls.nvim',
-        config = function()
-            require 'sd.lsp.null-ls'
-        end,
-    },
-    {
-        'jayp0521/mason-null-ls.nvim',
-        config = function()
-            require 'sd.lsp.mason-null-ls'
-        end,
-        -- after = 'null-ls.nvim',
-    },
-
-    -- LibUV in Lua vimdocs
-    'nanotee/luv-vimdocs',
-    -- lua docs from Lua 5.1 Ref Manual as vimdocs
-    'milisims/nvim-luaref',
-
-    'hrsh7th/cmp-nvim-lsp',
-    'hrsh7th/cmp-buffer',
-    'hrsh7th/cmp-path',
-    'hrsh7th/cmp-cmdline',
-    'tamago324/cmp-zsh',
-    {
-        'petertriho/cmp-git',
-        dependencies = 'nvim-lua/plenary.nvim',
-    },
-    'davidsierradz/cmp-conventionalcommits',
-    -- Adds icons for nvim-cmp
-    'onsails/lspkind-nvim',
-
-    {
-        'hrsh7th/nvim-cmp',
-        config = function()
-            require 'sd.cmp'
-        end,
-    },
-
-    {
-        'L3MON4D3/LuaSnip',
-        config = function()
-            require 'sd.luasnip'
-        end,
-    },
-    'saadparwaiz1/cmp_luasnip',
-
-    {
         'sainnhe/sonokai',
         lazy = false, -- make sure we load this during startup if it is your main colorscheme
         priority = 1000, -- make sure to load this before all the other start plugins
@@ -91,8 +25,74 @@ require('lazy').setup {
             vim.api.nvim_set_var('sonokai_diagnostic_line_highlight', 1)
             vim.api.nvim_set_var('sonokai_enable_italic', 1)
             vim.api.nvim_set_var('sonokai_transparent_background', 1)
-            vim.cmd [[colorscheme sonokai]]
+            vim.cmd.colorscheme 'sonokai'
         end,
+    },
+
+    {
+        'neovim/nvim-lspconfig',
+        config = function()
+            require 'sd.lsp'
+        end,
+        dependencies = {
+            { 'folke/neodev.nvim', opts = {} },
+            { 'williamboman/mason.nvim', config = true },
+            { 'williamboman/mason-lspconfig.nvim', opts = require 'sd.lsp.mason-lspconfig' },
+            {
+                'j-hui/fidget.nvim',
+                opts = {
+                    window = { blend = 0 },
+                },
+                config = true,
+                branch = 'legacy',
+            },
+            {
+                'jose-elias-alvarez/null-ls.nvim',
+                config = function()
+                    require 'sd.lsp.null-ls'
+                end,
+                dependencies = {
+                    {
+                        'jayp0521/mason-null-ls.nvim',
+                        config = function()
+                            require 'sd.lsp.mason-null-ls'
+                        end,
+                    },
+                },
+            },
+        },
+    },
+
+    -- LibUV in Lua vimdocs
+    'nanotee/luv-vimdocs',
+    -- lua docs from Lua 5.1 Ref Manual as vimdocs
+    'milisims/nvim-luaref',
+
+    {
+        'hrsh7th/nvim-cmp',
+        config = function()
+            require 'sd.cmp'
+        end,
+        dependencies = {
+            'hrsh7th/cmp-nvim-lsp',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            'tamago324/cmp-zsh',
+            { 'petertriho/cmp-git', dependencies = 'nvim-lua/plenary.nvim' },
+            'davidsierradz/cmp-conventionalcommits',
+            -- Adds icons for nvim-cmp
+            'onsails/lspkind-nvim',
+            'saadparwaiz1/cmp_luasnip',
+        },
+    },
+
+    {
+        'L3MON4D3/LuaSnip',
+        config = function()
+            require 'sd.luasnip'
+        end,
+        dependencies = { 'saadparwaiz1/cmp_luasnip' },
     },
 
     {
@@ -100,32 +100,28 @@ require('lazy').setup {
         config = function()
             require 'sd.telescope'
         end,
-        dependencies = { 'nvim-lua/plenary.nvim' },
+        dependencies = {
+            'nvim-lua/plenary.nvim',
+            { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+            'nvim-telescope/telescope-ui-select.nvim',
+            'nvim-telescope/telescope-symbols.nvim',
+            -- Adds icons to telescope
+            'kyazdani42/nvim-web-devicons',
+        },
     },
-    {
-        'nvim-telescope/telescope-fzf-native.nvim',
-        build = 'make',
-    },
-    { 'nvim-telescope/telescope-ui-select.nvim' },
-
-    { 'nvim-telescope/telescope-symbols.nvim' },
 
     {
         'nvim-treesitter/nvim-treesitter',
+        build = ':TSUpdate',
         config = function()
             require 'sd.treesitter'
         end,
-        build = ':TSUpdate',
+        dependencies = {
+            { 'yioneko/nvim-yati', dependencies = 'nvim-treesitter/nvim-treesitter' },
+            'nvim-treesitter/playground',
+            'gbprod/php-enhanced-treesitter.nvim',
+        },
     },
-
-    {
-        'yioneko/nvim-yati',
-        dependencies = 'nvim-treesitter/nvim-treesitter',
-    },
-
-    'nvim-treesitter/playground',
-
-    'gbprod/php-enhanced-treesitter.nvim',
 
     {
         'folke/which-key.nvim',
@@ -135,9 +131,6 @@ require('lazy').setup {
     },
 
     'tpope/vim-commentary',
-
-    -- Adds icons to telescope
-    'kyazdani42/nvim-web-devicons',
 
     {
         'NeogitOrg/neogit',
@@ -157,7 +150,7 @@ require('lazy').setup {
     {
         'lewis6991/gitsigns.nvim',
         event = { 'BufReadPre', 'BufNewFile' },
-        config = function(buffer)
+        config = function()
             require 'sd/gitsigns'
         end,
     },
@@ -166,7 +159,6 @@ require('lazy').setup {
         'nvim-lualine/lualine.nvim',
         dependencies = {
             'kyazdani42/nvim-web-devicons',
-            -- opt = true,
         },
         config = function()
             require 'sd.lualine'
@@ -209,8 +201,7 @@ require('lazy').setup {
             require 'sd.neogen'
         end,
         dependencies = 'nvim-treesitter/nvim-treesitter',
-        -- Uncomment next line if you want to follow only stable versions
-        -- tag = "*"
+        version = '*',
     },
 
     {
@@ -227,9 +218,8 @@ require('lazy').setup {
 
     {
         'mickael-menu/zk-nvim',
-        config = function()
-            require('zk').setup()
-        end,
+        config = true,
+        name = 'zk',
     },
 
     'theprimeagen/jvim.nvim',
@@ -245,9 +235,7 @@ require('lazy').setup {
             'MunifTanjim/nui.nvim',
             {
                 'rcarriga/nvim-notify',
-                config = function()
-                    require('notify').setup { background_colour = '#000000' }
-                end,
+                opts = { background_colour = '#000000' },
             },
         },
     },
