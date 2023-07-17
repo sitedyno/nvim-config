@@ -12,7 +12,8 @@ util.on_setup = util.add_hook_after(util.on_setup, function(config)
         config.on_attach = on_attach
     end
     local cnl = require 'cmp_nvim_lsp'
-    config.capabilities = cnl.default_capabilities(vim.lsp.protocol.make_client_capabilities())
+    config.capabilities = vim.lsp.protocol.make_client_capabilities()
+    config.capabilities.completion = cnl.default_capabilities(config.capabilities).completion
 end)
 
 require('mason-lspconfig').setup_handlers {
