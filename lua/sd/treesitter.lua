@@ -11,6 +11,7 @@ tsconf.setup {
         'css',
         'dockerfile',
         'html',
+        'ini',
         'javascript',
         'json',
         'lua',
