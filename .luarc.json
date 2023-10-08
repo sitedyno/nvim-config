@@ -7,6 +7,7 @@
         "require",
         "vim"
     ],
+    "Lua.format.enable": false,
     "Lua.workspace.library": [
         "~/.local/share/nvim/lazy/neodev.nvim/types/stable",
         "/usr/share/nvim/runtime",
