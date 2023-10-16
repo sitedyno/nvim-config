@@ -239,4 +239,41 @@ require('lazy').setup {
             },
         },
     },
+
+    {
+        'lalitmee/browse.nvim',
+        dependencies = { 'nvim-telescope/telescope.nvim' },
+        keys = {
+            {
+                '<leader>sb',
+                function()
+                    require('browse').browse()
+                end,
+                desc = 'Choose Search',
+            },
+            {
+                '<leader>sd',
+                function()
+                    require('browse').devdocs.search()
+                end,
+                desc = 'Search Devdocs',
+            },
+            {
+                '<space>sm',
+                function ()
+                    -- local cmd = require('browse.utils').get_open_cmd()
+                    local word = vim.fn.expand('<cword>')
+                    local search = string.format('https://developer.mozilla.org/en-US/search?q=%s', word)
+                    require('browse.utils').default_search(search)
+                end,
+                desc = 'Search MDN',
+            },
+        },
+        opts = {
+            provider = 'duckduckgo',
+            bookmarks = {
+                'https://developer.mozilla.org/en-US/search?q=%s',
+            },
+        },
+    },
 }
