@@ -5,6 +5,10 @@ local function on_attach(client, bufnr)
     require('sd.lsp.on_attach').on_attach(client, bufnr)
 end
 
+-- This avoids having to do:
+-- on_attach = on_attach
+-- capabilities = capabilities
+-- in each of the setup_handlers below
 util.on_setup = util.add_hook_after(util.on_setup, function(config)
     if config.on_attach then
         config.on_attach = util.add_hook_after(config.on_attach, on_attach)
