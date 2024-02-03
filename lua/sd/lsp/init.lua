@@ -43,6 +43,9 @@ require('mason-lspconfig').setup_handlers {
     ['lua_ls'] = function()
         local settings = {
             Lua = {
+                completion = {
+                    callSnippet = 'Replace',
+                },
                 telemetry = {
                     enable = false,
                 },
