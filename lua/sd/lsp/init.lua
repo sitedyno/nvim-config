@@ -46,6 +46,9 @@ require('mason-lspconfig').setup_handlers {
                 completion = {
                     callSnippet = 'Replace',
                 },
+                format = {
+                    enable = false,
+                },
                 telemetry = {
                     enable = false,
                 },
