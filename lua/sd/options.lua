@@ -19,6 +19,7 @@ vim.opt.foldenable = false
 
 -- signcolumns
 vim.opt.signcolumn = 'yes:2'
+vim.g.committia_open_only_vim_starting = 0
 
 -- line numbers
 vim.opt.number = true
