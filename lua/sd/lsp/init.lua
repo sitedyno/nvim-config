@@ -55,6 +55,9 @@ require('mason-lspconfig').setup_handlers {
                 telemetry = {
                     enable = false,
                 },
+                workspace = {
+                    checkThirdParty = false,
+                }
             },
         }
         require('neodev').setup {
