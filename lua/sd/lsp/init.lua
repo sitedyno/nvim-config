@@ -46,6 +46,9 @@ require('mason-lspconfig').setup_handlers {
                 completion = {
                     callSnippet = 'Replace',
                 },
+                diagnostics = {
+                    disable = { 'missing-fields' },
+                },
                 format = {
                     enable = false,
                 },
