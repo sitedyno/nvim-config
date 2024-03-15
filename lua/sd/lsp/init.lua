@@ -37,6 +37,9 @@ require('mason-lspconfig').setup_handlers {
                 ['language_server_phpstan.enabled'] = false,
                 ['language_server_psalm.enabled'] = false,
                 ['completion_worse.snippets'] = true,
+                -- ['logging.enabled'] = true,
+                -- ['logging.level'] = 'debug',
+                -- ['logging.path'] = 'phpactor.log',
             },
         }
     end,
