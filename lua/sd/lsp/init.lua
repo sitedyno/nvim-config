@@ -47,7 +47,7 @@ require('mason-lspconfig').setup_handlers {
                     callSnippet = 'Replace',
                 },
                 diagnostics = {
-                    disable = { 'missing-fields' },
+                    disable = { 'missing-fields', 'missing-parameter' },
                 },
                 format = {
                     enable = false,
@@ -57,7 +57,7 @@ require('mason-lspconfig').setup_handlers {
                 },
                 workspace = {
                     checkThirdParty = false,
-                }
+                },
             },
         }
         require('neodev').setup {
