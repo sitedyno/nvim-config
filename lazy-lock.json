@@ -45,6 +45,7 @@
   "plenary.nvim": { "branch": "master", "commit": "50012918b2fc8357b87cff2a7f7f0446e47da174" },
   "sonokai": { "branch": "master", "commit": "a62656a798043f3c6b603efa98d4de2da89c72b2" },
   "telescope-fzf-native.nvim": { "branch": "main", "commit": "6c921ca12321edaa773e324ef64ea301a1d0da62" },
+  "telescope-helpgrep.nvim": { "branch": "main", "commit": "e167aae798765389b3a2300727dc59a29b34883e" },
   "telescope-symbols.nvim": { "branch": "master", "commit": "f2060117d965df4a626f068a4ebbd8ee051aa076" },
   "telescope-ui-select.nvim": { "branch": "master", "commit": "b0015e6e4b46a64192c64b68dec9a9ac5a4e5690" },
   "telescope.nvim": { "branch": "master", "commit": "74ce793a60759e3db0d265174f137fb627430355" },

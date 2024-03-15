@@ -12,6 +12,7 @@ ts.setup {
     extensions = {
         'fzf',
         'noice',
+        'helpgrep',
     },
     pickers = {
         buffers = {
@@ -56,4 +57,5 @@ ts.setup {
 
 ts.load_extension 'fzf'
 ts.load_extension 'noice'
+ts.load_extension 'helpgrep'
 ts.load_extension 'ui-select'

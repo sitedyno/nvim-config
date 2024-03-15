@@ -105,6 +105,7 @@ require('lazy').setup {
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
             'nvim-telescope/telescope-ui-select.nvim',
             'nvim-telescope/telescope-symbols.nvim',
+            'catgoose/telescope-helpgrep.nvim',
             -- Adds icons to telescope
             'kyazdani42/nvim-web-devicons',
         },
@@ -260,9 +261,9 @@ require('lazy').setup {
             },
             {
                 '<space>sm',
-                function ()
+                function()
                     -- local cmd = require('browse.utils').get_open_cmd()
-                    local word = vim.fn.expand('<cword>')
+                    local word = vim.fn.expand '<cword>'
                     local search = string.format('https://developer.mozilla.org/en-US/search?q=%s', word)
                     require('browse.utils').default_search(search)
                 end,
