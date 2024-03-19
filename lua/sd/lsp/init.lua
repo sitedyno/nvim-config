@@ -41,6 +41,13 @@ require('mason-lspconfig').setup_handlers {
                 -- ['logging.level'] = 'debug',
                 -- ['logging.path'] = 'phpactor.log',
             },
+            get_language_id = function(_, filetype)
+                if filetype == 'php.html' then
+                    return 'php'
+                else
+                    return filetype
+                end
+            end,
         }
     end,
     ['lua_ls'] = function()
