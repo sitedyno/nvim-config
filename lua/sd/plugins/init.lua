@@ -231,6 +231,9 @@ return {
                 opts = { background_colour = '#000000' },
             },
         },
+        keys = {
+            { '<leader>tN', '<cmd>Telescope noice<cr>', { desc = 'Noice Messages' } },
+        },
     },
 
     {
