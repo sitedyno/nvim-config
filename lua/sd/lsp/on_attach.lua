@@ -23,8 +23,8 @@ function M.keymaps(_, bufnr)
             },
         },
         x = {
-            s = { '<cmd>Telescope lsp_document_diagnostics<cr>', 'Search Document Diagnostics' },
-            w = { '<cmd>Telescope lsp_workspace_diagnostics<cr>', 'Workspace Diagnostics' },
+            s = { '<cmd>Telescope diagnostics bufnr=0<cr>', 'Search Document Diagnostics' },
+            w = { '<cmd>Telescope diagnostics<cr>', 'Workspace Diagnostics' },
         },
     }
 
