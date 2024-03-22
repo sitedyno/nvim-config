@@ -49,7 +49,11 @@ local mappings = {
             d = { 'Diff View' },
             D = { 'Diff View HEAD~' },
         },
-        l = { '<cmd>Telescope live_grep<cr>', 'Live Grep' },
+        l = {
+            name = 'Live Grep',
+            a = { '<cmd>Telescope live_grep<cr>', 'Live Grep All' },
+            s = { '<cmd>Telescope dir live_grep<cr>', 'Live Grep Selected' },
+        },
         n = {
             c = { '<cmd>Neogen class<cr>', 'Document Class' },
             f = { '<cmd>Neogen func<cr>', 'Document Func' },

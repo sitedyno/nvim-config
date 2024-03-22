@@ -9,11 +9,6 @@ ts.setup {
     defaults = {
         layout_strategy = 'vertical',
     },
-    extensions = {
-        'fzf',
-        'noice',
-        'helpgrep',
-    },
     pickers = {
         buffers = {
             sort_lastused = true,
@@ -58,4 +53,5 @@ ts.setup {
 ts.load_extension 'fzf'
 ts.load_extension 'noice'
 ts.load_extension 'helpgrep'
+ts.load_extension 'dir'
 ts.load_extension 'ui-select'

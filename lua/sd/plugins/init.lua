@@ -91,6 +91,7 @@ return {
             'nvim-telescope/telescope-ui-select.nvim',
             'nvim-telescope/telescope-symbols.nvim',
             'catgoose/telescope-helpgrep.nvim',
+            'princejoogie/dir-telescope.nvim',
             -- Adds icons to telescope
             'kyazdani42/nvim-web-devicons',
         },
