@@ -51,12 +51,6 @@ cmp.setup {
             require('luasnip').lsp_expand(args.body) -- For `luasnip` users.
         end,
     },
-    sorting = {
-        comparators = {
-            cmp.config.compare.length,
-            cmp.config.compare.kind,
-        },
-    },
     sources = cmp.config.sources({
         -- { name = 'phpactor' },
         { name = 'nvim_lsp' },
