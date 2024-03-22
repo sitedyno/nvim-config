@@ -38,17 +38,6 @@ local mappings = {
             r = { '<cmd>tab Git restore --staged --patch<cr>', 'Git restore' },
             s = { '<cmd>Telescope git_status<cr>', 'Git Status' },
         },
-        h = {
-            s = { 'Stage Hunk' },
-            r = { 'Reset Hunk' },
-            S = { 'Stage Buffer' },
-            u = { 'Undo Stage Hunk' },
-            R = { 'Reset Buffer' },
-            p = { 'Preview Hunk' },
-            b = { 'Blame Line' },
-            d = { 'Diff View' },
-            D = { 'Diff View HEAD~' },
-        },
         l = {
             name = 'Live Grep',
             a = { '<cmd>Telescope live_grep<cr>', 'Live Grep All' },
@@ -87,12 +76,6 @@ local mappings = {
             t = { '<Cmd>ZkTags<CR>', 'Tags' },
             f = { '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>', 'Search Notes' },
         },
-    },
-    [']'] = {
-        c = { 'Next Hunk' },
-    },
-    ['['] = {
-        c = { 'Previous Hunk' },
     },
 }
 
