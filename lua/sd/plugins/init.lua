@@ -106,6 +106,7 @@ return {
         dependencies = {
             { 'yioneko/nvim-yati', dependencies = 'nvim-treesitter/nvim-treesitter' },
             'nvim-treesitter/playground',
+            'nvim-treesitter/nvim-treesitter-context',
             'gbprod/php-enhanced-treesitter.nvim',
         },
     },
