@@ -90,8 +90,11 @@ return {
             { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
             'nvim-telescope/telescope-ui-select.nvim',
             'nvim-telescope/telescope-symbols.nvim',
-            'catgoose/telescope-helpgrep.nvim',
             'princejoogie/dir-telescope.nvim',
+            {
+                'sitedyno/telescope-helpgrep.nvim',
+                branch = 'sitedyno',
+            },
             -- Adds icons to telescope
             'kyazdani42/nvim-web-devicons',
         },
