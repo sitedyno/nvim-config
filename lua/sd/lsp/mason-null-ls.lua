@@ -18,4 +18,11 @@ require('mason-null-ls').setup {
         'zsh',
     },
     -- automatic_setup = true,
+    methods = {
+        diagnostics = true,
+        formatting = false,
+        code_actions = true,
+        completion = true,
+        hover = true,
+    },
 }
