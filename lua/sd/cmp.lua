@@ -56,6 +56,16 @@ cmp.setup {
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         -- { name = 'nvim_lsp_signature_help' },
+        {
+            name = 'html-css',
+            option = {
+                enable_on = {
+                    'html',
+                    'php.html',
+                },
+                file_extensions = { 'css', 'sass', 'less' },
+            },
+        },
     }, {
         { name = 'path' },
         { name = 'vim-dadbod-completion' },
