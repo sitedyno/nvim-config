@@ -67,18 +67,24 @@ require('mason-lspconfig').setup_handlers {
                 },
                 workspace = {
                     checkThirdParty = false,
+                    library = {
+                        vim.env.VIMRUNTIME,
+                        '${3rd}/luv/library',
+                        '${3rd}/busted/library',
+                    },
                 },
             },
         }
         require('neodev').setup {
             override = function(root_dir, library)
                 -- this is likely hit & miss but meh
-                local nvim_proj = string.find(root_dir, 'nvim$')
+                local nvim_proj = string.find(root_dir, 'nvim')
                 if nvim_proj then
                     library.enabled = true
                     library.plugins = true
                 end
             end,
+            pathStrict = true,
         }
         lspconfig.lua_ls.setup {
             settings = settings,
