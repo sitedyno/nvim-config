@@ -27,8 +27,7 @@ return {
     },
 
     {
-        'sitedyno/nvim-html-css',
-        branch = 'specify-html-for-treesitter',
+        'jezda1337/nvim-html-css',
         dependencies = {
             'nvim-treesitter/nvim-treesitter',
             'nvim-lua/plenary.nvim',
