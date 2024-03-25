@@ -1,8 +1,8 @@
 -- From https://github.com/numToStr/dotfiles/blob/49a36214d91221108def81715d1792b90f29cf80/neovim/.config/nvim/lua/numToStr/autocmd.lua
 local ag = vim.api.nvim_create_augroup('sd', { clear = true })
 
--- Open help vertically and press q to exit
-vim.api.nvim_create_autocmd('BufEnter', {
+-- Open help vertically
+vim.api.nvim_create_autocmd('BufWinEnter', {
     group = ag,
     pattern = '*.txt',
     callback = function()
