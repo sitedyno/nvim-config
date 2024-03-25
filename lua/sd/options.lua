@@ -56,6 +56,10 @@ map <C-k> <C-w>k
 map <C-l> <C-w>l
 ]]
 
+-- splits
+vim.opt.splitright = true
+vim.opt.splitbelow = true
+
 -- vim.lsp.set_log_level 'debug'
 if vim.fn.has 'nvim-0.5.1' == 1 then
     require('vim.lsp.log').set_format_func(vim.inspect)
