@@ -51,6 +51,7 @@ ts.setup {
 }
 
 ts.load_extension 'fzf'
+ts.load_extension 'notify'
 ts.load_extension 'noice'
 ts.load_extension 'helpgrep'
 ts.load_extension 'dir'
