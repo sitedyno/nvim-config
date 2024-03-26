@@ -6,3 +6,4 @@ syn region markdownLinkText matchgroup=markdownLinkTextDelimiter start="!\=\[\%(
 syn region markdownLink matchgroup=markdownLinkDelimiter start="(" end=")" contains=markdownUrl keepend contained conceal
 
 set wrap linebreak
+setl textwidth=80 softtabstop=4 shiftwidth=4 tabstop=4 colorcolumn=80
