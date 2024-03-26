@@ -162,7 +162,14 @@ return {
 
     'Glench/Vim-Jinja2-Syntax',
 
-    'ellisonleao/glow.nvim',
+    {
+        'ellisonleao/glow.nvim',
+        config = true,
+        cmd = 'Glow',
+        keys = {
+            { '<leader>rm', '<cmd>Glow<cr>', desc = 'Render Markdown' },
+        },
+    },
 
     {
         'danymat/neogen',
