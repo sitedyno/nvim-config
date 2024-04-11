@@ -186,6 +186,19 @@ return {
         version = '*',
     },
 
+    {
+        'gbprod/phpactor.nvim',
+        opts = {
+            install = {
+                path = vim.fn.stdpath 'data' .. '/mason/packages/phpactor/',
+                bin = vim.fn.stdpath 'data' .. '/mason/packages/phpactor/bin/phpactor',
+            },
+            lspconfig = {
+                enabled = false,
+            },
+        },
+    },
+
     'tpope/vim-dadbod',
 
     'kristijanhusak/vim-dadbod-ui',
