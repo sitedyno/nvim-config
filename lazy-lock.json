@@ -45,6 +45,7 @@
   "nvim-yati": { "branch": "main", "commit": "c4307e6855f17ff89f0132787e2daba27495d254" },
   "php-enhanced-treesitter.nvim": { "branch": "main", "commit": "3874567a4ee859b8d31fceb82d04f591754f94af" },
   "phpactor": { "branch": "master", "commit": "836235017ba0419f77ded78f93252455242e7682" },
+  "phpactor.nvim": { "branch": "main", "commit": "42bdb2ea48abadc910d9f500455b811a9039e620" },
   "playground": { "branch": "master", "commit": "ba48c6a62a280eefb7c85725b0915e021a1a0749" },
   "plenary.nvim": { "branch": "master", "commit": "f7adfc4b3f4f91aab6caebf42b3682945fbc35be" },
   "sonokai": { "branch": "master", "commit": "a62656a798043f3c6b603efa98d4de2da89c72b2" },
