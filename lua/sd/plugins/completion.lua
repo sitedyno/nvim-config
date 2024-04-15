@@ -25,15 +25,4 @@ return {
         end,
         dependencies = { 'saadparwaiz1/cmp_luasnip' },
     },
-
-    {
-        'jezda1337/nvim-html-css',
-        dependencies = {
-            'nvim-treesitter/nvim-treesitter',
-            'nvim-lua/plenary.nvim',
-        },
-        config = function()
-            require('html-css'):setup {}
-        end,
-    },
 }
