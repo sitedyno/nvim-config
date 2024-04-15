@@ -42,6 +42,7 @@
   "nvim-treesitter-context": { "branch": "master", "commit": "f19766163c18515fb4d3c12d572bf9cba6cdb990" },
   "nvim-web-devicons": { "branch": "master", "commit": "6ed787740a3b275b748328eb2dc7dd22dae1c064" },
   "nvim-yati": { "branch": "main", "commit": "c4307e6855f17ff89f0132787e2daba27495d254" },
+  "oil.nvim": { "branch": "master", "commit": "e462a3446505185adf063566f5007771b69027a1" },
   "php-enhanced-treesitter.nvim": { "branch": "main", "commit": "3874567a4ee859b8d31fceb82d04f591754f94af" },
   "phpactor": { "branch": "master", "commit": "836235017ba0419f77ded78f93252455242e7682" },
   "phpactor.nvim": { "branch": "main", "commit": "42bdb2ea48abadc910d9f500455b811a9039e620" },
