@@ -271,4 +271,6 @@ return {
             },
         },
     },
+
+    { 'tpope/vim-repeat' },
 }
