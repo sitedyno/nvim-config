@@ -1,5 +1,6 @@
 return {
     {
+        enabled = true,
         'ggandor/leap.nvim',
         config = function()
             require('leap').create_default_mappings()
@@ -9,6 +10,7 @@ return {
         },
     },
     {
+        enabled = true,
         'ggandor/flit.nvim',
         config = true,
         dependencies = {
