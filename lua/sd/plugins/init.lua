@@ -177,7 +177,7 @@ return {
         opts = {
             install = {
                 path = vim.fn.stdpath 'data' .. '/mason/packages/phpactor/',
-                bin = vim.fn.stdpath 'data' .. '/mason/packages/phpactor/bin/phpactor',
+                bin = vim.fn.stdpath 'data' .. '/mason/packages/phpactor/phpactor',
             },
             lspconfig = {
                 enabled = false,
