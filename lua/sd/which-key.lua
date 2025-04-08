@@ -8,91 +8,67 @@ end
 local meta = '<space>'
 local leader = '<leader>'
 local mappings = {
-    [meta] = {
-        f = { '<cmd>Telescope find_files<cr>', 'Find files' },
-        b = { '<cmd>Telescope buffers<cr>', 'Buffers' },
-        p = { '<cmd>bprev<cr>', 'Previous Buffer' },
-        n = { '<cmd>bnext<cr>', 'Next Buffer' },
+    { '<leader>b', '<cmd>Telescope builtin<cr>', desc = 'Builtins' },
+    { '<leader>c', group = 'Commands, Phpactor' },
+    { '<leader>cc', '<cmd>Telescope commands<cr>', desc = 'Commands' },
+    { '<leader>ce', '<cmd>PhpactorClassExpand<cr>', desc = 'Expand Class' },
+    { '<leader>ch', '<cmd>Telescope command_history<cr>', desc = 'Command History' },
+    { '<leader>cs', 'bi\\<cmd>PhpactorClassExpand<cr>', desc = 'Expand Class (docblock)' },
+    { '<leader>f', '<cmd>TestFile<cr>', desc = 'Test File' },
+    { '<leader>g', group = 'Git,Grep' },
+    { '<leader>gc', '<cmd>tab Git commit --verbose<cr>', desc = 'Git commit' },
+    { '<leader>gf', '<cmd>Telescope git_files<cr>', desc = 'Git Ls-files' },
+    { '<leader>gg', '<cmd>Telescope grep_string<cr>', desc = 'Grep String' },
+    { '<leader>gl', '<cmd>tab Git log<cr>', desc = 'Git log' },
+    { '<leader>gp', group = 'Git Pull,Push' },
+    { '<leader>gpl', '<cmd>Git pull<cr>', desc = 'Git pull' },
+    { '<leader>gps', '<cmd>Git push<cr>', desc = 'Git push' },
+    { '<leader>gr', '<cmd>tab Git restore --staged --patch<cr>', desc = 'Git restore' },
+    { '<leader>gs', '<cmd>Telescope git_status<cr>', desc = 'Git Status' },
+    { '<leader>l', group = 'Live Grep' },
+    { '<leader>la', '<cmd>Telescope live_grep<cr>', desc = 'Live Grep All' },
+    { '<leader>ls', '<cmd>Telescope dir live_grep<cr>', desc = 'Live Grep Selected' },
+    { '<leader>nc', '<cmd>Neogen class<cr>', desc = 'Document Class' },
+    { '<leader>nf', '<cmd>Neogen func<cr>', desc = 'Document Func' },
+    { '<leader>ng', '<cmd>Neogit<cr>', desc = 'Neogit' },
+    { '<leader>nl', '<cmd>NeovimLogFiles<cr>', desc = 'Neovim Log Files' },
+    { '<leader>np', '<cmd>Neogen type<cr>', desc = 'Document Property' },
+    { '<leader>p', group = 'Projectionist' },
+    { '<leader>pa', '<cmd>A<cr>', desc = 'Alternate File' },
+    { '<leader>ps', '<cmd>AS<cr>', desc = 'Alternate Horizontal' },
+    { '<leader>pt', '<cmd>AT<cr>', desc = 'Alternate Tab' },
+    { '<leader>pv', '<cmd>AV<cr>', desc = 'Alternate Vertical' },
+    { '<leader>so', '<cmd>Telescope oldfiles<cr>', desc = 'Search Old/recent files' },
+    { '<leader>t', group = 'Telescope,Testing' },
+    { '<leader>ta', '<cmd>TestSuite<cr>', desc = 'Run Test Suite All Output (stderr)' },
+    { '<leader>te', '<cmd>Telescope symbols<cr>', desc = 'Symbols/Emoji' },
+    { '<leader>tk', '<cmd>Telescope keymaps<cr>', desc = 'Keymaps' },
+    { '<leader>tl', '<cmd>TestLast<cr>', desc = 'Run Last Test' },
+    { '<leader>tn', '<cmd>TestNearest<cr>', desc = 'Run Nearest Test' },
+    { '<leader>tr', '<cmd>Telescope registers<cr>', desc = 'Registers' },
+    { '<leader>ts', '<cmd>TestSuite 2>/dev/null<cr>', desc = 'Run Test Suite' },
+    { '<leader>tv', '<cmd>TestVisit<cr>', desc = 'Visit Last Run Test' },
+    { '<leader>z', group = 'Zk' },
+    {
+        '<leader>zf',
+        '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>',
+        desc = 'Search Notes',
     },
-    [leader] = {
-        b = { '<cmd>Telescope builtin<cr>', 'Builtins' },
-        c = {
-            name = 'Commands, Phpactor',
-            c = { '<cmd>Telescope commands<cr>', 'Commands' },
-            e = { '<cmd>PhpactorClassExpand<cr>', 'Expand Class' },
-            s = { 'bi\\<cmd>PhpactorClassExpand<cr>', 'Expand Class (docblock)' },
-            h = { '<cmd>Telescope command_history<cr>', 'Command History' },
-        },
-        f = { '<cmd>TestFile<cr>', 'Test File' },
-        g = {
-            name = 'Git,Grep',
-            c = { '<cmd>tab Git commit --verbose<cr>', 'Git commit' },
-            f = { '<cmd>Telescope git_files<cr>', 'Git Ls-files' },
-            g = { '<cmd>Telescope grep_string<cr>', 'Grep String' },
-            l = { '<cmd>tab Git log<cr>', 'Git log' },
-            p = {
-                name = 'Git Pull,Push',
-                l = { '<cmd>Git pull<cr>', 'Git pull' },
-                s = { '<cmd>Git push<cr>', 'Git push' },
-            },
-            r = { '<cmd>tab Git restore --staged --patch<cr>', 'Git restore' },
-            s = { '<cmd>Telescope git_status<cr>', 'Git Status' },
-        },
-        l = {
-            name = 'Live Grep',
-            a = { '<cmd>Telescope live_grep<cr>', 'Live Grep All' },
-            s = { '<cmd>Telescope dir live_grep<cr>', 'Live Grep Selected' },
-        },
-        n = {
-            c = { '<cmd>Neogen class<cr>', 'Document Class' },
-            f = { '<cmd>Neogen func<cr>', 'Document Func' },
-            g = { '<cmd>Neogit<cr>', 'Neogit' },
-            l = { '<cmd>NeovimLogFiles<cr>', 'Neovim Log Files' },
-            p = { '<cmd>Neogen type<cr>', 'Document Property' },
-        },
-        p = {
-            name = 'Projectionist',
-            a = { '<cmd>A<cr>', 'Alternate File' },
-            s = { '<cmd>AS<cr>', 'Alternate Horizontal' },
-            t = { '<cmd>AT<cr>', 'Alternate Tab' },
-            v = { '<cmd>AV<cr>', 'Alternate Vertical' },
-        },
-        s = {
-            o = { '<cmd>Telescope oldfiles<cr>', 'Search Old/recent files' },
-        },
-        t = {
-            name = 'Telescope,Testing',
-            a = { '<cmd>TestSuite<cr>', 'Run Test Suite All Output (stderr)' },
-            e = { '<cmd>Telescope symbols<cr>', 'Symbols/Emoji' },
-            k = { '<cmd>Telescope keymaps<cr>', 'Keymaps' },
-            l = { '<cmd>TestLast<cr>', 'Run Last Test' },
-            n = { '<cmd>TestNearest<cr>', 'Run Nearest Test' },
-            r = { '<cmd>Telescope registers<cr>', 'Registers' },
-            s = { '<cmd>TestSuite 2>/dev/null<cr>', 'Run Test Suite' },
-            v = { '<cmd>TestVisit<cr>', 'Visit Last Run Test' },
-        },
-        z = {
-            name = 'Zk',
-            n = { '<Cmd>ZkNew { title = vim.fn.input("Title: ") }<CR>', 'New Note' },
-            o = { '<Cmd>ZkNotes { sort = { "modified" } }<CR>', 'List Notes' },
-            t = { '<Cmd>ZkTags<CR>', 'Tags' },
-            f = { '<Cmd>ZkNotes { sort = { "modified" }, match = vim.fn.input("Search: ") }<CR>', 'Search Notes' },
-        },
-    },
+    { '<leader>zn', '<Cmd>ZkNew { title = vim.fn.input("Title: ") }<CR>', desc = 'New Note' },
+    { '<leader>zo', '<Cmd>ZkNotes { sort = { "modified" } }<CR>', desc = 'List Notes' },
+    { '<leader>zt', '<Cmd>ZkTags<CR>', desc = 'Tags' },
+    { '<space>b', '<cmd>Telescope buffers<cr>', desc = 'Buffers' },
+    { '<space>f', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
+    { '<space>n', '<cmd>bnext<cr>', desc = 'Next Buffer' },
+    { '<space>p', '<cmd>bprev<cr>', desc = 'Previous Buffer' },
 }
 
-wk.register(mappings)
+wk.add(mappings)
 
 local vopts = { mode = 'v' }
 local vmappings = {
-    [leader] = {
-        z = {
-            f = { ":'<,'>ZkMatch<CR>", 'Search Notes' },
-        },
-    },
-    i = {
-        h = { 'Select Hunk' },
-    },
+    { '<leader>zf', ":'<,'>ZkMatch<CR>", desc = 'Search Notes', mode = 'v' },
+    { 'ih', desc = 'Select Hunk', mode = 'v' },
 }
 
-wk.register(vmappings, vopts)
+wk.add(vmappings, vopts)
