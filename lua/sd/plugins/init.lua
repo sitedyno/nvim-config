@@ -32,20 +32,6 @@ return {
                 config = true,
                 branch = 'legacy',
             },
-            {
-                'jose-elias-alvarez/null-ls.nvim',
-                config = function()
-                    require 'sd.lsp.null-ls'
-                end,
-                dependencies = {
-                    {
-                        'jayp0521/mason-null-ls.nvim',
-                        config = function()
-                            require 'sd.lsp.mason-null-ls'
-                        end,
-                    },
-                },
-            },
         },
     },
 
