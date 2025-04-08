@@ -64,5 +64,4 @@ gsigns.setup {
         -- Text object
         map({ 'o', 'x' }, 'ih', ':<C-U>Gitsigns select_hunk<CR>', { desc = 'Select Hunk' })
     end,
-    _signs_staged_enable = true,
 }
