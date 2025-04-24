@@ -9,26 +9,43 @@ end
 -- on_attach = on_attach
 -- capabilities = capabilities
 -- in each of the setup_handlers below
-util.on_setup = util.add_hook_after(util.on_setup, function(config)
-    if config.on_attach then
-        config.on_attach = util.add_hook_after(config.on_attach, on_attach)
-    else
-        config.on_attach = on_attach
-    end
-    config.capabilities = vim.tbl_deep_extend(
-        'force',
-        vim.lsp.protocol.make_client_capabilities(),
-        require('cmp_nvim_lsp').default_capabilities()
-    )
-end)
+-- util.on_setup = util.add_hook_after(util.on_setup, function(config)
+--     if config.on_attach then
+--         config.on_attach = util.add_hook_after(config.on_attach, on_attach)
+--     else
+--         config.on_attach = on_attach
+--     end
+--     config.capabilities = vim.tbl_deep_extend(
+--         'force',
+--         vim.lsp.protocol.make_client_capabilities(),
+--         require('cmp_nvim_lsp').default_capabilities()
+--     )
+-- end)
 
+local capabilities = vim.tbl_deep_extend(
+    'force',
+    vim.lsp.protocol.make_client_capabilities(),
+    require('cmp_nvim_lsp').default_capabilities()
+)
 require('mason-lspconfig').setup_handlers {
     -- disable a server by commenting out the setup call
     function(server_name)
-        lspconfig[server_name].setup {}
+        lspconfig[server_name].setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+        }
+    end,
+    ['cssls'] = function()
+        lspconfig.cssls.setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            init_options = { provideFormatter = false },
+        }
     end,
     ['phpactor'] = function()
         lspconfig.phpactor.setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
             filetypes = {
                 'php',
                 'php.html',
@@ -76,6 +93,8 @@ require('mason-lspconfig').setup_handlers {
             },
         }
         require('neodev').setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
             override = function(root_dir, library)
                 -- this is likely hit & miss but meh
                 local nvim_proj = string.find(root_dir, 'nvim')
@@ -87,6 +106,8 @@ require('mason-lspconfig').setup_handlers {
             pathStrict = true,
         }
         lspconfig.lua_ls.setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
             settings = settings,
         }
     end,
