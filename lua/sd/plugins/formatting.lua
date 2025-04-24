@@ -7,7 +7,7 @@ return {
         {
             '<leader>=', -- ,=
             function()
-                require('conform').format { async = true, lsp_fallback = false }
+                require('conform').format { async = true }
             end,
             desc = 'Format buffer',
             mode = '',
@@ -47,7 +47,7 @@ return {
             if vim.g.disable_autoformat or vim.b[bufnr].disable_autoformat then
                 return
             end
-            return { timeout_ms = 500, lsp_fallback = true }
+            return { timeout_ms = 500, lsp_format = 'never' }
         end,
         -- Customize formatters
         formatters = {
@@ -58,6 +58,7 @@ return {
                 prepend_args = { '-i', '4' },
             },
         },
+        -- log_level = vim.log.levels.DEBUG,
     },
     init = function()
         -- If you want the formatexpr, here is the place to set it
@@ -75,7 +76,7 @@ return {
             vim.b.disable_autoformat = false
             vim.g.disable_autoformat = false
         end, {
-            desc = 'Re-enable autoformat-on-save',
+            desc = 'Enable autoformat-on-save',
         })
     end,
 }
