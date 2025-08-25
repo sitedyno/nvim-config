@@ -111,4 +111,11 @@ require('mason-lspconfig').setup_handlers {
             settings = settings,
         }
     end,
+    ['ts_ls'] = function()
+        lspconfig.ts_ls.setup {
+            capabilities = capabilities,
+            on_attach = on_attach,
+            init_options = { provideFormatter = false },
+        }
+    end,
 }
