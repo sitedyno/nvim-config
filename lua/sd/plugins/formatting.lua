@@ -61,6 +61,8 @@ return {
         -- log_level = vim.log.levels.DEBUG,
     },
     init = function()
+        vim.b.disable_autoformat = true
+        vim.g.disable_autoformat = true
         -- If you want the formatexpr, here is the place to set it
         vim.o.formatexpr = "v:lua.require'conform'.formatexpr()"
     end,
