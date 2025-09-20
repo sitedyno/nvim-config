@@ -77,7 +77,7 @@ end
 function M.on_attach(client, bufnr)
     M.keymaps(client, bufnr)
     M.highlights(client)
-    M.formatting(client, bufnr)
+    -- M.formatting(client, bufnr)
 end
 
 return M
