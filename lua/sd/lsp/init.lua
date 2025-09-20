@@ -115,7 +115,8 @@ require('mason-lspconfig').setup_handlers {
         lspconfig.ts_ls.setup {
             capabilities = capabilities,
             on_attach = on_attach,
-            init_options = { provideFormatter = false },
+            -- Mason seems to be lieing about format.enable
+            -- init_options = { ['javascript.format.enable'] = false },
         }
     end,
 }
