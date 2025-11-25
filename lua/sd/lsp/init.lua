@@ -1,6 +1,3 @@
-local lspconfig = require 'lspconfig'
-local util = require 'lspconfig.util'
-
 local function on_attach(client, bufnr)
     require('sd.lsp.on_attach').on_attach(client, bufnr)
 end
@@ -30,20 +27,20 @@ local capabilities = vim.tbl_deep_extend(
 require('mason-lspconfig').setup_handlers {
     -- disable a server by commenting out the setup call
     function(server_name)
-        lspconfig[server_name].setup {
+        vim.lsp.config[server_name] = {
             capabilities = capabilities,
             on_attach = on_attach,
         }
     end,
     ['cssls'] = function()
-        lspconfig.cssls.setup {
+        vim.lsp.config('cssls', {
             capabilities = capabilities,
             on_attach = on_attach,
             init_options = { provideFormatter = false },
-        }
+        })
     end,
     ['phpactor'] = function()
-        lspconfig.phpactor.setup {
+        vim.lsp.config('phpactor', {
             capabilities = capabilities,
             on_attach = on_attach,
             filetypes = {
@@ -65,7 +62,7 @@ require('mason-lspconfig').setup_handlers {
                     return filetype
                 end
             end,
-        }
+        })
     end,
     ['lua_ls'] = function()
         local settings = {
@@ -105,18 +102,18 @@ require('mason-lspconfig').setup_handlers {
             end,
             pathStrict = true,
         }
-        lspconfig.lua_ls.setup {
+        vim.lsp.config('lua_ls', {
             capabilities = capabilities,
             on_attach = on_attach,
             settings = settings,
-        }
+        })
     end,
     ['ts_ls'] = function()
-        lspconfig.ts_ls.setup {
+        vim.lsp.config('ts_ls', {
             capabilities = capabilities,
             on_attach = on_attach,
             -- Mason seems to be lieing about format.enable
             -- init_options = { ['javascript.format.enable'] = false },
-        }
+        })
     end,
 }
