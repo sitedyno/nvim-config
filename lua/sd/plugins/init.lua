@@ -55,6 +55,7 @@ return {
                 'catgoose/telescope-helpgrep.nvim',
                 -- branch = 'sitedyno',
             },
+            'pschmitt/telescope-yadm.nvim',
             -- Adds icons to telescope
             'kyazdani42/nvim-web-devicons',
         },
