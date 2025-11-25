@@ -70,7 +70,7 @@ vim.opt.updatetime = 2000
 
 -- Diagnostics
 vim.diagnostic.config {
-    float = {
+    on_jump = {
         source = true,
     },
 }
