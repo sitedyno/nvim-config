@@ -52,8 +52,8 @@ return {
             'nvim-telescope/telescope-symbols.nvim',
             'princejoogie/dir-telescope.nvim',
             {
-                'sitedyno/telescope-helpgrep.nvim',
-                branch = 'sitedyno',
+                'catgoose/telescope-helpgrep.nvim',
+                -- branch = 'sitedyno',
             },
             -- Adds icons to telescope
             'kyazdani42/nvim-web-devicons',
