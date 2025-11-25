@@ -260,4 +260,12 @@ return {
     },
 
     { 'tpope/vim-repeat' },
+
+    {
+        "Kohei-Wada/yadm-git.nvim",
+        lazy = false,
+        opts = {
+            debug = false,
+        },
+    },
 }
