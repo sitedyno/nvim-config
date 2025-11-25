@@ -217,7 +217,7 @@ return {
             },
         },
         keys = {
-            { '<leader>tN', '<cmd>Telescope noice<cr>', { desc = 'Noice Messages' } },
+            { '<space>N', '<cmd>Telescope Noice<cr>', desc = 'Noice Messages' },
         },
     },
 
