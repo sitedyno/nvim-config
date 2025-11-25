@@ -61,6 +61,7 @@ local mappings = {
     { '<space>f', '<cmd>Telescope find_files<cr>', desc = 'Find files' },
     { '<space>n', '<cmd>bnext<cr>', desc = 'Next Buffer' },
     { '<space>p', '<cmd>bprev<cr>', desc = 'Previous Buffer' },
+    { '<space>y', '<cmd>Telescope yadm_files<cr>', desc = 'Open Dotfiles' },
 }
 
 wk.add(mappings)
