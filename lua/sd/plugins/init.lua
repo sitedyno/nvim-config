@@ -280,5 +280,10 @@ return {
             --- if you use functions, or whichkey, or lazy to map keys
             --- then please see the API below for options
         },
+        keys = {
+            { '<leader>sh', '<cmd>Hawtkeys<cr>', desc = 'Search Hawtkeys' },
+            { '<leader>lh', '<cmd>HawtkeysAll<cr>', desc = 'List Hawtkeys' },
+            { '<leader>ld', '<cmd>HawtkeysDupes<cr>', desc = 'List Duplicate Hawtkeys' },
+        },
     },
 }
