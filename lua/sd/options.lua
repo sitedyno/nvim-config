@@ -70,7 +70,11 @@ vim.opt.updatetime = 2000
 
 -- Diagnostics
 vim.diagnostic.config {
-    on_jump = {
-        source = true,
+    jump = {
+        float = {
+            border = "rounded",
+            source = true,
+        },
     },
+    underline = false,
 }
