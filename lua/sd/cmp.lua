@@ -26,6 +26,7 @@ cmp.setup {
                 zsh = '[Zsh]',
                 ['vim-dadbod-completion'] = '[DB]',
                 git = '[Git]',
+                lazydev = '[LD]',
             },
             with_text = true,
         },
@@ -53,6 +54,7 @@ cmp.setup {
     },
     sources = cmp.config.sources({
         -- { name = 'phpactor' },
+        { name = 'lazydev', group_index = 0 },
         { name = 'nvim_lsp' },
         { name = 'luasnip' },
         -- { name = 'nvim_lsp_signature_help' },
