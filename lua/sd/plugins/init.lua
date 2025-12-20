@@ -69,6 +69,7 @@ return {
             -- Adds icons to telescope
             'kyazdani42/nvim-web-devicons',
         },
+        version = '*',
     },
 
     {
