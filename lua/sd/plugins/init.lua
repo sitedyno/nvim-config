@@ -22,13 +22,13 @@ return {
         end,
         dependencies = {
             {
-                "folke/lazydev.nvim",
-                ft = "lua", -- only load on lua files
+                'folke/lazydev.nvim',
+                ft = 'lua', -- only load on lua files
                 opts = {
                     library = {
                         -- See the configuration section for more details
                         -- Load luvit types when the `vim.uv` word is found
-                        { path = "${3rd}/luv/library", words = { "vim%.uv" } },
+                        { path = '${3rd}/luv/library', words = { 'vim%.uv' } },
                     },
                 },
             },
@@ -298,15 +298,19 @@ return {
         },
     },
     {
-        "fladson/vim-kitty",
-        ft = "kitty",
+        'fladson/vim-kitty',
+        ft = 'kitty',
         -- tag = "*"  -- You can select a tagged version
     },
     {
         'mikesmithgh/kitty-scrollback.nvim',
         enabled = true,
         lazy = true,
-        cmd = { 'KittyScrollbackGenerateKittens', 'KittyScrollbackCheckHealth', 'KittyScrollbackGenerateCommandLineEditing' },
+        cmd = {
+            'KittyScrollbackGenerateKittens',
+            'KittyScrollbackCheckHealth',
+            'KittyScrollbackGenerateCommandLineEditing',
+        },
         event = { 'User KittyScrollbackLaunch' },
         -- version = '*', -- latest stable version, may have breaking changes if major version changed
         -- version = '^6.0.0', -- pin major version, include fixes and features that do not have breaking changes
@@ -316,21 +320,27 @@ return {
     },
     {
         'Tyler-Barham/floating-help.nvim',
-        config = function ()
-            require('floating-help').setup({
+        config = function()
+            require('floating-help').setup {
                 width = 80,
                 height = 0.9,
                 position = 'C',
-            })
+            }
             -- Only replace cmds, not search; only replace the first instance
             local function cmd_abbrev(abbrev, expansion)
-                local cmd = 'cabbr ' .. abbrev .. ' <c-r>=(getcmdpos() == 1 && getcmdtype() == ":" ? "' .. expansion .. '" : "' .. abbrev .. '")<CR>'
+                local cmd = 'cabbr '
+                    .. abbrev
+                    .. ' <c-r>=(getcmdpos() == 1 && getcmdtype() == ":" ? "'
+                    .. expansion
+                    .. '" : "'
+                    .. abbrev
+                    .. '")<CR>'
                 vim.cmd(cmd)
             end
             -- Redirect `:h` to `:FloatingHelp`
-            cmd_abbrev('h',         'FloatingHelp')
-            cmd_abbrev('help',      'FloatingHelp')
-            cmd_abbrev('helpc',     'FloatingHelpClose')
+            cmd_abbrev('h', 'FloatingHelp')
+            cmd_abbrev('help', 'FloatingHelp')
+            cmd_abbrev('helpc', 'FloatingHelpClose')
             cmd_abbrev('helpclose', 'FloatingHelpClose')
         end,
         keys = {
@@ -339,7 +349,7 @@ return {
         lazy = false,
     },
     {
-        "OXY2DEV/helpview.nvim",
-        lazy = false
+        'OXY2DEV/helpview.nvim',
+        lazy = false,
     },
 }

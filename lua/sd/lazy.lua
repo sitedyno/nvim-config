@@ -13,4 +13,4 @@ end
 
 vim.opt.rtp:prepend(lazypath)
 
-require('lazy').setup ('sd.plugins')
+require('lazy').setup 'sd.plugins'

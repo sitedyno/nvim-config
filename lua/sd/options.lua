@@ -72,7 +72,7 @@ vim.opt.updatetime = 2000
 vim.diagnostic.config {
     jump = {
         float = {
-            border = "rounded",
+            border = 'rounded',
             source = true,
         },
     },

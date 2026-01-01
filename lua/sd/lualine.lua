@@ -27,7 +27,7 @@ ll.setup {
         lualine_x = {
             {
                 require('noice').api.status.mode.get,
-                cond = function ()
+                cond = function()
                     local message = require('noice').api.status.mode.get()
                     return vim.fn.assert_match('recording @', message) == 0
                 end,
