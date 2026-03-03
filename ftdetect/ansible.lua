@@ -5,5 +5,10 @@ vim.filetype.add {
                 return 'yaml.ansible'
             end
         end,
+        yaml = function(path, bufnr)
+            if vim.fn.glob(path .. 'ansible.cfg') then
+                return 'yaml.ansible'
+            end
+        end,
     },
 }
