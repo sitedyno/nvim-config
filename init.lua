@@ -19,6 +19,7 @@ vim.pack.add({
   'https://github.com/neovim/nvim-lspconfig',
   'https://github.com/nvim-treesitter/nvim-treesitter',
   'https://github.com/mason-org/mason.nvim',
+	'https://github.com/folke/which-key.nvim',
 	'https://github.com/folke/lazydev.nvim',
 })
 vim.api.nvim_create_autocmd('CmdlineEnter', { once = true, callback = function ()
