@@ -41,8 +41,19 @@ vim.pack.add({
 	'https://github.com/folke/which-key.nvim',
 	'https://github.com/folke/lazydev.nvim',
 	'https://github.com/j-hui/fidget.nvim',
+	{
+		src = 'https://github.com/saghen/blink.cmp',
+		version = 'v1.10.1',
+	},
 })
 require('fidget').setup{}
+require('blink.cmp').setup{
+	completion = {
+		documentation = {
+			auto_show = true,
+		},
+	},
+}
 
 vim.api.nvim_create_autocmd('CmdlineEnter', {
 	group = group,
@@ -79,8 +90,12 @@ vim.api.nvim_create_autocmd('LspAttach', {
 			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
 			-- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
 			-- client.server_capabilities.completionProvider.triggerCharacters = chars
-			vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
+			-- vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
 		end
 	end
+})
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+vim.lsp.config('*', {
+	capabilities = capabilities,
 })
 vim.lsp.enable('lua_ls')
