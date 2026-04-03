@@ -7,10 +7,18 @@ vim.opt.smartcase = true
 vim.opt.cursorline = true
 vim.opt.scrolloff = 10
 vim.opt.list = true
-	local name, kind = ev.data.spec.name, ev.data.kind
-	if name == 'nvim-treesitter' and kind == 'update' then
-		if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
-		vim.cmd('TSUpdate')
+vim.opt.winborder = 'rounded'
+vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
+vim.opt.winborder = 'rounded'
+vim.diagnostic.config {
+	jump = {
+		float = {
+			source = true,
+		},
+	},
+	underline = false,
+}
+
 local group = vim.api.nvim_create_augroup('sd', {})
 
 	end
