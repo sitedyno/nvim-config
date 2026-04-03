@@ -1,5 +1,6 @@
 require('vim._core.ui2').enable({})
 
+vim.cmd[[ colorscheme lunaperche ]]
 vim.opt.number = true
 vim.opt.relativenumber = true
 vim.opt.ignorecase = true
