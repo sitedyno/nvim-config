@@ -1,5 +1,5 @@
-vim.o.number = true
-vim.o.relativenumber = true
+require('vim._core.ui2').enable({})
+
 vim.o.ignorecase = true
 vim.o.smartcase = true
 vim.o.cursorline = true
