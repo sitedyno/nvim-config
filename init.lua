@@ -21,7 +21,9 @@ vim.pack.add({
 	'https://github.com/mason-org/mason.nvim',
 	'https://github.com/folke/which-key.nvim',
 	'https://github.com/folke/lazydev.nvim',
+	'https://github.com/j-hui/fidget.nvim',
 })
+require('fidget').setup{}
 
 vim.api.nvim_create_autocmd('CmdlineEnter', {
 	once = true,
