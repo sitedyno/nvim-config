@@ -21,8 +21,16 @@ vim.diagnostic.config {
 
 local group = vim.api.nvim_create_augroup('sd', {})
 
+vim.api.nvim_create_autocmd('PackChanged', {
+	group = group,
+	callback = function(ev)
+		local name, kind = ev.data.spec.name, ev.data.kind
+		if name == 'nvim-treesitter' and kind == 'update' then
+			if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
+			vim.cmd('TSUpdate')
+		end
 	end
-end })
+})
 
 vim.pack.add({
 	'https://github.com/nvim-mini/mini.nvim',
@@ -58,4 +66,20 @@ vim.api.nvim_create_autocmd('FileType', {
 	callback = function() vim.treesitter.start() end,
 })
 
+vim.api.nvim_create_autocmd('LspAttach', {
+	group = group,
+	callback = function(ev)
+		local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
+		if client:supports_method('textDocument/implementation') then
+			-- keymaps
+		end
+		-- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
+		if client:supports_method('textDocument/completion') then
+			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
+			-- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
+			-- client.server_capabilities.completionProvider.triggerCharacters = chars
+			vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
+		end
+	end
+})
 vim.lsp.enable('lua_ls')
