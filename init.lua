@@ -11,6 +11,8 @@ vim.api.nvim_create_autocmd('PackChanged', { callback = function(ev)
 	if name == 'nvim-treesitter' and kind == 'update' then
 		if not ev.data.active then vim.cmd.packadd('nvim-treesitter') end
 		vim.cmd('TSUpdate')
+local group = vim.api.nvim_create_augroup('sd', {})
+
 	end
 end })
 
@@ -26,6 +28,7 @@ vim.pack.add({
 require('fidget').setup{}
 
 vim.api.nvim_create_autocmd('CmdlineEnter', {
+	group = group,
 	once = true,
 	callback = function ()
 		require('mason').setup()
@@ -33,6 +36,7 @@ vim.api.nvim_create_autocmd('CmdlineEnter', {
 })
 
 vim.api.nvim_create_autocmd('BufEnter', {
+	group = group,
 	once = true,
 	pattern = {'*.lua'},
 	callback = function ()
@@ -41,6 +45,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 })
 
 vim.api.nvim_create_autocmd('FileType', {
+	group = group,
 	pattern = { '<filetype>' },
 	callback = function() vim.treesitter.start() end,
 })
