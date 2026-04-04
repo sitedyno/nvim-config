@@ -1,16 +1,17 @@
 require('vim._core.ui2').enable({})
 
 vim.cmd[[ colorscheme lunaperche ]]
-vim.opt.number = true
-vim.opt.relativenumber = true
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-vim.opt.cursorline = true
-vim.opt.scrolloff = 10
-vim.opt.list = true
-vim.opt.winborder = 'rounded'
-vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
-vim.opt.winborder = 'rounded'
+vim.o.number = true
+vim.o.relativenumber = true
+vim.o.ignorecase = true
+vim.o.smartcase = true
+vim.o.cursorline = true
+vim.o.scrolloff = 10
+vim.o.list = true
+vim.o.signcolumn = 'yes:2'
+vim.o.winborder = 'rounded'
+vim.o.completeopt = { 'menuone', 'noselect', 'popup' }
+vim.o.winborder = 'rounded'
 vim.diagnostic.config {
 	jump = {
 		float = {
