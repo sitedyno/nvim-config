@@ -72,12 +72,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
 	end
 })
 
-vim.api.nvim_create_autocmd('FileType', {
-	group = group,
-	pattern = { '<filetype>' },
-	callback = function() vim.treesitter.start() end,
-})
-
 vim.api.nvim_create_autocmd('LspAttach', {
 	group = group,
 	callback = function(ev)
