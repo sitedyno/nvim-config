@@ -1,6 +1,8 @@
 require('vim._core.ui2').enable({})
 
-vim.cmd[[ colorscheme lunaperche ]]
+vim.cmd.colorscheme('lunaperche')
+
+-- native vim style options
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.ignorecase = true
@@ -10,8 +12,11 @@ vim.o.scrolloff = 10
 vim.o.list = true
 vim.o.signcolumn = 'yes:2'
 vim.o.winborder = 'rounded'
-vim.o.completeopt = { 'menuone', 'noselect', 'popup' }
 vim.o.winborder = 'rounded'
+
+-- "new" neovim style options
+vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
+
 vim.diagnostic.config {
 	jump = {
 		float = {
