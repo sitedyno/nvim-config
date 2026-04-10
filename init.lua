@@ -2,6 +2,9 @@ require('vim._core.ui2').enable({})
 
 vim.cmd.colorscheme('lunaperche')
 
+vim.g.mapleader = ','
+vim.g.maplocalleader = ' '
+
 -- native vim style options
 vim.o.number = true
 vim.o.relativenumber = true
