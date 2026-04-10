@@ -15,10 +15,10 @@ vim.o.scrolloff = 10
 vim.o.list = true
 vim.o.signcolumn = 'yes:2'
 vim.o.winborder = 'rounded'
-vim.o.winborder = 'rounded'
 
 -- "new" neovim style options
 vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
+vim.opt.termguicolors = true
 
 vim.diagnostic.config {
 	jump = {
