@@ -10,8 +10,6 @@ local function format_project()
         },
     }
     for formatter, config in pairs(formatters) do
-        vim.print(formatter)
-        vim.print(config)
         local found = vim.fn.filereadable(config.config)
         if found then
             local task = require('overseer.task').new { cmd = config.cmd }
