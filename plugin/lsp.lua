@@ -1,19 +1,19 @@
-vim.pack.add({
-	'https://github.com/neovim/nvim-lspconfig',
-	'https://github.com/mason-org/mason.nvim',
-	'https://github.com/folke/lazydev.nvim',
-	'https://github.com/j-hui/fidget.nvim',
-})
+vim.pack.add {
+    'https://github.com/neovim/nvim-lspconfig',
+    'https://github.com/mason-org/mason.nvim',
+    'https://github.com/folke/lazydev.nvim',
+    'https://github.com/j-hui/fidget.nvim',
+}
 
 local group = vim.api.nvim_create_augroup('sd.lsp', {})
 
 vim.api.nvim_create_autocmd('BufEnter', {
-	group = group,
-	once = true,
-	pattern = {'*.lua'},
-	callback = function ()
-		require('lazydev').setup()
-	end
+    group = group,
+    once = true,
+    pattern = { '*.lua' },
+    callback = function()
+        require('lazydev').setup()
+    end,
 })
 
 -- vim.api.nvim_create_autocmd('LspAttach', {
@@ -36,19 +36,19 @@ vim.api.nvim_create_autocmd('BufEnter', {
 -- })
 
 vim.api.nvim_create_autocmd('VimEnter', {
-	group = group,
-	callback = function(_)
-		require('fidget').setup({ notification = { override_vim_notify = true }})
-	end
+    group = group,
+    callback = function(_)
+        require('fidget').setup { notification = { override_vim_notify = true } }
+    end,
 })
 
 require('mason').setup()
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 vim.lsp.config('*', {
-	capabilities = capabilities,
+    capabilities = capabilities,
 })
 -- vim.lsp.log.set_level('trace')
-vim.lsp.enable('lua_ls')
+vim.lsp.enable 'lua_ls'
 
-vim.keymap.set({'n', 'v'}, '<localleader>M', '<cmd>Mason<cr>', { desc = 'Mason' })
+vim.keymap.set({ 'n', 'v' }, '<localleader>M', '<cmd>Mason<cr>', { desc = 'Mason' })

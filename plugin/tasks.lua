@@ -1,6 +1,7 @@
-vim.pack.add({
+vim.pack.add {
     'https://github.com/stevearc/overseer.nvim',
-})
+}
+
 local function format_project()
     local formatters = {
         stylua = {
