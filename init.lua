@@ -42,63 +42,29 @@ vim.api.nvim_create_autocmd('PackChanged', {
 	end
 })
 
-vim.pack.add({
-	'https://github.com/nvim-mini/mini.nvim',
-	'https://github.com/neovim/nvim-lspconfig',
-	'https://github.com/nvim-treesitter/nvim-treesitter',
-	'https://github.com/mason-org/mason.nvim',
-	'https://github.com/folke/which-key.nvim',
-	'https://github.com/folke/lazydev.nvim',
-	'https://github.com/j-hui/fidget.nvim',
-	{
-		src = 'https://github.com/saghen/blink.cmp',
-		version = 'v1.10.1',
-	},
-})
-require('fidget').setup{}
-require('blink.cmp').setup{
-	completion = {
-		documentation = {
-			auto_show = true,
-		},
-	},
-}
+-- https://github.com/artorias305/nvim/blob/14fe8f869393a957718d46b4a62169df8e4e307f/init.lua#L63
+local function clean_packages()
+	local active_plugins = {}
+	local unused_plugins = {}
 
-vim.api.nvim_create_autocmd('CmdlineEnter', {
-	group = group,
-	once = true,
-	callback = function ()
-		require('mason').setup()
+	for _, plugin in ipairs(vim.pack.get()) do
+		active_plugins[plugin.spec.name] = plugin.active
 	end
-})
 
-vim.api.nvim_create_autocmd('BufEnter', {
-	group = group,
-	once = true,
-	pattern = {'*.lua'},
-	callback = function ()
-		require('lazydev').setup()
-	end
-})
-
-vim.api.nvim_create_autocmd('LspAttach', {
-	group = group,
-	callback = function(ev)
-		local client = assert(vim.lsp.get_client_by_id(ev.data.client_id))
-		if client:supports_method('textDocument/implementation') then
-			-- keymaps
-		end
-		-- Enable auto-completion. Note: Use CTRL-Y to select an item. |complete_CTRL-Y|
-		if client:supports_method('textDocument/completion') then
-			-- Optional: trigger autocompletion on EVERY keypress. May be slow!
-			-- local chars = {}; for i = 32, 126 do table.insert(chars, string.char(i)) end
-			-- client.server_capabilities.completionProvider.triggerCharacters = chars
-			-- vim.lsp.completion.enable(true, client.id, ev.buf, {autotrigger = true})
+	for _, plugin in ipairs(vim.pack.get()) do
+		if not active_plugins[plugin.spec.name] then
+			table.insert(unused_plugins, plugin.spec.name)
 		end
 	end
-})
-local capabilities = require('blink.cmp').get_lsp_capabilities()
-vim.lsp.config('*', {
-	capabilities = capabilities,
-})
-vim.lsp.enable('lua_ls')
+
+	if #unused_plugins == 0 then
+		print("No unused plugins.")
+		return
+	end
+
+	local choice = vim.fn.confirm("Remove unused plugins?", "&Yes\n&No", 2)
+	if choice == 1 then
+		vim.pack.del(unused_plugins)
+	end
+end
+vim.keymap.set("n", "<leader>cp", clean_packages, {desc = 'Clean Packages'})
