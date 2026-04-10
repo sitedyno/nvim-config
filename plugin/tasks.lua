@@ -20,3 +20,5 @@ end
 
 vim.keymap.set({ 'n', 'v' }, '<leader>fp', format_project, { desc = 'Format Project' })
 vim.keymap.set({ 'n', 'v' }, '<leader>to', '<cmd>OverseerToggle<cr>', { desc = 'Toggle Overseer ui' })
+-- this works but is not intuitive imo, try to use ui2 or something for this later
+vim.keymap.set({ 'n', 'v' }, '<leader>so', '<cmd>:OverseerShell<cr>', { desc = 'Shell out to Overseer' })
