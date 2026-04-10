@@ -21,3 +21,4 @@ local function format_project()
 end
 
 vim.keymap.set({ 'n', 'v' }, '<leader>fp', format_project, { desc = 'Format Project' })
+vim.keymap.set({ 'n', 'v' }, '<leader>to', '<cmd>OverseerToggle<cr>', { desc = 'Toggle Overseer' })
