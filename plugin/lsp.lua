@@ -50,3 +50,5 @@ vim.lsp.config('*', {
 })
 -- vim.lsp.log.set_level('trace')
 vim.lsp.enable('lua_ls')
+
+vim.keymap.set({'n', 'v'}, '<localleader>M', '<cmd>Mason<cr>', { desc = 'Mason' })
