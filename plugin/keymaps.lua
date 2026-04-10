@@ -13,3 +13,6 @@ require('hawtkeys').setup {
 vim.keymap.set({ 'n', 'v' }, '<leader>Hs', '<cmd>Hawtkeys<cr>', { desc = 'Hawtkeys Search' })
 vim.keymap.set({ 'n', 'v' }, '<leader>Hd', '<cmd>HawtkeysDupes<cr>', { desc = 'Hawtkeys find Duplicates' })
 vim.keymap.set({ 'n', 'v' }, '<leader>Ha', '<cmd>HawtkeysAll<cr>', { desc = 'Hawtkeys find Duplicates' })
+vim.keymap.set({ 'n', 'v' }, '<leader>cs', '<cmd>nohlsearch<cr>', { desc = 'Cancel Search highlights' })
+vim.keymap.set({ 'n', 'v' }, '<leader>cw', '<cmd>q<cr>', { desc = 'Close window' })
+vim.keymap.set({ 'n', 'v' }, '<leader>sf', '<cmd>source %<cr>', { desc = 'Source current File' })
