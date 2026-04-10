@@ -9,7 +9,7 @@ local function format_project()
             config = 'stylua.toml',
         },
     }
-    for formatter, config in pairs(formatters) do
+    for _, config in pairs(formatters) do
         local found = vim.fn.filereadable(config.config)
         if found then
             local task = require('overseer.task').new { cmd = config.cmd }
