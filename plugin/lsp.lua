@@ -16,14 +16,6 @@ vim.api.nvim_create_autocmd('BufEnter', {
 	end
 })
 
-vim.api.nvim_create_autocmd('CmdlineEnter', {
-	group = group,
-	once = true,
-	callback = function ()
-		require('mason').setup()
-	end
-})
-
 -- vim.api.nvim_create_autocmd('LspAttach', {
 -- 	group = group,
 -- 	callback = function(ev)
@@ -43,15 +35,14 @@ vim.api.nvim_create_autocmd('CmdlineEnter', {
 -- 	end
 -- })
 
--- vim.api.nvim_create_autocmd('VimEnter', {
--- 	group = group,
--- 	callback = function(_)
--- 		vim.print('fidget lazy')
--- 		require('fidget').setup({})
--- 	end
--- })
+vim.api.nvim_create_autocmd('VimEnter', {
+	group = group,
+	callback = function(_)
+		require('fidget').setup({})
+	end
+})
 
-require('fidget').setup({})
+require('mason').setup()
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 vim.lsp.config('*', {
