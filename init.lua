@@ -92,3 +92,4 @@ local function clean_packages()
 end
 vim.keymap.set({ 'n' }, '<leader>cp', clean_packages, { desc = 'Clean Packages' })
 vim.keymap.set({ 'n' }, '<leader>up', '<cmd>UpdatePackages<cr>', { desc = 'Update Packages' })
+vim.keymap.set({ 'n' }, '<localleader>R', '<cmd>restart<cr>', { desc = 'Restart neovim' })
