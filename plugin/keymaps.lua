@@ -16,3 +16,4 @@ vim.keymap.set({ 'n', 'v' }, '<leader>Ha', '<cmd>HawtkeysAll<cr>', { desc = 'Haw
 vim.keymap.set({ 'n', 'v' }, '<leader>cs', '<cmd>nohlsearch<cr>', { desc = 'Cancel Search highlights' })
 vim.keymap.set({ 'n', 'v' }, '<leader>cw', '<cmd>q<cr>', { desc = 'Close window' })
 vim.keymap.set({ 'n', 'v' }, '<leader>sf', '<cmd>source %<cr>', { desc = 'Source current File' })
+vim.keymap.set({ 'n', 'v' }, '<leader>lk', '<cmd>FzfLua keymaps<cr>', { desc = 'List Keymaps' })
