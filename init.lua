@@ -28,6 +28,10 @@ vim.o.autoindent = true
 vim.o.list = true
 vim.o.signcolumn = 'yes:2'
 vim.o.winborder = 'rounded'
+vim.o.showmatch = true
+vim.o.autoread = true
+vim.o.updatetime = 300
+vim.o.timeoutlen = 500
 
 -- "new" neovim style options
 vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
