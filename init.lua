@@ -5,7 +5,14 @@ vim.cmd.colorscheme 'lunaperche'
 vim.g.mapleader = ','
 vim.g.maplocalleader = ' '
 
+local undodir = vim.fn.stdpath('state') .. '/undo'
+if vim.fn.isdirectory(undodir) == 0 then
+    vim.fn.mkdir(undodir, 'p')
+end
+
 -- native vim style options
+vim.o.undofile = true
+vim.o.undodir = undodir
 vim.o.number = true
 vim.o.relativenumber = true
 vim.o.ignorecase = true
