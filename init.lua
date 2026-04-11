@@ -5,7 +5,7 @@ vim.cmd.colorscheme 'lunaperche'
 vim.g.mapleader = ','
 vim.g.maplocalleader = ' '
 
-local undodir = vim.fn.stdpath('state') .. '/undo'
+local undodir = vim.fn.stdpath 'state' .. '/undo'
 if vim.fn.isdirectory(undodir) == 0 then
     vim.fn.mkdir(undodir, 'p')
 end
@@ -86,4 +86,4 @@ local function clean_packages()
         vim.pack.del(unused_plugins)
     end
 end
-vim.keymap.set('n', '<leader>cp', clean_packages, { desc = 'Clean Packages' })
+vim.keymap.set({ 'n' }, '<leader>cp', clean_packages, { desc = 'Clean Packages' })

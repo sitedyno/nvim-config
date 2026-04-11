@@ -48,7 +48,9 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 vim.lsp.config('*', {
     capabilities = capabilities,
 })
+
 -- vim.lsp.log.set_level('trace')
+
 vim.lsp.enable 'lua_ls'
 
 vim.keymap.set({ 'n', 'v' }, '<localleader>M', '<cmd>Mason<cr>', { desc = 'Mason' })
