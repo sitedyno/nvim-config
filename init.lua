@@ -61,6 +61,10 @@ vim.api.nvim_create_autocmd('PackChanged', {
     end,
 })
 
+vim.api.nvim_create_user_command('UpdatePackages', function()
+    vim.pack.update()
+end, {})
+
 -- https://github.com/artorias305/nvim/blob/14fe8f869393a957718d46b4a62169df8e4e307f/init.lua#L63
 local function clean_packages()
     local active_plugins = {}
@@ -87,3 +91,4 @@ local function clean_packages()
     end
 end
 vim.keymap.set({ 'n' }, '<leader>cp', clean_packages, { desc = 'Clean Packages' })
+vim.keymap.set({ 'n' }, '<leader>up', '<cmd>UpdatePackages<cr>', { desc = 'Update Packages' })
