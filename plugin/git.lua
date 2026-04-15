@@ -92,4 +92,4 @@ require('gitsigns').setup {
     end,
 }
 
-vim.keymap.set({ 'n' }, '<leader>gc', '<cmd>Git commit --verbose<cr>', { desc = 'Git Commit' })
+vim.keymap.set({ 'n' }, '<leader>gc', '<cmd>tab Git commit --verbose<cr>', { desc = 'Git Commit' })
