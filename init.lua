@@ -91,6 +91,4 @@ vim.diagnostic.config {
     underline = false,
 }
 
-local group = vim.api.nvim_create_augroup('sd', {})
-
 vim.keymap.set({ 'n' }, '<localleader>R', '<cmd>restart<cr>', { desc = 'Restart neovim' })
