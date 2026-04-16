@@ -1,4 +1,4 @@
-require('vim._core.ui2').enable {}
+-- require('vim._core.ui2').enable {}
 
 vim.cmd.colorscheme 'lunaperche'
 
@@ -48,3 +48,7 @@ vim.diagnostic.config {
 local group = vim.api.nvim_create_augroup('sd', {})
 
 vim.keymap.set({ 'n' }, '<localleader>R', '<cmd>restart<cr>', { desc = 'Restart neovim' })
+
+local dlog = require('sd.dlog')
+local testlogger = dlog.logger('testlogger')
+testlogger('test %s', 'meh')
