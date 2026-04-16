@@ -17,3 +17,12 @@ vim.keymap.set({ 'n', 'v' }, '<leader>cs', '<cmd>nohlsearch<cr>', { desc = 'Canc
 vim.keymap.set({ 'n', 'v' }, '<leader>cw', '<cmd>q<cr>', { desc = 'Close window' })
 vim.keymap.set({ 'n', 'v' }, '<leader>sf', '<cmd>source %<cr>', { desc = 'Source current File' })
 vim.keymap.set({ 'n', 'v' }, '<leader>lk', '<cmd>FzfLua keymaps<cr>', { desc = 'List Keymaps' })
+vim.keymap.set({ 'n', 'v' }, 'q', '', { noremap = true, silent = true, desc = 'Begone!' })
+vim.keymap.set(
+    { 'n', 'v' },
+    '<leader>rm',
+    'q',
+    { noremap = true, silent = true, desc = 'Record Macro (again to leave)' }
+)
+
+vim.keymap.set({ 'n', 'v' }, '<localleader>R', '<cmd>restart<cr>', { desc = 'Restart neovim' })

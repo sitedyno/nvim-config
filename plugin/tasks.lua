@@ -20,9 +20,9 @@ end
 
 -- https://github.com/neovim/neovim/discussions/38964
 -- this prevents the error described in the discussion
-require('overseer').setup({experimental_wrap_builtins = {
-    enable = false
-}})
+require('overseer').setup { experimental_wrap_builtins = {
+    enable = false,
+} }
 
 vim.keymap.set({ 'n', 'v' }, '<leader>fp', format_project, { desc = 'Format Project' })
 vim.keymap.set({ 'n', 'v' }, '<leader>to', '<cmd>OverseerToggle<cr>', { desc = 'Toggle Overseer ui' })

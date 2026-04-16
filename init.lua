@@ -1,4 +1,4 @@
-require('vim._core.ui2').enable({
+require('vim._core.ui2').enable {
     enable = true,
     msg = {
         targets = {
@@ -43,7 +43,7 @@ require('vim._core.ui2').enable({
             height = 0.5,
         },
     },
-})
+}
 
 vim.cmd.colorscheme 'lunaperche'
 
@@ -90,5 +90,3 @@ vim.diagnostic.config {
     },
     underline = false,
 }
-
-vim.keymap.set({ 'n' }, '<localleader>R', '<cmd>restart<cr>', { desc = 'Restart neovim' })

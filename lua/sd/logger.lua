@@ -5,16 +5,16 @@ local function error(...)
     end
     local msg = string.format(raw_msg, ...)
     vim.api.nvim_echo({
-        { os.date("%H:%M:%S: ") }, { msg, 'ErrorMsg' },
+        { os.date '%H:%M:%S: ' },
+        { msg, 'ErrorMsg' },
     }, true, {})
 end
 
 local defaults = {
-    log_file = vim.fn.stdpath('log') .. '/sd.log',
+    log_file = vim.fn.stdpath 'log' .. '/sd.log',
     log_to_echo = true,
     log_to_file = true,
 }
-
 
 local M = {}
 
@@ -54,7 +54,7 @@ function M.warn(...)
 end
 
 function M.error(...)
-        M._log(4, ...)
+    M._log(4, ...)
 end
 
 function M._log(log_type, ...)
@@ -72,14 +72,16 @@ function M._log(log_type, ...)
         raw_msg = vim.inspect(raw_msg)
     end
     local msg = string.format(raw_msg, ...)
-    M._echo(log_type.hl, string.format('%s:%03d', os.date("%H:%M:%S:"), mic / 1000 ), msg)
-    M._log_to_file(log_type.level, string.format('%s:%03d', os.date("%Y-%m-%d %H:%M:%S:"), mic / 1000 ), msg)
+    M._echo(log_type.hl, string.format('%s:%03d', os.date '%H:%M:%S:', mic / 1000), msg)
+    M._log_to_file(log_type.level, string.format('%s:%03d', os.date '%Y-%m-%d %H:%M:%S:', mic / 1000), msg)
 end
 
 function M._echo(hl, time, msg)
     if M.opts.log_to_echo then
         vim.api.nvim_echo({
-            { time, hl }, { ' ' }, { msg },
+            { time, hl },
+            { ' ' },
+            { msg },
         }, true, {})
     end
 end
@@ -87,7 +89,7 @@ end
 function M._log_to_file(level, time, msg)
     if M.opts.log_to_file and vim.fn.filewritable(M.opts.log_file) then
         local file = io.open(M.opts.log_file, 'a')
-        local line = time .. ' ' .. level .. ': ' .. msg .. "\n"
+        local line = time .. ' ' .. level .. ': ' .. msg .. '\n'
         if file then
             file:write(line)
             file:close()

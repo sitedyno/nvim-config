@@ -1,4 +1,4 @@
-local group = vim.api.nvim_create_augroup('sd.packages', { clear = true})
+local group = vim.api.nvim_create_augroup('sd.packages', { clear = true })
 
 vim.api.nvim_create_autocmd('PackChanged', {
     group = group,
@@ -44,4 +44,3 @@ local function clean_packages()
 end
 vim.keymap.set({ 'n' }, '<leader>cp', clean_packages, { desc = 'Clean Packages' })
 vim.keymap.set({ 'n' }, '<leader>up', '<cmd>UpdatePackages<cr>', { desc = 'Update Packages' })
-
