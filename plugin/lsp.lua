@@ -35,13 +35,7 @@ vim.api.nvim_create_autocmd('BufEnter', {
 -- 	end
 -- })
 
-vim.api.nvim_create_autocmd('VimEnter', {
-    group = group,
-    callback = function(_)
-        require('fidget').setup { notification = { override_vim_notify = true } }
-    end,
-})
-
+require('fidget').setup { notification = { override_vim_notify = true } }
 require('mason').setup()
 
 local capabilities = require('blink.cmp').get_lsp_capabilities()
