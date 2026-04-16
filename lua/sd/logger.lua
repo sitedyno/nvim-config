@@ -13,7 +13,7 @@ end
 local defaults = {
     log_file = vim.fn.stdpath 'log' .. '/sd.log',
     log_to_echo = true,
-    log_to_file = true,
+    log_to_file = false,
 }
 
 local M = {}
