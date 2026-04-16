@@ -49,6 +49,7 @@ vim.cmd.colorscheme 'lunaperche'
 
 vim.g.mapleader = ','
 vim.g.maplocalleader = ' '
+vim.g.log_level = 2
 
 local undodir = vim.fn.stdpath 'state' .. '/undo'
 if vim.fn.isdirectory(undodir) == 0 then
