@@ -1,5 +1,3 @@
-local group = vim.api.nvim_create_augroup('sd.git', {})
-
 vim.g.committia_open_only_vim_starting = 0
 
 vim.pack.add {
@@ -35,53 +33,53 @@ require('gitsigns').setup {
         end
 
         -- Navigation
-        map('n', ']c', function()
+        map('n', '<leader>nh', function()
             if vim.wo.diff then
-                vim.cmd.normal { ']c', bang = true }
+                vim.cmd.normal { '<leader>nh', bang = true }
             else
                 gitsigns.nav_hunk 'next'
             end
         end, { desc = 'Next Hunk' })
 
-        map('n', '[c', function()
+        map('n', '<leader>ph', function()
             if vim.wo.diff then
-                vim.cmd.normal { '[c', bang = true }
+                vim.cmd.normal { '<leader>ph', bang = true }
             else
                 gitsigns.nav_hunk 'prev'
             end
-        end, { desc = 'Next Hunk' })
+        end, { desc = 'Previous Hunk' })
 
         -- Actions
-        map('n', '<leader>hs', gitsigns.stage_hunk, { desc = 'Stage Hunk' })
-        map('n', '<leader>hr', gitsigns.reset_hunk, { desc = 'Reset Hunk' })
+        map('n', '<leader>sh', gitsigns.stage_hunk, { desc = 'Stage Hunk' })
+        map('n', '<leader>rh', gitsigns.reset_hunk, { desc = 'Reset Hunk' })
 
-        map('v', '<leader>hs', function()
+        map('v', '<leader>sh', function()
             gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end, { desc = 'Stage Hunk' })
 
-        map('v', '<leader>hr', function()
+        map('v', '<leader>rh', function()
             gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
         end, { desc = 'Reset Hunk' })
 
-        map('n', '<leader>hS', gitsigns.stage_buffer, { desc = 'Stage Hunks' })
-        map('n', '<leader>hR', gitsigns.reset_buffer, { desc = 'Hunks Reset' })
-        map('n', '<leader>hp', gitsigns.preview_hunk, { desc = 'Preview Hunk' })
-        map('n', '<leader>hi', gitsigns.preview_hunk_inline, { desc = 'preview Hunk Inline' })
+        map('n', '<leader>Sh', gitsigns.stage_buffer, { desc = 'Stage Hunks' })
+        map('n', '<leader>Rh', gitsigns.reset_buffer, { desc = 'Reset Hunks' })
+        map('n', '<leader>Ph', gitsigns.preview_hunk, { desc = 'Preview Hunk' })
+        map('n', '<leader>ih', gitsigns.preview_hunk_inline, { desc = 'Inline Hunk preview' })
 
-        map('n', '<leader>hb', function()
+        map('n', '<leader>bh', function()
             gitsigns.blame_line { full = true }
-        end, { desc = 'Hunk Blame line' })
+        end, { desc = 'Blame Hunk line' })
 
-        map('n', '<leader>hd', gitsigns.diffthis, { desc = 'Hunk Diffthis' })
+        map('n', '<leader>dh', gitsigns.diffthis, { desc = 'Diffthis Hunk' })
 
-        map('n', '<leader>hD', function()
+        map('n', '<leader>Dh', function()
             gitsigns.diffthis '~'
-        end, { desc = 'Hunk Diffthis ~' })
+        end, { desc = 'Diffthis ~ Hunk ' })
 
-        map('n', '<leader>hQ', function()
+        map('n', '<leader>Sq', function()
             gitsigns.setqflist 'all'
-        end, { desc = 'send all Hunks to Quickfix' })
-        map('n', '<leader>hq', gitsigns.setqflist, { desc = 'send Hunk to Quickfix list' })
+        end, { desc = 'Send all hunks to Quickfix' })
+        map('n', '<leader>sq', gitsigns.setqflist, { desc = 'send Hunk to Quickfix list' })
 
         -- Toggles
         map('n', '<leader>tb', gitsigns.toggle_current_line_blame, { desc = 'Toggle current line Blame' })
