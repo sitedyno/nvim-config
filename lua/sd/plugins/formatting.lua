@@ -80,5 +80,19 @@ return {
         end, {
             desc = 'Enable autoformat-on-save',
         })
+        vim.api.nvim_create_user_command('ListFormatters', function()
+            local bufnr = vim.api.nvim_get_current_buf()
+            local fmtrs = require('conform').list_formatters_to_run(bufnr)
+            local msg = ''
+            for i, fmtr in pairs(fmtrs) do
+                msg = msg .. fmtr.name
+                if #fmtrs < i then
+                    msg = msg .. ', '
+                end
+            end
+            vim.print(msg)
+        end, {
+            desc = 'List formatters for this buffer',
+        })
     end,
 }
