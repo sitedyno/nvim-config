@@ -41,7 +41,7 @@ whichkey.add({
     -- { '<leader>o', group = '' },
     -- { '<leader>O', group = '' },
     { '<leader>p', group = 'Previous' },
-    { '<leader>P', group = 'Previous' },
+    { '<leader>P', group = 'Preview' },
     -- { '<leader>q', group = '' },
     -- { '<leader>Q', group = '' },
     { '<leader>r', group = 'Replace|Reset' },
