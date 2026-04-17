@@ -43,6 +43,15 @@ vim.lsp.config('*', {
     capabilities = capabilities,
 })
 
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            completion = {
+                callSnippet = 'Replace',
+            }
+        }
+    },
+})
 -- vim.lsp.log.set_level('trace')
 
 vim.lsp.enable 'lua_ls'
