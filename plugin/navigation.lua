@@ -1,6 +1,7 @@
 vim.pack.add {
     'https://github.com/tpope/vim-repeat', -- leap
     'https://codeberg.org/andyg/leap.nvim',
+    'https://github.com/markstory/vim-zoomwin',
 }
 
 -- buffers
@@ -31,3 +32,4 @@ vim.keymap.set('n', 'n', 'nzzzv', { desc = 'Next search result (centered)' })
 vim.keymap.set('n', 'N', 'Nzzzv', { desc = 'Previous search result (centered)' })
 vim.keymap.set('n', '<C-d>', '<C-d>zz', { desc = 'Half page down (centered)' })
 vim.keymap.set('n', '<C-u>', '<C-u>zz', { desc = 'Half page up (centered)' })
+vim.keymap.set({'n', 'v'}, '<localleader>z', '<cmd>ZoomToggle<cr>', { desc = 'Toggle Zoom' })
