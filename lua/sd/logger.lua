@@ -5,6 +5,7 @@ local function error(...)
     end
     local msg = string.format(raw_msg, ...)
     vim.api.nvim_echo({
+        ---@diagnostic disable-next-line: assign-type-mismatch
         { os.date '%H:%M:%S: ' },
         { msg, 'ErrorMsg' },
     }, true, {})

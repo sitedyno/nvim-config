@@ -4,7 +4,7 @@ vim.pack.add {
 }
 
 require('nvim-web-devicons').setup()
----@diagnostic disable-line: assign-type-mismatch
+---@diagnostic disable-next-line: assign-type-mismatch
 require('fzf-lua').setup { 'ivy', 'hide' }
 
 vim.keymap.set({ 'n', 'v' }, '<localleader>f', '<cmd>FzfLua global<cr>', { desc = 'Find Files' })
