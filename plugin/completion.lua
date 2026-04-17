@@ -15,17 +15,36 @@ require('blink.cmp').setup {
             auto_show = true,
         },
     },
+    keymap = {
+        ['<C-space>'] = false,
+        ['<Up>'] = false,
+        ['<Down>'] = false,
+        ['<Tab>'] = false,
+        ['<S-Tab>'] = false,
+
+        ['<C-e>'] = { 'hide', 'fallback' },
+        ['<C-y>'] = { 'select_and_accept', 'fallback' },
+
+        ['<C-j>'] = { 'select_next', 'fallback_to_mappings' },
+        ['<C-k>'] = { 'select_prev', 'fallback_to_mappings' },
+
+        ['<C-l>'] = { 'snippet_forward', 'fallback' },
+        ['<C-h>'] = { 'snippet_backward', 'fallback' },
+
+        ['<C-b>'] = { 'scroll_documentation_up', 'fallback' },
+        ['<C-f>'] = { 'scroll_documentation_down', 'fallback' },
+
+        ['<C-s>'] = { 'show_signature', 'hide_signature', 'fallback' },
+    },
     sources = {
         default = {
             'lsp',
-            'path',
             'buffer',
             'snippets',
+            'path',
         },
     },
     snippets = {
-        expand = function(snippet)
-            require('luasnip').lsp_expand(snippet)
-        end,
+        preset = 'luasnip',
     },
 }
