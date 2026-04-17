@@ -14,6 +14,10 @@
       "rev": "c8c0f255e8090ed90dd9d5dd2e8672994f8e3671",
       "src": "https://github.com/rhysd/committia.vim"
     },
+    "cyberdream.nvim": {
+      "rev": "39f69ebcd8de69c741bb7a65353aa37dd0680ad1",
+      "src": "https://github.com/scottmckendry/cyberdream.nvim"
+    },
     "debuglog": {
       "rev": "ef6fa90b2b6a9e554c9ecb2a9589bce23c2a6375",
       "src": "https://github.com/smartpde/debuglog"
