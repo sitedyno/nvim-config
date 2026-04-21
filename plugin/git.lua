@@ -4,7 +4,10 @@ vim.pack.add {
     'https://github.com/tpope/vim-fugitive',
     'https://github.com/lewis6991/gitsigns.nvim',
     'https://github.com/rhysd/committia.vim',
-    -- 'https://github.com/asana17/commit-buf.nvim',
+    {
+        src = 'https://github.com/dlyongemallo/diffview.nvim',
+        version = vim.version.range('0.*')
+    },
 }
 
 -- vim.api.nvim_create_autocmd('VimEnter', {
@@ -71,3 +74,4 @@ require('gitsigns').setup {
 }
 
 vim.keymap.set({ 'n' }, '<leader>gc', '<cmd>tab Git commit --verbose<cr>', { desc = 'Git Commit' })
+vim.keymap.set({ 'n' }, '<localleader>D', '<cmd>DiffViewToggle<cr>', { desc = 'Open Diffview' })
