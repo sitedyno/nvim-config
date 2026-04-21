@@ -10,21 +10,6 @@ vim.pack.add {
     },
 }
 
--- vim.api.nvim_create_autocmd('VimEnter', {
--- 	group = group,
--- 	callback = function(_)
--- 		require('commit-buf').setup({
--- 			window = {
--- 				columns = {
--- 					[1] = { 'commit_buf', },
--- 					[2] = { 'git_diff_staged', },
--- 				},
--- 			},
--- 			verbose = true,
--- 		})
--- 	end
--- })
-
 require('gitsigns').setup {
     on_attach = function(_)
         local gitsigns = require 'gitsigns'
