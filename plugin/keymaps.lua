@@ -10,9 +10,9 @@ require('hawtkeys').setup {
     keyboardLayout = 'qwertyortho',
 }
 
-local whichkey = require('which-key')
-local group_modes = {'n', 'v' }
-whichkey.add({
+local whichkey = require 'which-key'
+local group_modes = { 'n', 'v' }
+whichkey.add {
     -- { '<leader>a', group = '' , mode = group_modes},
     -- { '<leader>A', group = '', mode = group_modes },
     { '<leader>b', group = 'Blame', mode = group_modes },
@@ -63,7 +63,7 @@ whichkey.add({
     -- { '<leader>Y', group = '', mode = group_modes },
     -- { '<leader>z', group = '', mode = group_modes },
     -- { '<leader>Z', group = '', mode = group_modes },
-})
+}
 
 vim.keymap.set({ 'n', 'v' }, '<leader>Hs', '<cmd>Hawtkeys<cr>', { desc = 'Hawtkeys Search' })
 vim.keymap.set({ 'n', 'v' }, '<leader>Hd', '<cmd>HawtkeysDupes<cr>', { desc = 'Hawtkeys find Duplicates' })
@@ -73,11 +73,6 @@ vim.keymap.set({ 'n', 'v' }, '<leader>cw', '<cmd>q<cr>', { desc = 'Close window'
 vim.keymap.set({ 'n', 'v' }, '<leader>sf', '<cmd>source %<cr>', { desc = 'Source current File' })
 vim.keymap.set({ 'n', 'v' }, '<leader>lk', '<cmd>FzfLua keymaps<cr>', { desc = 'List Keymaps' })
 vim.keymap.set({ 'n', 'v' }, 'q', '', { noremap = true, silent = true, desc = 'Begone!' })
-vim.keymap.set(
-    { 'n', 'v' },
-    '<leader>rm',
-    'q',
-    { noremap = true, silent = true, desc = 'Record Macro (again to leave)' }
-)
+vim.keymap.set({ 'n', 'v' }, '<leader>rm', 'q', { noremap = true, silent = true, desc = 'Record Macro (again to leave)' })
 
 vim.keymap.set({ 'n', 'v' }, '<localleader>R', '<cmd>restart<cr>', { desc = 'Restart neovim' })

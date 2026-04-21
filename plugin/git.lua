@@ -6,7 +6,7 @@ vim.pack.add {
     'https://github.com/rhysd/committia.vim',
     {
         src = 'https://github.com/dlyongemallo/diffview.nvim',
-        version = vim.version.range('0.*')
+        version = vim.version.range '0.*',
     },
 }
 
@@ -31,22 +31,42 @@ require('gitsigns').setup {
             end
         end
 
+        local function stage_hunk()
+            gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' }
+        end
+
+        local function reset_hunk()
+            gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' }
+        end
+
+        local function blame_line()
+            gitsigns.blame_line { full = true }
+        end
+
+        local function diff_previous()
+            gitsigns.diffthis '~'
+        end
+
+        local function send_to_qf()
+            gitsigns.setqflist 'all'
+        end
+
         vim.keymap.set('n', '<leader>nh', next_hunk, { desc = 'Next Hunk' })
         vim.keymap.set('n', '<leader>ph', previous_hunk, { desc = 'Previous Hunk' })
 
         -- Actions
         vim.keymap.set('n', '<leader>sh', gitsigns.stage_hunk, { desc = 'Stage Hunk' })
         vim.keymap.set('n', '<leader>rh', gitsigns.reset_hunk, { desc = 'Reset Hunk' })
-        vim.keymap.set('v', '<leader>sh', function() gitsigns.stage_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = 'Stage Hunk' })
-        vim.keymap.set('v', '<leader>rh', function() gitsigns.reset_hunk { vim.fn.line '.', vim.fn.line 'v' } end, { desc = 'Reset Hunk' })
+        vim.keymap.set('v', '<leader>sh', stage_hunk, { desc = 'Stage Hunk' })
+        vim.keymap.set('v', '<leader>rh', reset_hunk, { desc = 'Reset Hunk' })
         vim.keymap.set('n', '<leader>Sh', gitsigns.stage_buffer, { desc = 'Stage Hunks' })
         vim.keymap.set('n', '<leader>Rh', gitsigns.reset_buffer, { desc = 'Reset Hunks' })
         vim.keymap.set('n', '<leader>Ph', gitsigns.preview_hunk, { desc = 'Preview Hunk' })
         vim.keymap.set('n', '<leader>ih', gitsigns.preview_hunk_inline, { desc = 'Inline Hunk preview' })
-        vim.keymap.set('n', '<leader>bh', function() gitsigns.blame_line { full = true } end, { desc = 'Blame Hunk line' })
+        vim.keymap.set('n', '<leader>bh', blame_line, { desc = 'Blame Hunk line' })
         vim.keymap.set('n', '<leader>dh', gitsigns.diffthis, { desc = 'Diffthis Hunk' })
-        vim.keymap.set('n', '<leader>Dh', function() gitsigns.diffthis '~' end, { desc = 'Diffthis ~ Hunk ' })
-        vim.keymap.set('n', '<leader>Sq', function() gitsigns.setqflist 'all' end, { desc = 'Send all hunks to Quickfix' })
+        vim.keymap.set('n', '<leader>Dh', diff_previous, { desc = 'Diffthis ~ Hunk ' })
+        vim.keymap.set('n', '<leader>Sq', send_to_qf, { desc = 'Send all hunks to Quickfix' })
         vim.keymap.set('n', '<leader>sq', gitsigns.setqflist, { desc = 'send Hunk to Quickfix list' })
 
         -- Toggles

@@ -48,8 +48,8 @@ vim.lsp.config('lua_ls', {
         Lua = {
             completion = {
                 callSnippet = 'Replace',
-            }
-        }
+            },
+        },
     },
 })
 -- vim.lsp.log.set_level('trace')
