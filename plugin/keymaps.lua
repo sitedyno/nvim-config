@@ -17,7 +17,7 @@ whichkey.add({
     -- { '<leader>A', group = '', mode = group_modes },
     { '<leader>b', group = 'Blame', mode = group_modes },
     -- { '<leader>B', group = '', mode = group_modes },
-    { '<leader>c', group = 'Cancel', mode = group_modes },
+    { '<leader>c', group = 'Cancel|Clean', mode = group_modes },
     -- { '<leader>C', group = '', mode = group_modes },
     { '<leader>d', group = 'Diff|Disable', mode = group_modes },
     { '<leader>D', group = 'Diff', mode = group_modes },
