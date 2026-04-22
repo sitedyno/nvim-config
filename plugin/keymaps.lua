@@ -73,6 +73,8 @@ vim.keymap.set({ 'n', 'v' }, '<leader>cw', '<cmd>q<cr>', { desc = 'Close window'
 vim.keymap.set({ 'n', 'v' }, '<leader>sf', '<cmd>source %<cr>', { desc = 'Source current File' })
 vim.keymap.set({ 'n', 'v' }, '<leader>lk', '<cmd>FzfLua keymaps<cr>', { desc = 'List Keymaps' })
 vim.keymap.set({ 'n', 'v' }, 'q', '', { noremap = true, silent = true, desc = 'Begone!' })
+-- stylua: ignore start
 vim.keymap.set({ 'n', 'v' }, '<leader>rm', 'q', { noremap = true, silent = true, desc = 'Record Macro (again to leave)' })
+-- stylua: ignore end
 
 vim.keymap.set({ 'n', 'v' }, '<localleader>R', '<cmd>restart<cr>', { desc = 'Restart neovim' })
