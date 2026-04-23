@@ -8,7 +8,13 @@ vim.pack.add {
         src = 'https://github.com/dlyongemallo/diffview.nvim',
         version = vim.version.range '0.*',
     },
+    {
+        src = 'https://github.com/Kohei-Wada/yadm-git.nvim',
+        version = vim.version.range '1.*',
+    }
 }
+
+require('yadm-git').setup()
 
 require('gitsigns').setup {
     on_attach = function(_)

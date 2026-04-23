@@ -95,6 +95,11 @@
     "which-key.nvim": {
       "rev": "3aab2147e74890957785941f0c1ad87d0a44c15a",
       "src": "https://github.com/folke/which-key.nvim"
+    },
+    "yadm-git.nvim": {
+      "rev": "33d6266439c9fbbd12bf57d33d795698c549d9c7",
+      "src": "https://github.com/Kohei-Wada/yadm-git.nvim",
+      "version": "1.0.0 - 2.0.0"
     }
   }
 }
