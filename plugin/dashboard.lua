@@ -13,6 +13,12 @@ local dashboards = {
 }
 
 local function dashboard()
+    if vim.tbl_contains({ "quickfix", "help" }, vim.bo.buftype) then
+        return
+    end
+    if vim.fn.bufname() ~= "" then
+        return
+    end
     local buf = vim.api.nvim_get_current_buf()
     local i = math.random(1, #dashboards)
     local cmd = ':h ' .. dashboards[i]
