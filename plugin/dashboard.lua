@@ -31,6 +31,8 @@ local group = vim.api.nvim_create_augroup('sd.init', { clear = true})
 vim.api.nvim_create_autocmd('VimEnter', {
     group = group,
     callback = function (_)
+        local date = os.date(' %H:%M:%S - %A - %B %d %Y - %Y-%m-%d ')
+        vim.print(date)
         dashboard()
     end
 })
