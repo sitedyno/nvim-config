@@ -11,7 +11,7 @@ vim.pack.add {
     {
         src = 'https://github.com/Kohei-Wada/yadm-git.nvim',
         version = vim.version.range '1.*',
-    }
+    },
 }
 
 require('yadm-git').setup()

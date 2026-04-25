@@ -13,10 +13,10 @@ local dashboards = {
 }
 
 local function dashboard()
-    if vim.tbl_contains({ "quickfix", "help" }, vim.bo.buftype) then
+    if vim.tbl_contains({ 'quickfix', 'help' }, vim.bo.buftype) then
         return
     end
-    if vim.fn.bufname() ~= "" then
+    if vim.fn.bufname() ~= '' then
         return
     end
     local buf = vim.api.nvim_get_current_buf()
@@ -26,14 +26,13 @@ local function dashboard()
     vim.api.nvim_buf_delete(buf, {})
 end
 
-local group = vim.api.nvim_create_augroup('sd.init', { clear = true})
+local group = vim.api.nvim_create_augroup('sd.init', { clear = true })
 
 vim.api.nvim_create_autocmd('VimEnter', {
     group = group,
-    callback = function (_)
-        local date = os.date(' %H:%M:%S - %A - %B %d %Y - %Y-%m-%d ')
+    callback = function(_)
+        local date = os.date ' %H:%M:%S - %A - %B %d %Y - %Y-%m-%d '
         vim.print(date)
         dashboard()
-    end
+    end,
 })
-
