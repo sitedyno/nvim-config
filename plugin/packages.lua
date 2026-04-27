@@ -42,5 +42,5 @@ local function clean_packages()
         vim.pack.del(unused_plugins)
     end
 end
-vim.keymap.set({ 'n' }, '<leader>cp', clean_packages, { desc = 'Clean Packages' })
+vim.keymap.set({ 'n' }, '<leader>Cp', clean_packages, { desc = 'Clean Packages' })
 vim.keymap.set({ 'n' }, '<leader>up', '<cmd>UpdatePackages<cr>', { desc = 'Update Packages' })
