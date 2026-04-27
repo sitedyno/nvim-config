@@ -69,5 +69,7 @@ vim.lsp.config('lua_ls', {
 vim.lsp.enable 'clangd'
 vim.lsp.enable 'hyprls'
 vim.lsp.enable 'lua_ls'
+vim.lsp.enable 'basedpyright'
+vim.lsp.enable 'ty'
 
 vim.keymap.set({ 'n', 'v' }, '<localleader>M', '<cmd>Mason<cr>', { desc = 'Mason' })
