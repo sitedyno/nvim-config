@@ -61,6 +61,11 @@ vim.keymap.set({ 't' }, '<c-j>', '<c-\\><c-n><c-w>j', { desc = 'Move Down' })
 vim.keymap.set({ 't' }, '<c-k>', '<c-\\><c-n><c-w>k', { desc = 'Move Up' })
 vim.keymap.set({ 't' }, '<c-l>', '<c-\\><c-n><c-w>l', { desc = 'Move Right' })
 
+-- quickfix
+vim.keymap.set({ 'n' }, '<leader>nq', '<cmd>cnext<cr>', { desc = 'Next Quickfix item' })
+vim.keymap.set({ 'n' }, '<leader>pq', '<cmd>cprev<cr>', { desc = 'Previous Quickfix item' })
+vim.keymap.set({ 'n' }, '<leader>cq', '<cmd>cclose<cr>', { desc = 'Close Quickfix item' })
+
 -- https://github.com/radleylewis/nvim-lite/
 -- better movement in wrapped text
 vim.keymap.set('n', 'j', function()
