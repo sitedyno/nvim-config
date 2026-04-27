@@ -25,10 +25,10 @@ vim.api.nvim_create_autocmd('LspAttach', {
             vim.bo.formatexpr = ''
         end
         local function forward()
-            vim.diagnostic.jump({ count = 1 })
+            vim.diagnostic.jump { count = 1 }
         end
         local function back()
-            vim.diagnostic.jump({ count = -1 })
+            vim.diagnostic.jump { count = -1 }
         end
         -- diagnostics
         vim.keymap.set({ 'n' }, '<leader>nd', forward, { desc = 'Next Diagnostic' })
