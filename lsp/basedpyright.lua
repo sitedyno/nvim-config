@@ -18,7 +18,7 @@ return {
             client.server_capabilities.inlayHintProvider = nil
             client.server_capabilities.notebookDocumentSync = nil
             client.server_capabilities.referencesProvider = nil
-            client.server_capabilities.renameProvider = nil
+            -- client.server_capabilities.renameProvider = nil
             client.server_capabilities.semanticTokensProvider = nil
             client.server_capabilities.signatureHelpProvider = nil
             client.server_capabilities.typeDefinitionProvider = nil
