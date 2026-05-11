@@ -5,7 +5,18 @@ vim.pack.add {
 
 require('nvim-web-devicons').setup()
 ---@diagnostic disable-next-line: assign-type-mismatch
-require('fzf-lua').setup { 'ivy', 'hide' }
+require('fzf-lua').setup {
+    'ivy',
+    'hide',
+    winopts = {
+        on_create = function(e)
+            vim.keymap.set({'t'}, '<C-h>', '<C-h>', { buffer = e.bufnr, remap = false })
+            vim.keymap.set({'t'}, '<C-j>', '<C-j>', { buffer = e.bufnr, remap = false })
+            vim.keymap.set({'t'}, '<C-k>', '<C-k>', { buffer = e.bufnr, remap = false })
+            vim.keymap.set({'t'}, '<C-l>', '<C-l>', { buffer = e.bufnr, remap = false })
+        end
+    },
+}
 
 local function all_files()
     require('fzf-lua').files({
