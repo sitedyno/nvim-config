@@ -33,6 +33,7 @@ vim.api.nvim_create_autocmd('LspAttach', {
         -- diagnostics
         vim.keymap.set({ 'n' }, '<leader>nd', forward, { desc = 'Next Diagnostic' })
         vim.keymap.set({ 'n' }, '<leader>pd', back, { desc = 'Previous Diagnostic' })
+        vim.keymap.set({ 'n' }, 'grr', '<cmd>FzfLua lsp_references<cr>', { desc = 'References' })
 
         -- if client:supports_method 'textDocument/implementation' then
         --     -- keymaps
