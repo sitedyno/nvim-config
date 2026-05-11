@@ -79,7 +79,7 @@ vim.o.updatetime = 300
 vim.o.timeoutlen = 500
 
 -- "new" neovim style options
-vim.opt.completeopt = { 'menuone', 'noselect', 'popup' }
+vim.opt.completeopt = { 'menuone', 'noinsert', 'noselect', 'popup' }
 vim.opt.termguicolors = true
 
 vim.diagnostic.config {
