@@ -5,16 +5,23 @@ vim.pack.add {
 }
 
 local function flit(key_specific_args)
-    require('leap').leap(vim.tbl_deep_extend('keep', key_specific_args, {
+    local opts = vim.tbl_deep_extend('keep', key_specific_args, {
         inputlen = 1,
         inclusive = true,
         opts = {
+            equivalence_classes = { ' \t\r\n' },
             -- Force autojump.
             labels = '',
             -- Match the modes where you don't need labels (`:h mode()`).
             safe_labels = vim.fn.mode(1):match 'o' and '' or nil,
+            vim_opts = {
+                ['go.smartcase'] = false,
+                ['go.ignorecase'] = false,
+            }
         },
-    }))
+    })
+    -- vim.print(opts)
+    require('leap').leap(opts)
 end
 
 -- A helper function making it easier to set "clever-f" behavior
